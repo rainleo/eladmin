@@ -1,4 +1,4 @@
-package me.zhengjie.modules.monitor.domain;
+package com.fn.modules.monitor.domain;
 
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 /**
  * pv 与 ip 统计
  *
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-13
  */
 @Entity

@@ -1,8 +1,8 @@
-package me.zhengjie.utils;
+package com.fn.utils;
 
 /**
  * 常用静态常量
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-26
  */
 public class ElAdminConstant {

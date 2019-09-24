@@ -1,4 +1,4 @@
-package me.zhengjie.aspect;
+package com.fn.aspect;
 
 public enum LimitType {
     CUSTOMER,

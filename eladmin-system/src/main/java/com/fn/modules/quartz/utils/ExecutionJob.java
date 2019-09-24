@@ -1,11 +1,15 @@
-package me.zhengjie.modules.quartz.utils;
+package com.fn.modules.quartz.utils;
 
-import me.zhengjie.modules.quartz.domain.QuartzJob;
-import me.zhengjie.modules.quartz.domain.QuartzLog;
-import me.zhengjie.modules.quartz.repository.QuartzLogRepository;
-import me.zhengjie.modules.quartz.service.QuartzJobService;
-import me.zhengjie.utils.SpringContextHolder;
-import me.zhengjie.utils.ThrowableUtil;
+import com.fn.modules.quartz.domain.QuartzJob;
+import com.fn.modules.quartz.domain.QuartzLog;
+import com.fn.modules.quartz.repository.QuartzLogRepository;
+import com.fn.modules.quartz.service.QuartzJobService;
+import com.fn.modules.quartz.domain.QuartzJob;
+import com.fn.modules.quartz.domain.QuartzLog;
+import com.fn.modules.quartz.repository.QuartzLogRepository;
+import com.fn.modules.quartz.service.QuartzJobService;
+import com.fn.utils.SpringContextHolder;
+import com.fn.utils.ThrowableUtil;
 import org.quartz.JobExecutionContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

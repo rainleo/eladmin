@@ -1,11 +1,15 @@
-package me.zhengjie.modules.system.rest;
+package com.fn.modules.system.rest;
 
-import me.zhengjie.aop.log.Log;
-import me.zhengjie.modules.system.domain.Permission;
-import me.zhengjie.exception.BadRequestException;
-import me.zhengjie.modules.system.service.PermissionService;
-import me.zhengjie.modules.system.service.dto.PermissionDTO;
-import me.zhengjie.modules.system.service.dto.PermissionQueryCriteria;
+import com.fn.modules.system.domain.Permission;
+import com.fn.modules.system.service.PermissionService;
+import com.fn.modules.system.service.dto.PermissionDTO;
+import com.fn.modules.system.service.dto.PermissionQueryCriteria;
+import com.fn.aop.log.Log;
+import com.fn.modules.system.domain.Permission;
+import com.fn.exception.BadRequestException;
+import com.fn.modules.system.service.PermissionService;
+import com.fn.modules.system.service.dto.PermissionDTO;
+import com.fn.modules.system.service.dto.PermissionQueryCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-03
  */
 @RestController

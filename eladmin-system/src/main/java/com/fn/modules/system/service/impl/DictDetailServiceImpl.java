@@ -1,14 +1,16 @@
-package me.zhengjie.modules.system.service.impl;
+package com.fn.modules.system.service.impl;
 
-import me.zhengjie.modules.system.domain.DictDetail;
-import me.zhengjie.modules.system.service.dto.DictDetailQueryCriteria;
-import me.zhengjie.utils.PageUtil;
-import me.zhengjie.utils.QueryHelp;
-import me.zhengjie.utils.ValidationUtil;
-import me.zhengjie.modules.system.repository.DictDetailRepository;
-import me.zhengjie.modules.system.service.DictDetailService;
-import me.zhengjie.modules.system.service.dto.DictDetailDTO;
-import me.zhengjie.modules.system.service.mapper.DictDetailMapper;
+import com.fn.modules.system.repository.DictDetailRepository;
+import com.fn.modules.system.service.mapper.DictDetailMapper;
+import com.fn.modules.system.domain.DictDetail;
+import com.fn.modules.system.service.dto.DictDetailQueryCriteria;
+import com.fn.utils.PageUtil;
+import com.fn.utils.QueryHelp;
+import com.fn.utils.ValidationUtil;
+import com.fn.modules.system.repository.DictDetailRepository;
+import com.fn.modules.system.service.DictDetailService;
+import com.fn.modules.system.service.dto.DictDetailDTO;
+import com.fn.modules.system.service.mapper.DictDetailMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -20,7 +22,7 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
-* @author Zheng Jie
+* @author leo
 * @date 2019-04-10
 */
 @Service

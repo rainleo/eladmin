@@ -1,4 +1,4 @@
-package me.zhengjie.config;
+package com.fn.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * WebMvcConfigurer
  *
- * @author Zheng Jie
+ * @author leo
  * @date 2018-11-30
  */
 @Configuration

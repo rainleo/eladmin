@@ -1,8 +1,9 @@
-package me.zhengjie.modules.security.utils;
+package com.fn.modules.security.utils;
 
+import com.fn.modules.security.security.JwtUser;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.impl.DefaultClock;
-import me.zhengjie.modules.security.security.JwtUser;
+import com.fn.modules.security.security.JwtUser;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;

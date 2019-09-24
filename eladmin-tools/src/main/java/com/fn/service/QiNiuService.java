@@ -1,8 +1,9 @@
-package me.zhengjie.service;
+package com.fn.service;
 
-import me.zhengjie.domain.QiniuConfig;
-import me.zhengjie.domain.QiniuContent;
-import me.zhengjie.service.dto.QiniuQueryCriteria;
+import com.fn.service.dto.QiniuQueryCriteria;
+import com.fn.domain.QiniuConfig;
+import com.fn.domain.QiniuContent;
+import com.fn.service.dto.QiniuQueryCriteria;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
@@ -11,7 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-31
  */
 @CacheConfig(cacheNames = "qiNiu")

@@ -1,4 +1,4 @@
-package me.zhengjie.utils;
+package com.fn.utils;
 
 import org.springframework.util.DigestUtils;
 import javax.crypto.Cipher;
@@ -9,8 +9,8 @@ import javax.crypto.spec.IvParameterSpec;
 
 /**
  * 加密
- * @author Zheng Jie
- * @date 2018-11-23
+ * @author leo
+ * @date 2019-09-23
  */
 public class EncryptUtils {
 

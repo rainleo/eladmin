@@ -1,10 +1,13 @@
-package me.zhengjie.modules.system.service;
+package com.fn.modules.system.service;
 
-import me.zhengjie.modules.system.domain.Menu;
-import me.zhengjie.modules.system.domain.Role;
-import me.zhengjie.modules.system.service.dto.RoleDTO;
-import me.zhengjie.modules.system.service.dto.RoleQueryCriteria;
-import me.zhengjie.modules.system.service.dto.RoleSmallDTO;
+import com.fn.modules.system.service.dto.RoleDTO;
+import com.fn.modules.system.service.dto.RoleQueryCriteria;
+import com.fn.modules.system.service.dto.RoleSmallDTO;
+import com.fn.modules.system.domain.Menu;
+import com.fn.modules.system.domain.Role;
+import com.fn.modules.system.service.dto.RoleDTO;
+import com.fn.modules.system.service.dto.RoleQueryCriteria;
+import com.fn.modules.system.service.dto.RoleSmallDTO;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -14,7 +17,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-03
  */
 @CacheConfig(cacheNames = "role")

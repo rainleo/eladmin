@@ -1,6 +1,6 @@
-package me.zhengjie.modules.monitor.repository;
+package com.fn.modules.monitor.repository;
 
-import me.zhengjie.modules.monitor.domain.Visits;
+import com.fn.modules.monitor.domain.Visits;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-13
  */
 @Repository

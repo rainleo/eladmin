@@ -1,9 +1,12 @@
-package me.zhengjie.modules.system.service;
+package com.fn.modules.system.service;
 
-import me.zhengjie.modules.system.domain.Menu;
-import me.zhengjie.modules.system.service.dto.MenuDTO;
-import me.zhengjie.modules.system.service.dto.MenuQueryCriteria;
-import me.zhengjie.modules.system.service.dto.RoleSmallDTO;
+import com.fn.modules.system.service.dto.MenuDTO;
+import com.fn.modules.system.service.dto.MenuQueryCriteria;
+import com.fn.modules.system.service.dto.RoleSmallDTO;
+import com.fn.modules.system.domain.Menu;
+import com.fn.modules.system.service.dto.MenuDTO;
+import com.fn.modules.system.service.dto.MenuQueryCriteria;
+import com.fn.modules.system.service.dto.RoleSmallDTO;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -11,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-17
  */
 @CacheConfig(cacheNames = "menu")

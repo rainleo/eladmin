@@ -1,13 +1,13 @@
-package me.zhengjie.service;
+package com.fn.service;
 
-import me.zhengjie.domain.AlipayConfig;
-import me.zhengjie.domain.vo.TradeVo;
+import com.fn.domain.AlipayConfig;
+import com.fn.domain.vo.TradeVo;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-31
  */
 @CacheConfig(cacheNames = "alipay")

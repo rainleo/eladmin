@@ -1,9 +1,10 @@
-package me.zhengjie.modules.security.service;
+package com.fn.modules.security.service;
 
-import me.zhengjie.exception.BadRequestException;
-import me.zhengjie.modules.security.security.JwtUser;
-import me.zhengjie.modules.system.service.UserService;
-import me.zhengjie.modules.system.service.dto.*;
+import com.fn.modules.security.security.JwtUser;
+import com.fn.exception.BadRequestException;
+import com.fn.modules.security.security.JwtUser;
+import com.fn.modules.system.service.UserService;
+import com.fn.modules.system.service.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -13,8 +14,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-22
+ * @author leo
+ * @date 2019-09-22
  */
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)

@@ -1,4 +1,4 @@
-package me.zhengjie.utils;
+package com.fn.utils;
 
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -6,8 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * 获取 HttpServletRequest
- * @author Zheng Jie
- * @date 2018-11-24
+ * @author leo
+ * @date 2019-09-24
  */
 public class RequestHolder {
 

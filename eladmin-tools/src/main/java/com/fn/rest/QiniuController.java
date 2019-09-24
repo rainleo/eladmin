@@ -1,11 +1,15 @@
-package me.zhengjie.rest;
+package com.fn.rest;
 
+import com.fn.domain.QiniuConfig;
+import com.fn.domain.QiniuContent;
+import com.fn.service.QiNiuService;
+import com.fn.service.dto.QiniuQueryCriteria;
 import lombok.extern.slf4j.Slf4j;
-import me.zhengjie.aop.log.Log;
-import me.zhengjie.domain.QiniuConfig;
-import me.zhengjie.domain.QiniuContent;
-import me.zhengjie.service.QiNiuService;
-import me.zhengjie.service.dto.QiniuQueryCriteria;
+import com.fn.aop.log.Log;
+import com.fn.domain.QiniuConfig;
+import com.fn.domain.QiniuContent;
+import com.fn.service.QiNiuService;
+import com.fn.service.dto.QiniuQueryCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;

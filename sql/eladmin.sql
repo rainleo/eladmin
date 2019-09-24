@@ -137,7 +137,7 @@ CREATE TABLE `gen_config` (
 -- ----------------------------
 -- Records of gen_config
 -- ----------------------------
-INSERT INTO `gen_config` VALUES ('1', 'jie', '\0', 'eladmin-system', 'me.zhengjie.modules.test', 'E:\\workspace\\me\\front\\eladmin-qt\\src\\views\\test', 'E:\\workspace\\me\\front\\eladmin-qt\\src\\api', null);
+INSERT INTO `gen_config` VALUES ('1', 'jie', '\0', 'eladmin-system', 'com.fn.modules.test', 'E:\\workspace\\me\\front\\eladmin-qt\\src\\views\\test', 'E:\\workspace\\me\\front\\eladmin-qt\\src\\api', null);
 
 -- ----------------------------
 -- Table structure for job
@@ -415,8 +415,8 @@ CREATE TABLE `role` (
 -- ----------------------------
 -- Records of role
 -- ----------------------------
-INSERT INTO `role` VALUES ('1', '2018-11-23 11:04:37', '超级管理员', '系统所有权', '全部', '1');
-INSERT INTO `role` VALUES ('2', '2018-11-23 13:09:06', '普通用户', '用于测试菜单与权限', '自定义', '3');
+INSERT INTO `role` VALUES ('1', '2019-09-23 11:04:37', '超级管理员', '系统所有权', '全部', '1');
+INSERT INTO `role` VALUES ('2', '2019-09-23 13:09:06', '普通用户', '用于测试菜单与权限', '自定义', '3');
 INSERT INTO `role` VALUES ('4', '2019-05-13 14:16:15', '普通管理员', '普通管理员级别为2，使用该角色新增用户时只能赋予比普通管理员级别低的角色', '自定义', '2');
 
 -- ----------------------------

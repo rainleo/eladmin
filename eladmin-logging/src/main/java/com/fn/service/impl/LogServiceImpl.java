@@ -1,16 +1,21 @@
-package me.zhengjie.service.impl;
+package com.fn.service.impl;
 
 import cn.hutool.core.lang.Dict;
 import cn.hutool.json.JSONObject;
-import me.zhengjie.domain.Log;
-import me.zhengjie.repository.LogRepository;
-import me.zhengjie.service.LogService;
-import me.zhengjie.service.dto.LogQueryCriteria;
-import me.zhengjie.service.mapper.LogErrorMapper;
-import me.zhengjie.service.mapper.LogSmallMapper;
-import me.zhengjie.utils.PageUtil;
-import me.zhengjie.utils.QueryHelp;
-import me.zhengjie.utils.StringUtils;
+import com.fn.repository.LogRepository;
+import com.fn.service.mapper.LogSmallMapper;
+import com.fn.utils.PageUtil;
+import com.fn.utils.QueryHelp;
+import com.fn.utils.StringUtils;
+import com.fn.domain.Log;
+import com.fn.repository.LogRepository;
+import com.fn.service.LogService;
+import com.fn.service.dto.LogQueryCriteria;
+import com.fn.service.mapper.LogErrorMapper;
+import com.fn.service.mapper.LogSmallMapper;
+import com.fn.utils.PageUtil;
+import com.fn.utils.QueryHelp;
+import com.fn.utils.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +27,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.lang.reflect.Method;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-24
+ * @author leo
+ * @date 2019-09-24
  */
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
@@ -61,7 +66,7 @@ public class LogServiceImpl implements LogService {
 
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();
-        me.zhengjie.aop.log.Log aopLog = method.getAnnotation(me.zhengjie.aop.log.Log.class);
+        com.fn.aop.log.Log aopLog = method.getAnnotation(com.fn.aop.log.Log.class);
 
         // 描述
         if (log != null) {

@@ -1,10 +1,13 @@
-package me.zhengjie.modules.system.rest;
+package com.fn.modules.system.rest;
 
-import me.zhengjie.aop.log.Log;
-import me.zhengjie.exception.BadRequestException;
-import me.zhengjie.modules.system.domain.DictDetail;
-import me.zhengjie.modules.system.service.DictDetailService;
-import me.zhengjie.modules.system.service.dto.DictDetailQueryCriteria;
+import com.fn.modules.system.domain.DictDetail;
+import com.fn.modules.system.service.DictDetailService;
+import com.fn.modules.system.service.dto.DictDetailQueryCriteria;
+import com.fn.aop.log.Log;
+import com.fn.exception.BadRequestException;
+import com.fn.modules.system.domain.DictDetail;
+import com.fn.modules.system.service.DictDetailService;
+import com.fn.modules.system.service.dto.DictDetailQueryCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -21,7 +24,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
-* @author Zheng Jie
+* @author leo
 * @date 2019-04-10
 */
 @RestController

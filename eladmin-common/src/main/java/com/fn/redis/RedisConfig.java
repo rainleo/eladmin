@@ -1,9 +1,9 @@
-package me.zhengjie.redis;
+package com.fn.redis;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.parser.ParserConfig;
 import lombok.extern.slf4j.Slf4j;
-import me.zhengjie.utils.StringUtils;
+import com.fn.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -22,8 +22,8 @@ import org.springframework.data.redis.serializer.RedisSerializationContext;
 import java.time.Duration;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-24
+ * @author leo
+ * @date 2019-09-24
  */
 @Slf4j
 @Configuration
@@ -59,12 +59,12 @@ public class RedisConfig extends CachingConfigurerSupport {
         // 全局开启AutoType，不建议使用
         // ParserConfig.getGlobalInstance().setAutoTypeSupport(true);
         // 建议使用这种方式，小范围指定白名单
-        ParserConfig.getGlobalInstance().addAccept("me.zhengjie.domain");
-        ParserConfig.getGlobalInstance().addAccept("me.zhengjie.modules.system.service.dto");
-        ParserConfig.getGlobalInstance().addAccept("me.zhengjie.modules.system.domain");
-        ParserConfig.getGlobalInstance().addAccept("me.zhengjie.modules.quartz.domain");
-        ParserConfig.getGlobalInstance().addAccept("me.zhengjie.modules.monitor.domain");
-        ParserConfig.getGlobalInstance().addAccept("me.zhengjie.modules.security.security");
+        ParserConfig.getGlobalInstance().addAccept("com.fn.domain");
+        ParserConfig.getGlobalInstance().addAccept("com.fn.modules.system.service.dto");
+        ParserConfig.getGlobalInstance().addAccept("com.fn.modules.system.domain");
+        ParserConfig.getGlobalInstance().addAccept("com.fn.modules.quartz.domain");
+        ParserConfig.getGlobalInstance().addAccept("com.fn.modules.monitor.domain");
+        ParserConfig.getGlobalInstance().addAccept("com.fn.modules.security.security");
         // key的序列化采用StringRedisSerializer
         template.setKeySerializer(new StringRedisSerializer());
         template.setHashKeySerializer(new StringRedisSerializer());

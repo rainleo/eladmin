@@ -1,14 +1,16 @@
-package me.zhengjie.service;
+package com.fn.service;
 
-import me.zhengjie.domain.Log;
-import me.zhengjie.service.dto.LogQueryCriteria;
+import com.fn.domain.Log;
+import com.fn.service.dto.LogQueryCriteria;
+import com.fn.domain.Log;
+import com.fn.service.dto.LogQueryCriteria;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.springframework.data.domain.Pageable;
 import org.springframework.scheduling.annotation.Async;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-24
+ * @author leo
+ * @date 2019-09-24
  */
 public interface LogService {
 

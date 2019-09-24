@@ -1,6 +1,7 @@
-package me.zhengjie.modules.monitor.config;
+package com.fn.modules.monitor.config;
 
-import me.zhengjie.modules.monitor.service.VisitsService;
+import com.fn.modules.monitor.service.VisitsService;
+import com.fn.modules.monitor.service.VisitsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 初始化站点统计
- * @author Zheng Jie
+ * @author leo
  */
 @Component
 public class VisitsInitialization implements ApplicationRunner {

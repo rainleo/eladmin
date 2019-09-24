@@ -1,4 +1,4 @@
-package me.zhengjie.modules.security.security;
+package com.fn.modules.security.security;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;

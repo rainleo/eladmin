@@ -1,8 +1,10 @@
-package me.zhengjie.modules.system.service;
+package com.fn.modules.system.service;
 
-import me.zhengjie.modules.system.domain.Permission;
-import me.zhengjie.modules.system.service.dto.PermissionDTO;
-import me.zhengjie.modules.system.service.dto.PermissionQueryCriteria;
+import com.fn.modules.system.service.dto.PermissionDTO;
+import com.fn.modules.system.service.dto.PermissionQueryCriteria;
+import com.fn.modules.system.domain.Permission;
+import com.fn.modules.system.service.dto.PermissionDTO;
+import com.fn.modules.system.service.dto.PermissionQueryCriteria;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -10,7 +12,7 @@ import org.springframework.cache.annotation.Cacheable;
 import java.util.List;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-08
  */
 @CacheConfig(cacheNames = "permission")

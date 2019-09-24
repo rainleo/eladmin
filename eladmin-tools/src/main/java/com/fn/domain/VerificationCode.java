@@ -1,4 +1,4 @@
-package me.zhengjie.domain;
+package com.fn.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,7 +10,7 @@ import javax.validation.constraints.NotBlank;
 import java.sql.Timestamp;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-26
  */
 @Data

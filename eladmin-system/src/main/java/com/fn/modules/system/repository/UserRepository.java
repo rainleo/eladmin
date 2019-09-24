@@ -1,6 +1,6 @@
-package me.zhengjie.modules.system.repository;
+package com.fn.modules.system.repository;
 
-import me.zhengjie.modules.system.domain.User;
+import com.fn.modules.system.domain.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
@@ -12,8 +12,8 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-22
+ * @author leo
+ * @date 2019-09-22
  */
 public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificationExecutor {
 

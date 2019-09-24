@@ -1,4 +1,4 @@
-package me.zhengjie.utils;
+package com.fn.utils;
 
 import cn.hutool.core.io.resource.ClassPathResource;
 import org.lionsoul.ip2region.DataBlock;

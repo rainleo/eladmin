@@ -1,14 +1,18 @@
-package me.zhengjie.modules.system.rest;
+package com.fn.modules.system.rest;
 
 import cn.hutool.core.lang.Dict;
-import me.zhengjie.aop.log.Log;
-import me.zhengjie.modules.system.domain.Role;
-import me.zhengjie.exception.BadRequestException;
-import me.zhengjie.modules.system.service.RoleService;
-import me.zhengjie.modules.system.service.dto.MenuQueryCriteria;
-import me.zhengjie.modules.system.service.dto.RoleQueryCriteria;
-import me.zhengjie.modules.system.service.dto.RoleSmallDTO;
-import me.zhengjie.utils.SecurityUtils;
+import com.fn.modules.system.domain.Role;
+import com.fn.modules.system.service.RoleService;
+import com.fn.modules.system.service.dto.RoleQueryCriteria;
+import com.fn.modules.system.service.dto.RoleSmallDTO;
+import com.fn.aop.log.Log;
+import com.fn.modules.system.domain.Role;
+import com.fn.exception.BadRequestException;
+import com.fn.modules.system.service.RoleService;
+import com.fn.modules.system.service.dto.MenuQueryCriteria;
+import com.fn.modules.system.service.dto.RoleQueryCriteria;
+import com.fn.modules.system.service.dto.RoleSmallDTO;
+import com.fn.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -23,7 +27,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-03
  */
 @RestController

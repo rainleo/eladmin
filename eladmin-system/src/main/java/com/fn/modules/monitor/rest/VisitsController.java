@@ -1,7 +1,8 @@
-package me.zhengjie.modules.monitor.rest;
+package com.fn.modules.monitor.rest;
 
-import me.zhengjie.modules.monitor.service.VisitsService;
-import me.zhengjie.utils.RequestHolder;
+import com.fn.modules.monitor.service.VisitsService;
+import com.fn.modules.monitor.service.VisitsService;
+import com.fn.utils.RequestHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-13
  */
 @RestController

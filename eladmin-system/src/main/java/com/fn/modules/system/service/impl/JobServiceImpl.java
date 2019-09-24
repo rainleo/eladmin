@@ -1,15 +1,18 @@
-package me.zhengjie.modules.system.service.impl;
+package com.fn.modules.system.service.impl;
 
-import me.zhengjie.modules.system.domain.Job;
-import me.zhengjie.modules.system.repository.DeptRepository;
-import me.zhengjie.modules.system.service.dto.JobQueryCriteria;
-import me.zhengjie.utils.PageUtil;
-import me.zhengjie.utils.QueryHelp;
-import me.zhengjie.utils.ValidationUtil;
-import me.zhengjie.modules.system.repository.JobRepository;
-import me.zhengjie.modules.system.service.JobService;
-import me.zhengjie.modules.system.service.dto.JobDTO;
-import me.zhengjie.modules.system.service.mapper.JobMapper;
+import com.fn.modules.system.repository.DeptRepository;
+import com.fn.modules.system.repository.JobRepository;
+import com.fn.modules.system.service.mapper.JobMapper;
+import com.fn.modules.system.domain.Job;
+import com.fn.modules.system.repository.DeptRepository;
+import com.fn.modules.system.service.dto.JobQueryCriteria;
+import com.fn.utils.PageUtil;
+import com.fn.utils.QueryHelp;
+import com.fn.utils.ValidationUtil;
+import com.fn.modules.system.repository.JobRepository;
+import com.fn.modules.system.service.JobService;
+import com.fn.modules.system.service.dto.JobDTO;
+import com.fn.modules.system.service.mapper.JobMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,7 +24,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
-* @author Zheng Jie
+* @author leo
 * @date 2019-03-29
 */
 @Service

@@ -1,13 +1,14 @@
-package me.zhengjie.utils;
+package com.fn.utils;
 
 import cn.hutool.json.JSONObject;
-import me.zhengjie.exception.BadRequestException;
+import com.fn.exception.BadRequestException;
+import com.fn.exception.BadRequestException;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  * 获取当前登录的用户
- * @author Zheng Jie
+ * @author leo
  * @date 2019-01-17
  */
 public class SecurityUtils {

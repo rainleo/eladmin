@@ -1,4 +1,4 @@
-package me.zhengjie.redis;
+package com.fn.redis;
 
 import cn.hutool.core.lang.Assert;
 import com.alibaba.fastjson.JSON;

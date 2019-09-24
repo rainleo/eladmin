@@ -1,8 +1,9 @@
-package me.zhengjie.modules.quartz.utils;
+package com.fn.modules.quartz.utils;
 
+import com.fn.modules.quartz.domain.QuartzJob;
 import lombok.extern.slf4j.Slf4j;
-import me.zhengjie.exception.BadRequestException;
-import me.zhengjie.modules.quartz.domain.QuartzJob;
+import com.fn.exception.BadRequestException;
+import com.fn.modules.quartz.domain.QuartzJob;
 import org.quartz.*;
 import org.quartz.impl.triggers.CronTriggerImpl;
 import org.springframework.stereotype.Component;
@@ -11,7 +12,7 @@ import java.util.Date;
 import static org.quartz.TriggerBuilder.newTrigger;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2019-01-07
  */
 @Slf4j

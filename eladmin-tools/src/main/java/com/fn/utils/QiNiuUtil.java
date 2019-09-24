@@ -1,4 +1,4 @@
-package me.zhengjie.utils;
+package com.fn.utils;
 
 import com.qiniu.storage.Region;
 import java.text.SimpleDateFormat;
@@ -6,7 +6,7 @@ import java.util.Date;
 
 /**
  * 七牛云存储工具类
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-31
  */
 public class QiNiuUtil {

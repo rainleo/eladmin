@@ -1,13 +1,13 @@
-package me.zhengjie.modules.system.service.dto;
+package com.fn.modules.system.service.dto;
 
 import lombok.Data;
-import me.zhengjie.annotation.Query;
+import com.fn.annotation.Query;
 import java.io.Serializable;
 import java.util.Set;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-23
+ * @author leo
+ * @date 2019-09-23
  */
 @Data
 public class UserQueryCriteria implements Serializable {

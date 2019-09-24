@@ -1,18 +1,21 @@
-package me.zhengjie.modules.system.service.impl;
+package com.fn.modules.system.service.impl;
 
-import me.zhengjie.modules.system.domain.Menu;
-import me.zhengjie.modules.system.domain.Role;
-import me.zhengjie.exception.EntityExistException;
-import me.zhengjie.modules.system.repository.RoleRepository;
-import me.zhengjie.modules.system.service.RoleService;
-import me.zhengjie.modules.system.service.dto.RoleDTO;
-import me.zhengjie.modules.system.service.dto.RoleQueryCriteria;
-import me.zhengjie.modules.system.service.dto.RoleSmallDTO;
-import me.zhengjie.modules.system.service.mapper.RoleMapper;
-import me.zhengjie.modules.system.service.mapper.RoleSmallMapper;
-import me.zhengjie.utils.PageUtil;
-import me.zhengjie.utils.QueryHelp;
-import me.zhengjie.utils.ValidationUtil;
+import com.fn.modules.system.repository.RoleRepository;
+import com.fn.modules.system.service.mapper.RoleMapper;
+import com.fn.modules.system.service.mapper.RoleSmallMapper;
+import com.fn.modules.system.domain.Menu;
+import com.fn.modules.system.domain.Role;
+import com.fn.exception.EntityExistException;
+import com.fn.modules.system.repository.RoleRepository;
+import com.fn.modules.system.service.RoleService;
+import com.fn.modules.system.service.dto.RoleDTO;
+import com.fn.modules.system.service.dto.RoleQueryCriteria;
+import com.fn.modules.system.service.dto.RoleSmallDTO;
+import com.fn.modules.system.service.mapper.RoleMapper;
+import com.fn.modules.system.service.mapper.RoleSmallMapper;
+import com.fn.utils.PageUtil;
+import com.fn.utils.QueryHelp;
+import com.fn.utils.ValidationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -23,7 +26,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-03
  */
 @Service

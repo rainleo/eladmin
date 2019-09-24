@@ -1,12 +1,13 @@
-package me.zhengjie.utils;
+package com.fn.utils;
 
-import me.zhengjie.exception.BadRequestException;
+import com.fn.exception.BadRequestException;
+import com.fn.exception.BadRequestException;
 import java.util.Optional;
 
 /**
  * 验证工具
- * @author Zheng Jie
- * @date 2018-11-23
+ * @author leo
+ * @date 2019-09-23
  */
 public class ValidationUtil{
 

@@ -1,6 +1,6 @@
-package me.zhengjie.annotation;
+package com.fn.annotation;
 
-import me.zhengjie.aspect.LimitType;
+import com.fn.aspect.LimitType;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

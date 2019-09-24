@@ -1,11 +1,11 @@
-package me.zhengjie.modules.system.domain.vo;
+package com.fn.modules.system.domain.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import java.io.Serializable;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-20
  */
 @Data

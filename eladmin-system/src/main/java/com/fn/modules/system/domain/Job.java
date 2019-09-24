@@ -1,4 +1,4 @@
-package me.zhengjie.modules.system.domain;
+package com.fn.modules.system.domain;
 
 import lombok.Data;
 import org.hibernate.annotations.*;
@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 import java.io.Serializable;
 
 /**
-* @author Zheng Jie
+* @author leo
 * @date 2019-03-29
 */
 @Entity

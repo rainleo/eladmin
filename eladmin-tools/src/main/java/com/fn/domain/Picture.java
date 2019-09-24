@@ -1,4 +1,4 @@
-package me.zhengjie.domain;
+package com.fn.domain;
 
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
@@ -10,7 +10,7 @@ import java.sql.Timestamp;
 /**
  * sm.ms图床
  *
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-27
  */
 @Data

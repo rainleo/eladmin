@@ -1,10 +1,14 @@
-package me.zhengjie.rest;
+package com.fn.rest;
 
 import cn.hutool.core.util.PageUtil;
-import me.zhengjie.domain.vo.ColumnInfo;
-import me.zhengjie.exception.BadRequestException;
-import me.zhengjie.service.GenConfigService;
-import me.zhengjie.service.GeneratorService;
+import com.fn.domain.vo.ColumnInfo;
+import com.fn.exception.BadRequestException;
+import com.fn.service.GenConfigService;
+import com.fn.service.GeneratorService;
+import com.fn.domain.vo.ColumnInfo;
+import com.fn.exception.BadRequestException;
+import com.fn.service.GenConfigService;
+import com.fn.service.GeneratorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -13,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2019-01-02
  */
 @RestController

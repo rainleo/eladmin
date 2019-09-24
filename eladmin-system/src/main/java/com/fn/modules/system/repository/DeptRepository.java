@@ -1,6 +1,6 @@
-package me.zhengjie.modules.system.repository;
+package com.fn.modules.system.repository;
 
-import me.zhengjie.modules.system.domain.Dept;
+import com.fn.modules.system.domain.Dept;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
-* @author Zheng Jie
+* @author leo
 * @date 2019-03-25
 */
 public interface DeptRepository extends JpaRepository<Dept, Long>, JpaSpecificationExecutor {

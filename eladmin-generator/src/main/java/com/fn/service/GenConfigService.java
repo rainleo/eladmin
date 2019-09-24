@@ -1,13 +1,13 @@
-package me.zhengjie.service;
+package com.fn.service;
 
-import me.zhengjie.domain.GenConfig;
+import com.fn.domain.GenConfig;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2019-01-14
  */
 @CacheConfig(cacheNames = "genConfig")

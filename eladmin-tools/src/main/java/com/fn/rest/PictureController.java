@@ -1,10 +1,14 @@
-package me.zhengjie.rest;
+package com.fn.rest;
 
-import me.zhengjie.aop.log.Log;
-import me.zhengjie.domain.Picture;
-import me.zhengjie.service.PictureService;
-import me.zhengjie.service.dto.PictureQueryCriteria;
-import me.zhengjie.utils.SecurityUtils;
+import com.fn.domain.Picture;
+import com.fn.service.PictureService;
+import com.fn.service.dto.PictureQueryCriteria;
+import com.fn.utils.SecurityUtils;
+import com.fn.aop.log.Log;
+import com.fn.domain.Picture;
+import com.fn.service.PictureService;
+import com.fn.service.dto.PictureQueryCriteria;
+import com.fn.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;

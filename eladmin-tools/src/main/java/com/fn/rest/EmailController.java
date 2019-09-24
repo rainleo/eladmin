@@ -1,10 +1,13 @@
-package me.zhengjie.rest;
+package com.fn.rest;
 
+import com.fn.domain.EmailConfig;
+import com.fn.domain.vo.EmailVo;
+import com.fn.service.EmailService;
 import lombok.extern.slf4j.Slf4j;
-import me.zhengjie.aop.log.Log;
-import me.zhengjie.domain.EmailConfig;
-import me.zhengjie.domain.vo.EmailVo;
-import me.zhengjie.service.EmailService;
+import com.fn.aop.log.Log;
+import com.fn.domain.EmailConfig;
+import com.fn.domain.vo.EmailVo;
+import com.fn.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

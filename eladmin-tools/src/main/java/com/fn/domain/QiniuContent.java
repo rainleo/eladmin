@@ -1,4 +1,4 @@
-package me.zhengjie.domain;
+package com.fn.domain;
 
 import lombok.Data;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 
 /**
  * 上传成功后，存储结果
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-31
  */
 @Data

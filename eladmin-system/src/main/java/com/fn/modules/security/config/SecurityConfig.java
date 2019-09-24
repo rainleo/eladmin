@@ -1,8 +1,11 @@
-package me.zhengjie.modules.security.config;
+package com.fn.modules.security.config;
 
-import me.zhengjie.modules.security.security.JwtAuthenticationEntryPoint;
-import me.zhengjie.modules.security.security.JwtAuthorizationTokenFilter;
-import me.zhengjie.modules.security.service.JwtUserDetailsService;
+import com.fn.modules.security.security.JwtAuthenticationEntryPoint;
+import com.fn.modules.security.security.JwtAuthorizationTokenFilter;
+import com.fn.modules.security.service.JwtUserDetailsService;
+import com.fn.modules.security.security.JwtAuthenticationEntryPoint;
+import com.fn.modules.security.security.JwtAuthorizationTokenFilter;
+import com.fn.modules.security.service.JwtUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

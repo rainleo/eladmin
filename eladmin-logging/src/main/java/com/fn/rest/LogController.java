@@ -1,8 +1,11 @@
-package me.zhengjie.rest;
+package com.fn.rest;
 
-import me.zhengjie.service.LogService;
-import me.zhengjie.service.dto.LogQueryCriteria;
-import me.zhengjie.utils.SecurityUtils;
+import com.fn.service.LogService;
+import com.fn.service.dto.LogQueryCriteria;
+import com.fn.utils.SecurityUtils;
+import com.fn.service.LogService;
+import com.fn.service.dto.LogQueryCriteria;
+import com.fn.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -14,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-24
+ * @author leo
+ * @date 2019-09-24
  */
 @RestController
 @RequestMapping("api")

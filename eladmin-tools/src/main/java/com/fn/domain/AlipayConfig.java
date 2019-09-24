@@ -1,4 +1,4 @@
-package me.zhengjie.domain;
+package com.fn.domain;
 
 import lombok.Data;
 import javax.persistence.*;
@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 /**
  * 支付宝配置类
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-31
  */
 @Data

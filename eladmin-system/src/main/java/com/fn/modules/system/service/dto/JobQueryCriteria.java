@@ -1,15 +1,15 @@
-package me.zhengjie.modules.system.service.dto;
+package com.fn.modules.system.service.dto;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import me.zhengjie.annotation.Query;
+import com.fn.annotation.Query;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Set;
 
 /**
-* @author Zheng Jie
+* @author leo
 * @date 2019-6-4 14:49:34
 */
 @Data

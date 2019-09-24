@@ -1,4 +1,4 @@
-package me.zhengjie.domain;
+package com.fn.domain;
 
 import lombok.Data;
 
@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 /**
  * 邮件配置类，数据存覆盖式存入数据存
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-26
  */
 @Entity

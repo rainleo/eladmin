@@ -1,8 +1,8 @@
-package me.zhengjie.modules.security.service;
+package com.fn.modules.security.service;
 
-import me.zhengjie.modules.system.domain.Role;
-import me.zhengjie.modules.system.repository.RoleRepository;
-import me.zhengjie.modules.system.service.dto.UserDTO;
+import com.fn.modules.system.domain.Role;
+import com.fn.modules.system.repository.RoleRepository;
+import com.fn.modules.system.service.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;

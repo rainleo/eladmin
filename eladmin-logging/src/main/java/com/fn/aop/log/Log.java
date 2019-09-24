@@ -1,4 +1,4 @@
-package me.zhengjie.aop.log;
+package com.fn.aop.log;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -6,8 +6,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-24
+ * @author leo
+ * @date 2019-09-24
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)

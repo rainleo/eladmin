@@ -1,17 +1,20 @@
-package me.zhengjie.modules.system.service.impl;
+package com.fn.modules.system.service.impl;
 
-import me.zhengjie.modules.monitor.service.RedisService;
-import me.zhengjie.modules.system.domain.User;
-import me.zhengjie.exception.EntityExistException;
-import me.zhengjie.exception.EntityNotFoundException;
-import me.zhengjie.modules.system.repository.UserRepository;
-import me.zhengjie.modules.system.service.UserService;
-import me.zhengjie.modules.system.service.dto.UserDTO;
-import me.zhengjie.modules.system.service.dto.UserQueryCriteria;
-import me.zhengjie.modules.system.service.mapper.UserMapper;
-import me.zhengjie.utils.PageUtil;
-import me.zhengjie.utils.QueryHelp;
-import me.zhengjie.utils.ValidationUtil;
+import com.fn.modules.monitor.service.RedisService;
+import com.fn.modules.system.repository.UserRepository;
+import com.fn.modules.system.service.mapper.UserMapper;
+import com.fn.modules.monitor.service.RedisService;
+import com.fn.modules.system.domain.User;
+import com.fn.exception.EntityExistException;
+import com.fn.exception.EntityNotFoundException;
+import com.fn.modules.system.repository.UserRepository;
+import com.fn.modules.system.service.UserService;
+import com.fn.modules.system.service.dto.UserDTO;
+import com.fn.modules.system.service.dto.UserQueryCriteria;
+import com.fn.modules.system.service.mapper.UserMapper;
+import com.fn.utils.PageUtil;
+import com.fn.utils.QueryHelp;
+import com.fn.utils.ValidationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -22,8 +25,8 @@ import java.util.Date;
 import java.util.Optional;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-23
+ * @author leo
+ * @date 2019-09-23
  */
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)

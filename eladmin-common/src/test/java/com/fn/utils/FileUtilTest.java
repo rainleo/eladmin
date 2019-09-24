@@ -1,10 +1,10 @@
-package me.zhengjie.utils;
+package com.fn.utils;
 
 import org.junit.Test;
 import org.springframework.mock.web.MockMultipartFile;
 
 import static org.junit.Assert.*;
-import static me.zhengjie.utils.FileUtil.*;
+import static com.fn.utils.FileUtil.*;
 
 public class FileUtilTest {
 

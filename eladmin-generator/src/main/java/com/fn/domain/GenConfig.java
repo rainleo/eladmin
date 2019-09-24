@@ -1,11 +1,11 @@
-package me.zhengjie.domain;
+package com.fn.domain;
 
 import lombok.Data;
 import javax.persistence.*;
 
 /**
  * 代码生成配置
- * @author Zheng Jie
+ * @author leo
  * @date 2019-01-03
  */
 @Data

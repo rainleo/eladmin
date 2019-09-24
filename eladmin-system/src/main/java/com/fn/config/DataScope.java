@@ -1,13 +1,19 @@
-package me.zhengjie.config;
+package com.fn.config;
 
-import me.zhengjie.modules.system.domain.Dept;
-import me.zhengjie.modules.system.service.DeptService;
-import me.zhengjie.modules.system.service.RoleService;
-import me.zhengjie.modules.system.service.UserService;
-import me.zhengjie.modules.system.service.dto.DeptDTO;
-import me.zhengjie.modules.system.service.dto.RoleSmallDTO;
-import me.zhengjie.modules.system.service.dto.UserDTO;
-import me.zhengjie.utils.SecurityUtils;
+import com.fn.modules.system.domain.Dept;
+import com.fn.modules.system.service.DeptService;
+import com.fn.modules.system.service.RoleService;
+import com.fn.modules.system.service.UserService;
+import com.fn.modules.system.service.dto.RoleSmallDTO;
+import com.fn.modules.system.service.dto.UserDTO;
+import com.fn.modules.system.domain.Dept;
+import com.fn.modules.system.service.DeptService;
+import com.fn.modules.system.service.RoleService;
+import com.fn.modules.system.service.UserService;
+import com.fn.modules.system.service.dto.DeptDTO;
+import com.fn.modules.system.service.dto.RoleSmallDTO;
+import com.fn.modules.system.service.dto.UserDTO;
+import com.fn.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.util.ArrayList;
@@ -17,7 +23,7 @@ import java.util.Set;
 
 /**
  * 数据权限配置
- * @author Zheng Jie
+ * @author leo
  * @date 2019-4-1
  */
 @Component

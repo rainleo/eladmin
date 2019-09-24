@@ -1,4 +1,4 @@
-package me.zhengjie.modules.system.service.dto;
+package com.fn.modules.system.service.dto;
 
 import lombok.Data;
 import java.io.Serializable;
@@ -6,8 +6,8 @@ import java.sql.Timestamp;
 import java.util.Set;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-23
+ * @author leo
+ * @date 2019-09-23
  */
 @Data
 public class RoleDTO implements Serializable {

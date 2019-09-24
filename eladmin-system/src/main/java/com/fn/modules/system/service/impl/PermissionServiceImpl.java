@@ -1,15 +1,17 @@
-package me.zhengjie.modules.system.service.impl;
+package com.fn.modules.system.service.impl;
 
-import me.zhengjie.modules.system.domain.Permission;
-import me.zhengjie.exception.BadRequestException;
-import me.zhengjie.exception.EntityExistException;
-import me.zhengjie.modules.system.repository.PermissionRepository;
-import me.zhengjie.modules.system.service.PermissionService;
-import me.zhengjie.modules.system.service.dto.PermissionDTO;
-import me.zhengjie.modules.system.service.dto.PermissionQueryCriteria;
-import me.zhengjie.modules.system.service.mapper.PermissionMapper;
-import me.zhengjie.utils.QueryHelp;
-import me.zhengjie.utils.ValidationUtil;
+import com.fn.modules.system.repository.PermissionRepository;
+import com.fn.modules.system.service.mapper.PermissionMapper;
+import com.fn.modules.system.domain.Permission;
+import com.fn.exception.BadRequestException;
+import com.fn.exception.EntityExistException;
+import com.fn.modules.system.repository.PermissionRepository;
+import com.fn.modules.system.service.PermissionService;
+import com.fn.modules.system.service.dto.PermissionDTO;
+import com.fn.modules.system.service.dto.PermissionQueryCriteria;
+import com.fn.modules.system.service.mapper.PermissionMapper;
+import com.fn.utils.QueryHelp;
+import com.fn.utils.ValidationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -17,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.*;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-03
  */
 @Service

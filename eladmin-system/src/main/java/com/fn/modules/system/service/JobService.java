@@ -1,15 +1,17 @@
-package me.zhengjie.modules.system.service;
+package com.fn.modules.system.service;
 
-import me.zhengjie.modules.system.domain.Job;
-import me.zhengjie.modules.system.service.dto.JobDTO;
-import me.zhengjie.modules.system.service.dto.JobQueryCriteria;
+import com.fn.modules.system.service.dto.JobDTO;
+import com.fn.modules.system.service.dto.JobQueryCriteria;
+import com.fn.modules.system.domain.Job;
+import com.fn.modules.system.service.dto.JobDTO;
+import com.fn.modules.system.service.dto.JobQueryCriteria;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Pageable;
 
 /**
-* @author Zheng Jie
+* @author leo
 * @date 2019-03-29
 */
 @CacheConfig(cacheNames = "job")

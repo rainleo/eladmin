@@ -1,4 +1,4 @@
-package me.zhengjie.modules.system.domain;
+package com.fn.modules.system.domain;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -13,8 +13,8 @@ import java.util.Date;
 import java.util.Set;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-22
+ * @author leo
+ * @date 2019-09-22
  */
 @Entity
 @Getter

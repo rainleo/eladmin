@@ -1,7 +1,7 @@
-package me.zhengjie.modules.system.service.dto;
+package com.fn.modules.system.service.dto;
 
 import lombok.Data;
-import me.zhengjie.annotation.Query;
+import com.fn.annotation.Query;
 
 /**
  * 公共查询类

@@ -1,4 +1,4 @@
-package me.zhengjie.modules.system.service.dto;
+package com.fn.modules.system.service.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
-* @author Zheng Jie
+* @author leo
 * @date 2019-03-25
 */
 @Data

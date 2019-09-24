@@ -1,4 +1,4 @@
-package me.zhengjie.swagger2;
+package com.fn.swagger2;
 
 import com.google.common.base.Predicates;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,8 +18,8 @@ import java.util.List;
 
 /**
  * api页面 /swagger-ui.html
- * @author Zheng Jie
- * @date 2018-11-23
+ * @author leo
+ * @date 2019-09-23
  */
 
 @Configuration

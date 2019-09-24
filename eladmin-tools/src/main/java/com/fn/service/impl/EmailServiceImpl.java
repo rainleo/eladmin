@@ -1,15 +1,18 @@
-package me.zhengjie.service.impl;
+package com.fn.service.impl;
 
 import cn.hutool.extra.mail.Mail;
 import cn.hutool.extra.mail.MailAccount;
 import cn.hutool.extra.mail.MailUtil;
-import me.zhengjie.domain.EmailConfig;
-import me.zhengjie.domain.vo.EmailVo;
-import me.zhengjie.exception.BadRequestException;
-import me.zhengjie.repository.EmailRepository;
-import me.zhengjie.service.EmailService;
-import me.zhengjie.utils.ElAdminConstant;
-import me.zhengjie.utils.EncryptUtils;
+import com.fn.exception.BadRequestException;
+import com.fn.repository.EmailRepository;
+import com.fn.utils.EncryptUtils;
+import com.fn.domain.EmailConfig;
+import com.fn.domain.vo.EmailVo;
+import com.fn.exception.BadRequestException;
+import com.fn.repository.EmailRepository;
+import com.fn.service.EmailService;
+import com.fn.utils.ElAdminConstant;
+import com.fn.utils.EncryptUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -17,7 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-26
  */
 @Service

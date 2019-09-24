@@ -1,10 +1,11 @@
-package me.zhengjie.service.dto;
+package com.fn.service.dto;
 
+import com.fn.annotation.Query;
 import lombok.Data;
-import me.zhengjie.annotation.Query;
+import com.fn.annotation.Query;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2019-6-4 09:54:37
  */
 @Data

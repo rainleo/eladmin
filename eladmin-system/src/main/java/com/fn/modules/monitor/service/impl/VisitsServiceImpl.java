@@ -1,11 +1,12 @@
-package me.zhengjie.modules.monitor.service.impl;
+package com.fn.modules.monitor.service.impl;
 
+import com.fn.modules.monitor.repository.VisitsRepository;
 import lombok.extern.slf4j.Slf4j;
-import me.zhengjie.modules.monitor.domain.Visits;
-import me.zhengjie.modules.monitor.repository.VisitsRepository;
-import me.zhengjie.modules.monitor.service.VisitsService;
-import me.zhengjie.repository.LogRepository;
-import me.zhengjie.utils.StringUtils;
+import com.fn.modules.monitor.domain.Visits;
+import com.fn.modules.monitor.repository.VisitsRepository;
+import com.fn.modules.monitor.service.VisitsService;
+import com.fn.repository.LogRepository;
+import com.fn.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -18,7 +19,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-13
  */
 @Slf4j

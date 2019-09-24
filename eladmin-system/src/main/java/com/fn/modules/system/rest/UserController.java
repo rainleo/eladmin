@@ -1,20 +1,27 @@
-package me.zhengjie.modules.system.rest;
+package com.fn.modules.system.rest;
 
-import me.zhengjie.aop.log.Log;
-import me.zhengjie.config.DataScope;
-import me.zhengjie.domain.Picture;
-import me.zhengjie.domain.VerificationCode;
-import me.zhengjie.modules.system.domain.User;
-import me.zhengjie.exception.BadRequestException;
-import me.zhengjie.modules.system.domain.vo.UserPassVo;
-import me.zhengjie.modules.system.service.DeptService;
-import me.zhengjie.modules.system.service.RoleService;
-import me.zhengjie.modules.system.service.dto.RoleSmallDTO;
-import me.zhengjie.modules.system.service.dto.UserQueryCriteria;
-import me.zhengjie.service.PictureService;
-import me.zhengjie.service.VerificationCodeService;
-import me.zhengjie.utils.*;
-import me.zhengjie.modules.system.service.UserService;
+import com.fn.modules.system.domain.User;
+import com.fn.modules.system.domain.vo.UserPassVo;
+import com.fn.modules.system.service.DeptService;
+import com.fn.modules.system.service.RoleService;
+import com.fn.modules.system.service.UserService;
+import com.fn.modules.system.service.dto.RoleSmallDTO;
+import com.fn.modules.system.service.dto.UserQueryCriteria;
+import com.fn.aop.log.Log;
+import com.fn.config.DataScope;
+import com.fn.domain.Picture;
+import com.fn.domain.VerificationCode;
+import com.fn.modules.system.domain.User;
+import com.fn.exception.BadRequestException;
+import com.fn.modules.system.domain.vo.UserPassVo;
+import com.fn.modules.system.service.DeptService;
+import com.fn.modules.system.service.RoleService;
+import com.fn.modules.system.service.dto.RoleSmallDTO;
+import com.fn.modules.system.service.dto.UserQueryCriteria;
+import com.fn.service.PictureService;
+import com.fn.service.VerificationCodeService;
+import com.fn.utils.*;
+import com.fn.modules.system.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -30,8 +37,8 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-23
+ * @author leo
+ * @date 2019-09-23
  */
 @RestController
 @RequestMapping("api")

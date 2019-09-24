@@ -1,11 +1,11 @@
-package me.zhengjie.service.dto;
+package com.fn.service.dto;
 
 import lombok.Data;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
-* @author Zheng Jie
+* @author leo
 * @date 2019-5-22
 */
 @Data

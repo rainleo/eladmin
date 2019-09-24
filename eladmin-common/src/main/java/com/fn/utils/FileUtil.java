@@ -1,4 +1,4 @@
-package me.zhengjie.utils;
+package com.fn.utils;
 
 import cn.hutool.core.util.IdUtil;
 import org.springframework.web.multipart.MultipartFile;
@@ -8,7 +8,7 @@ import java.text.DecimalFormat;
 
 /**
  * File工具类，扩展 hutool 工具包
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-27
  */
 public class FileUtil extends cn.hutool.core.io.FileUtil {

@@ -1,14 +1,14 @@
-package me.zhengjie.service;
+package com.fn.service;
 
-import me.zhengjie.domain.EmailConfig;
-import me.zhengjie.domain.vo.EmailVo;
+import com.fn.domain.EmailConfig;
+import com.fn.domain.vo.EmailVo;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.scheduling.annotation.Async;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-26
  */
 @CacheConfig(cacheNames = "email")

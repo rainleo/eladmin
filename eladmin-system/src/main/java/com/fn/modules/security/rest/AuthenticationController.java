@@ -1,20 +1,26 @@
-package me.zhengjie.modules.security.rest;
+package com.fn.modules.security.rest;
 
 import cn.hutool.core.codec.Base64;
 import cn.hutool.core.util.IdUtil;
+import com.fn.modules.security.security.AuthenticationInfo;
+import com.fn.modules.security.security.AuthorizationUser;
+import com.fn.modules.security.security.ImgResult;
+import com.fn.modules.security.security.JwtUser;
+import com.fn.modules.security.utils.JwtTokenUtil;
+import com.fn.modules.security.utils.VerifyCodeUtils;
 import lombok.extern.slf4j.Slf4j;
-import me.zhengjie.aop.log.Log;
-import me.zhengjie.exception.BadRequestException;
-import me.zhengjie.modules.monitor.service.RedisService;
-import me.zhengjie.modules.security.security.AuthenticationInfo;
-import me.zhengjie.modules.security.security.AuthorizationUser;
-import me.zhengjie.modules.security.security.ImgResult;
-import me.zhengjie.modules.security.security.JwtUser;
-import me.zhengjie.modules.security.utils.VerifyCodeUtils;
-import me.zhengjie.utils.EncryptUtils;
-import me.zhengjie.modules.security.utils.JwtTokenUtil;
-import me.zhengjie.utils.SecurityUtils;
-import me.zhengjie.utils.StringUtils;
+import com.fn.aop.log.Log;
+import com.fn.exception.BadRequestException;
+import com.fn.modules.monitor.service.RedisService;
+import com.fn.modules.security.security.AuthenticationInfo;
+import com.fn.modules.security.security.AuthorizationUser;
+import com.fn.modules.security.security.ImgResult;
+import com.fn.modules.security.security.JwtUser;
+import com.fn.modules.security.utils.VerifyCodeUtils;
+import com.fn.utils.EncryptUtils;
+import com.fn.modules.security.utils.JwtTokenUtil;
+import com.fn.utils.SecurityUtils;
+import com.fn.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -28,8 +34,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-23
+ * @author leo
+ * @date 2019-09-23
  * 授权、根据token获取用户详细信息
  */
 @Slf4j

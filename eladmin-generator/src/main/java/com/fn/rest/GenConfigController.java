@@ -1,7 +1,9 @@
-package me.zhengjie.rest;
+package com.fn.rest;
 
-import me.zhengjie.domain.GenConfig;
-import me.zhengjie.service.GenConfigService;
+import com.fn.domain.GenConfig;
+import com.fn.service.GenConfigService;
+import com.fn.domain.GenConfig;
+import com.fn.service.GenConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,7 +11,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2019-01-14
  */
 @RestController

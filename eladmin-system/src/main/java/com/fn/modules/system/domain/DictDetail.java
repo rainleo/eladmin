@@ -1,4 +1,4 @@
-package me.zhengjie.modules.system.domain;
+package com.fn.modules.system.domain;
 
 import lombok.Data;
 import javax.persistence.*;
@@ -6,7 +6,7 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
-* @author Zheng Jie
+* @author leo
 * @date 2019-04-10
 */
 @Entity

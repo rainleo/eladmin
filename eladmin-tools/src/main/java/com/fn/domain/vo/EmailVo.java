@@ -1,4 +1,4 @@
-package me.zhengjie.domain.vo;
+package com.fn.domain.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

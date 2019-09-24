@@ -1,8 +1,8 @@
-package me.zhengjie.modules.security.security;
+package com.fn.modules.security.security;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import lombok.extern.slf4j.Slf4j;
-import me.zhengjie.modules.security.utils.JwtTokenUtil;
+import com.fn.modules.security.utils.JwtTokenUtil;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

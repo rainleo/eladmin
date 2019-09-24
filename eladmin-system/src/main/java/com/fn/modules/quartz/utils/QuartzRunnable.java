@@ -1,7 +1,7 @@
-package me.zhengjie.modules.quartz.utils;
+package com.fn.modules.quartz.utils;
 
 import lombok.extern.slf4j.Slf4j;
-import me.zhengjie.utils.SpringContextHolder;
+import com.fn.utils.SpringContextHolder;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.ReflectionUtils;
 import java.lang.reflect.Method;

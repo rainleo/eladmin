@@ -1,8 +1,10 @@
-package me.zhengjie.modules.system.service;
+package com.fn.modules.system.service;
 
-import me.zhengjie.modules.system.domain.DictDetail;
-import me.zhengjie.modules.system.service.dto.DictDetailDTO;
-import me.zhengjie.modules.system.service.dto.DictDetailQueryCriteria;
+import com.fn.modules.system.service.dto.DictDetailDTO;
+import com.fn.modules.system.service.dto.DictDetailQueryCriteria;
+import com.fn.modules.system.domain.DictDetail;
+import com.fn.modules.system.service.dto.DictDetailDTO;
+import com.fn.modules.system.service.dto.DictDetailQueryCriteria;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -11,7 +13,7 @@ import org.springframework.data.domain.Pageable;
 import java.util.Map;
 
 /**
-* @author Zheng Jie
+* @author leo
 * @date 2019-04-10
 */
 @CacheConfig(cacheNames = "dictDetail")

@@ -1,4 +1,4 @@
-package me.zhengjie.modules.security.security;
+package com.fn.modules.security.security;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
@@ -11,8 +11,8 @@ import java.util.Date;
 import java.util.stream.Collectors;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-23
+ * @author leo
+ * @date 2019-09-23
  */
 @Getter
 @AllArgsConstructor

@@ -1,11 +1,11 @@
-package me.zhengjie.service;
+package com.fn.service;
 
-import me.zhengjie.domain.GenConfig;
-import me.zhengjie.domain.vo.ColumnInfo;
+import com.fn.domain.GenConfig;
+import com.fn.domain.vo.ColumnInfo;
 import java.util.List;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2019-01-02
  */
 public interface GeneratorService {

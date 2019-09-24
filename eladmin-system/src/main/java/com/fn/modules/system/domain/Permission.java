@@ -1,4 +1,4 @@
-package me.zhengjie.modules.system.domain;
+package com.fn.modules.system.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 import java.util.Set;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-03
  */
 @Entity

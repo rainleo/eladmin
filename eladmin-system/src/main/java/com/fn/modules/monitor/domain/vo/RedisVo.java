@@ -1,4 +1,4 @@
-package me.zhengjie.modules.monitor.domain.vo;
+package com.fn.modules.monitor.domain.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,7 +8,7 @@ import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-10
  */
 @Data

@@ -1,4 +1,4 @@
-package me.zhengjie.domain.vo;
+package com.fn.domain.vo;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 
 /**
  * 交易详情，按需应该存入数据库，这里存入数据库，仅供临时测试
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-31
  */
 @Data

@@ -1,7 +1,7 @@
-package me.zhengjie.modules.system.repository;
+package com.fn.modules.system.repository;
 
-import me.zhengjie.modules.system.domain.Permission;
-import me.zhengjie.modules.system.domain.Role;
+import com.fn.modules.system.domain.Permission;
+import com.fn.modules.system.domain.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-03
  */
 public interface PermissionRepository extends JpaRepository<Permission, Long>, JpaSpecificationExecutor {

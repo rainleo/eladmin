@@ -1,5 +1,12 @@
-package me.zhengjie.service.impl;
+package com.fn.service.impl;
 
+import com.fn.exception.BadRequestException;
+import com.fn.repository.QiNiuConfigRepository;
+import com.fn.repository.QiniuContentRepository;
+import com.fn.utils.FileUtil;
+import com.fn.utils.PageUtil;
+import com.fn.utils.QueryHelp;
+import com.fn.utils.ValidationUtil;
 import com.google.gson.Gson;
 import com.qiniu.common.QiniuException;
 import com.qiniu.http.Response;
@@ -9,14 +16,14 @@ import com.qiniu.storage.UploadManager;
 import com.qiniu.storage.model.DefaultPutRet;
 import com.qiniu.storage.model.FileInfo;
 import com.qiniu.util.Auth;
-import me.zhengjie.domain.QiniuConfig;
-import me.zhengjie.domain.QiniuContent;
-import me.zhengjie.exception.BadRequestException;
-import me.zhengjie.repository.QiNiuConfigRepository;
-import me.zhengjie.repository.QiniuContentRepository;
-import me.zhengjie.service.QiNiuService;
-import me.zhengjie.service.dto.QiniuQueryCriteria;
-import me.zhengjie.utils.*;
+import com.fn.domain.QiniuConfig;
+import com.fn.domain.QiniuContent;
+import com.fn.exception.BadRequestException;
+import com.fn.repository.QiNiuConfigRepository;
+import com.fn.repository.QiniuContentRepository;
+import com.fn.service.QiNiuService;
+import com.fn.service.dto.QiniuQueryCriteria;
+import com.fn.utils.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Pageable;
@@ -27,7 +34,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.Optional;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-31
  */
 @Service

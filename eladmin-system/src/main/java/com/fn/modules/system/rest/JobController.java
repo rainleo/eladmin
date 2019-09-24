@@ -1,11 +1,14 @@
-package me.zhengjie.modules.system.rest;
+package com.fn.modules.system.rest;
 
-import me.zhengjie.aop.log.Log;
-import me.zhengjie.config.DataScope;
-import me.zhengjie.exception.BadRequestException;
-import me.zhengjie.modules.system.domain.Job;
-import me.zhengjie.modules.system.service.JobService;
-import me.zhengjie.modules.system.service.dto.JobQueryCriteria;
+import com.fn.modules.system.domain.Job;
+import com.fn.modules.system.service.JobService;
+import com.fn.modules.system.service.dto.JobQueryCriteria;
+import com.fn.aop.log.Log;
+import com.fn.config.DataScope;
+import com.fn.exception.BadRequestException;
+import com.fn.modules.system.domain.Job;
+import com.fn.modules.system.service.JobService;
+import com.fn.modules.system.service.dto.JobQueryCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -17,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 /**
-* @author Zheng Jie
+* @author leo
 * @date 2019-03-29
 */
 @RestController

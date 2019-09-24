@@ -1,11 +1,11 @@
-package me.zhengjie.utils;
+package com.fn.utils;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
 /**
  * 异常工具
- * @author Zheng Jie
+ * @author leo
  * @date 2019-01-06
  */
 public class ThrowableUtil {

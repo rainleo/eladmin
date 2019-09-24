@@ -1,15 +1,22 @@
-package me.zhengjie.modules.system.rest;
+package com.fn.modules.system.rest;
 
-import me.zhengjie.aop.log.Log;
-import me.zhengjie.modules.system.domain.Menu;
-import me.zhengjie.exception.BadRequestException;
-import me.zhengjie.modules.system.service.MenuService;
-import me.zhengjie.modules.system.service.RoleService;
-import me.zhengjie.modules.system.service.UserService;
-import me.zhengjie.modules.system.service.dto.MenuDTO;
-import me.zhengjie.modules.system.service.dto.MenuQueryCriteria;
-import me.zhengjie.modules.system.service.dto.UserDTO;
-import me.zhengjie.utils.SecurityUtils;
+import com.fn.modules.system.domain.Menu;
+import com.fn.modules.system.service.MenuService;
+import com.fn.modules.system.service.RoleService;
+import com.fn.modules.system.service.UserService;
+import com.fn.modules.system.service.dto.MenuDTO;
+import com.fn.modules.system.service.dto.MenuQueryCriteria;
+import com.fn.modules.system.service.dto.UserDTO;
+import com.fn.aop.log.Log;
+import com.fn.modules.system.domain.Menu;
+import com.fn.exception.BadRequestException;
+import com.fn.modules.system.service.MenuService;
+import com.fn.modules.system.service.RoleService;
+import com.fn.modules.system.service.UserService;
+import com.fn.modules.system.service.dto.MenuDTO;
+import com.fn.modules.system.service.dto.MenuQueryCriteria;
+import com.fn.modules.system.service.dto.UserDTO;
+import com.fn.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +26,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-03
  */
 @RestController

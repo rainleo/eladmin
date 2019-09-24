@@ -1,14 +1,15 @@
-package me.zhengjie.service;
+package com.fn.service;
 
-import me.zhengjie.domain.Picture;
-import me.zhengjie.service.dto.PictureQueryCriteria;
+import com.fn.service.dto.PictureQueryCriteria;
+import com.fn.domain.Picture;
+import com.fn.service.dto.PictureQueryCriteria;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.multipart.MultipartFile;
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-27
  */
 @CacheConfig(cacheNames = "picture")

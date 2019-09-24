@@ -1,10 +1,10 @@
-package me.zhengjie.exception.handler;
+package com.fn.exception.handler;
 
 import lombok.extern.slf4j.Slf4j;
-import me.zhengjie.exception.BadRequestException;
-import me.zhengjie.exception.EntityExistException;
-import me.zhengjie.exception.EntityNotFoundException;
-import me.zhengjie.utils.ThrowableUtil;
+import com.fn.exception.BadRequestException;
+import com.fn.exception.EntityExistException;
+import com.fn.exception.EntityNotFoundException;
+import com.fn.utils.ThrowableUtil;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import static org.springframework.http.HttpStatus.*;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-23
+ * @author leo
+ * @date 2019-09-23
  */
 @Slf4j
 @RestControllerAdvice

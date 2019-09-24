@@ -1,9 +1,10 @@
-package me.zhengjie.utils;
+package com.fn.utils;
 
 import cn.hutool.core.util.StrUtil;
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.internal.util.AlipaySignature;
-import me.zhengjie.domain.AlipayConfig;
+import com.fn.domain.AlipayConfig;
+import com.fn.domain.AlipayConfig;
 import org.springframework.stereotype.Component;
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;

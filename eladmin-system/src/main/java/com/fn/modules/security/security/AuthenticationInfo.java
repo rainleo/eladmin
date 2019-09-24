@@ -1,12 +1,12 @@
-package me.zhengjie.modules.security.security;
+package com.fn.modules.security.security;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import java.io.Serializable;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-23
+ * @author leo
+ * @date 2019-09-23
  * 返回token
  */
 @Getter

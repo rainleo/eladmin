@@ -1,4 +1,4 @@
-package me.zhengjie.utils;
+package com.fn.utils;
 
 import org.springframework.data.domain.Page;
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import java.util.Map;
 
 /**
  * 分页工具
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-10
  */
 public class PageUtil extends cn.hutool.core.util.PageUtil {

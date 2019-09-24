@@ -1,13 +1,18 @@
-package me.zhengjie.rest;
+package com.fn.rest;
 
+import com.fn.domain.AlipayConfig;
+import com.fn.domain.vo.TradeVo;
+import com.fn.service.AlipayService;
+import com.fn.utils.AliPayStatusEnum;
+import com.fn.utils.AlipayUtils;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import me.zhengjie.aop.log.Log;
-import me.zhengjie.domain.AlipayConfig;
-import me.zhengjie.domain.vo.TradeVo;
-import me.zhengjie.service.AlipayService;
-import me.zhengjie.utils.AliPayStatusEnum;
-import me.zhengjie.utils.AlipayUtils;
+import com.fn.aop.log.Log;
+import com.fn.domain.AlipayConfig;
+import com.fn.domain.vo.TradeVo;
+import com.fn.service.AlipayService;
+import com.fn.utils.AliPayStatusEnum;
+import com.fn.utils.AlipayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-31
  */
 @Slf4j

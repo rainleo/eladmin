@@ -1,4 +1,4 @@
-package me.zhengjie.modules.security.utils;
+package com.fn.modules.security.utils;
 
 import java.awt.Color;
 import java.awt.Font;

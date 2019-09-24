@@ -1,10 +1,15 @@
-package me.zhengjie.rest;
+package com.fn.rest;
 
-import me.zhengjie.domain.VerificationCode;
-import me.zhengjie.domain.vo.EmailVo;
-import me.zhengjie.service.EmailService;
-import me.zhengjie.service.VerificationCodeService;
-import me.zhengjie.utils.ElAdminConstant;
+import com.fn.domain.VerificationCode;
+import com.fn.domain.vo.EmailVo;
+import com.fn.service.EmailService;
+import com.fn.service.VerificationCodeService;
+import com.fn.utils.ElAdminConstant;
+import com.fn.domain.VerificationCode;
+import com.fn.domain.vo.EmailVo;
+import com.fn.service.EmailService;
+import com.fn.service.VerificationCodeService;
+import com.fn.utils.ElAdminConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -13,7 +18,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-26
  */
 @RestController

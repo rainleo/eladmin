@@ -1,11 +1,11 @@
-package me.zhengjie.utils;
+package com.fn.utils;
 
 import org.apache.commons.configuration.*;
 
 /**
  * sql字段转java
  *
- * @author Zheng Jie
+ * @author leo
  * @date 2019-01-03
  */
 public class ColUtil {

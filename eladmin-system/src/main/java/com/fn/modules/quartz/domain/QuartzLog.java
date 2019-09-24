@@ -1,4 +1,4 @@
-package me.zhengjie.modules.quartz.domain;
+package com.fn.modules.quartz.domain;
 
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2019-01-07
  */
 @Entity

@@ -1,4 +1,4 @@
-package me.zhengjie.modules.system.service.dto;
+package com.fn.modules.system.service.dto;
 
 import lombok.Data;
 import lombok.Getter;
@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 import java.io.Serializable;
 
 /**
-* @author Zheng Jie
+* @author leo
 * @date 2019-03-29
 */
 @Data

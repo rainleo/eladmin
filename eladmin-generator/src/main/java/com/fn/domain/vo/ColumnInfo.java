@@ -1,4 +1,4 @@
-package me.zhengjie.domain.vo;
+package com.fn.domain.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * 列的数据信息
- * @author Zheng Jie
+ * @author leo
  * @date 2019-01-02
  */
 @Data

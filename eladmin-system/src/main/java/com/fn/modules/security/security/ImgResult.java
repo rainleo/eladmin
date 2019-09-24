@@ -1,10 +1,10 @@
-package me.zhengjie.modules.security.security;
+package com.fn.modules.security.security;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2019-6-5 17:29:57
  */
 @Data

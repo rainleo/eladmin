@@ -1,10 +1,10 @@
-package me.zhengjie.repository;
+package com.fn.repository;
 
-import me.zhengjie.domain.VerificationCode;
+import com.fn.domain.VerificationCode;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-26
  */
 public interface VerificationCodeRepository extends JpaRepository<VerificationCode, Long> {

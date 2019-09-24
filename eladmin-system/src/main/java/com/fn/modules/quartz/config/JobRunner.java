@@ -1,8 +1,10 @@
-package me.zhengjie.modules.quartz.config;
+package com.fn.modules.quartz.config;
 
-import me.zhengjie.modules.quartz.domain.QuartzJob;
-import me.zhengjie.modules.quartz.repository.QuartzJobRepository;
-import me.zhengjie.modules.quartz.utils.QuartzManage;
+import com.fn.modules.quartz.domain.QuartzJob;
+import com.fn.modules.quartz.repository.QuartzJobRepository;
+import com.fn.modules.quartz.domain.QuartzJob;
+import com.fn.modules.quartz.repository.QuartzJobRepository;
+import com.fn.modules.quartz.utils.QuartzManage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -11,7 +13,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2019-01-07
  */
 @Component

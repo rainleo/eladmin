@@ -1,12 +1,12 @@
-package me.zhengjie.modules.monitor.service;
+package com.fn.modules.monitor.service;
 
-import me.zhengjie.modules.monitor.domain.vo.RedisVo;
+import com.fn.modules.monitor.domain.vo.RedisVo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 /**
  * 可自行扩展
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-10
  */
 public interface RedisService {

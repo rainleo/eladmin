@@ -1,10 +1,12 @@
-package me.zhengjie.aspect;
+package com.fn.aspect;
 
+import com.fn.annotation.Limit;
+import com.fn.exception.BadRequestException;
 import com.google.common.collect.ImmutableList;
-import me.zhengjie.annotation.Limit;
-import me.zhengjie.exception.BadRequestException;
-import me.zhengjie.utils.RequestHolder;
-import me.zhengjie.utils.StringUtils;
+import com.fn.annotation.Limit;
+import com.fn.exception.BadRequestException;
+import com.fn.utils.RequestHolder;
+import com.fn.utils.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -28,7 +30,7 @@ public class LimitAspect {
     private static final Logger logger = LoggerFactory.getLogger(LimitAspect.class);
 
 
-    @Pointcut("@annotation(me.zhengjie.annotation.Limit)")
+    @Pointcut("@annotation(com.fn.annotation.Limit)")
     public void pointcut() {
     }
 

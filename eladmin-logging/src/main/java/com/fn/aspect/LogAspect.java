@@ -1,13 +1,19 @@
-package me.zhengjie.aspect;
+package com.fn.aspect;
 
+import com.fn.domain.Log;
+import com.fn.service.LogService;
+import com.fn.utils.RequestHolder;
+import com.fn.utils.SecurityUtils;
+import com.fn.utils.StringUtils;
+import com.fn.utils.ThrowableUtil;
 import lombok.extern.slf4j.Slf4j;
-import me.zhengjie.domain.Log;
-import me.zhengjie.exception.BadRequestException;
-import me.zhengjie.service.LogService;
-import me.zhengjie.utils.RequestHolder;
-import me.zhengjie.utils.SecurityUtils;
-import me.zhengjie.utils.StringUtils;
-import me.zhengjie.utils.ThrowableUtil;
+import com.fn.domain.Log;
+import com.fn.exception.BadRequestException;
+import com.fn.service.LogService;
+import com.fn.utils.RequestHolder;
+import com.fn.utils.SecurityUtils;
+import com.fn.utils.StringUtils;
+import com.fn.utils.ThrowableUtil;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.AfterThrowing;
@@ -20,8 +26,8 @@ import org.springframework.stereotype.Component;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-24
+ * @author leo
+ * @date 2019-09-24
  */
 @Component
 @Aspect
@@ -36,7 +42,7 @@ public class LogAspect {
     /**
      * 配置切入点
      */
-    @Pointcut("@annotation(me.zhengjie.aop.log.Log)")
+    @Pointcut("@annotation(com.fn.aop.log.Log)")
     public void logPointcut() {
         // 该方法无方法体,主要为了让同类中其他方法使用此切入点
     }

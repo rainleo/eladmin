@@ -1,14 +1,17 @@
-package me.zhengjie.service.impl;
+package com.fn.service.impl;
 
 import cn.hutool.core.util.ObjectUtil;
-import me.zhengjie.domain.GenConfig;
-import me.zhengjie.domain.vo.ColumnInfo;
-import me.zhengjie.domain.vo.TableInfo;
-import me.zhengjie.exception.BadRequestException;
-import me.zhengjie.service.GeneratorService;
-import me.zhengjie.utils.GenUtil;
-import me.zhengjie.utils.PageUtil;
-import me.zhengjie.utils.StringUtils;
+import com.fn.exception.BadRequestException;
+import com.fn.utils.PageUtil;
+import com.fn.utils.StringUtils;
+import com.fn.domain.GenConfig;
+import com.fn.domain.vo.ColumnInfo;
+import com.fn.domain.vo.TableInfo;
+import com.fn.exception.BadRequestException;
+import com.fn.service.GeneratorService;
+import com.fn.utils.GenUtil;
+import com.fn.utils.PageUtil;
+import com.fn.utils.StringUtils;
 import org.springframework.stereotype.Service;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -18,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2019-01-02
  */
 @Service

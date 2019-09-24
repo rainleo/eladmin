@@ -1,10 +1,10 @@
-package me.zhengjie.service;
+package com.fn.service;
 
-import me.zhengjie.domain.VerificationCode;
-import me.zhengjie.domain.vo.EmailVo;
+import com.fn.domain.VerificationCode;
+import com.fn.domain.vo.EmailVo;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-26
  */
 public interface VerificationCodeService {

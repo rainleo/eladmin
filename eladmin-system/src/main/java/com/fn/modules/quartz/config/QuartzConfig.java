@@ -1,4 +1,4 @@
-package me.zhengjie.modules.quartz.config;
+package com.fn.modules.quartz.config;
 
 import org.quartz.Scheduler;
 import org.quartz.spi.TriggerFiredBundle;

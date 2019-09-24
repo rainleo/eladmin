@@ -1,17 +1,19 @@
-package me.zhengjie.modules.system.service;
+package com.fn.modules.system.service;
 
-import me.zhengjie.modules.system.domain.User;
-import me.zhengjie.modules.security.security.JwtUser;
-import me.zhengjie.modules.system.service.dto.UserDTO;
-import me.zhengjie.modules.system.service.dto.UserQueryCriteria;
+import com.fn.modules.system.service.dto.UserDTO;
+import com.fn.modules.system.service.dto.UserQueryCriteria;
+import com.fn.modules.system.domain.User;
+import com.fn.modules.security.security.JwtUser;
+import com.fn.modules.system.service.dto.UserDTO;
+import com.fn.modules.system.service.dto.UserQueryCriteria;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Pageable;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-23
+ * @author leo
+ * @date 2019-09-23
  */
 @CacheConfig(cacheNames = "user")
 public interface UserService {

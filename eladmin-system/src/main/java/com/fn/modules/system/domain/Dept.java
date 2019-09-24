@@ -1,4 +1,4 @@
-package me.zhengjie.modules.system.domain;
+package com.fn.modules.system.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
@@ -11,7 +11,7 @@ import java.io.Serializable;
 import java.util.Set;
 
 /**
-* @author Zheng Jie
+* @author leo
 * @date 2019-03-25
 */
 @Entity

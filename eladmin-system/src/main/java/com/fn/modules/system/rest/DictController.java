@@ -1,11 +1,14 @@
-package me.zhengjie.modules.system.rest;
+package com.fn.modules.system.rest;
 
-import me.zhengjie.aop.log.Log;
-import me.zhengjie.exception.BadRequestException;
-import me.zhengjie.modules.system.domain.Dict;
-import me.zhengjie.modules.system.service.DictService;
-import me.zhengjie.modules.system.service.dto.DictDTO;
-import me.zhengjie.modules.system.service.dto.DictQueryCriteria;
+import com.fn.modules.system.domain.Dict;
+import com.fn.modules.system.service.DictService;
+import com.fn.modules.system.service.dto.DictQueryCriteria;
+import com.fn.aop.log.Log;
+import com.fn.exception.BadRequestException;
+import com.fn.modules.system.domain.Dict;
+import com.fn.modules.system.service.DictService;
+import com.fn.modules.system.service.dto.DictDTO;
+import com.fn.modules.system.service.dto.DictQueryCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -15,7 +18,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
-* @author Zheng Jie
+* @author leo
 * @date 2019-04-10
 */
 @RestController

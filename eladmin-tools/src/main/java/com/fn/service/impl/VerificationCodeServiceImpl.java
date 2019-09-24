@@ -1,4 +1,4 @@
-package me.zhengjie.service.impl;
+package com.fn.service.impl;
 
 import cn.hutool.core.lang.Dict;
 import cn.hutool.core.util.RandomUtil;
@@ -6,11 +6,13 @@ import cn.hutool.extra.template.Template;
 import cn.hutool.extra.template.TemplateConfig;
 import cn.hutool.extra.template.TemplateEngine;
 import cn.hutool.extra.template.TemplateUtil;
-import me.zhengjie.domain.VerificationCode;
-import me.zhengjie.domain.vo.EmailVo;
-import me.zhengjie.exception.BadRequestException;
-import me.zhengjie.repository.VerificationCodeRepository;
-import me.zhengjie.service.VerificationCodeService;
+import com.fn.exception.BadRequestException;
+import com.fn.repository.VerificationCodeRepository;
+import com.fn.domain.VerificationCode;
+import com.fn.domain.vo.EmailVo;
+import com.fn.exception.BadRequestException;
+import com.fn.repository.VerificationCodeRepository;
+import com.fn.service.VerificationCodeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -20,7 +22,7 @@ import java.util.Arrays;
 import java.util.concurrent.*;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-26
  */
 @Service

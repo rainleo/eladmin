@@ -1,12 +1,16 @@
-package me.zhengjie.modules.system.rest;
+package com.fn.modules.system.rest;
 
-import me.zhengjie.aop.log.Log;
-import me.zhengjie.config.DataScope;
-import me.zhengjie.exception.BadRequestException;
-import me.zhengjie.modules.system.domain.Dept;
-import me.zhengjie.modules.system.service.DeptService;
-import me.zhengjie.modules.system.service.dto.DeptDTO;
-import me.zhengjie.modules.system.service.dto.DeptQueryCriteria;
+import com.fn.modules.system.domain.Dept;
+import com.fn.modules.system.service.DeptService;
+import com.fn.modules.system.service.dto.DeptDTO;
+import com.fn.modules.system.service.dto.DeptQueryCriteria;
+import com.fn.aop.log.Log;
+import com.fn.config.DataScope;
+import com.fn.exception.BadRequestException;
+import com.fn.modules.system.domain.Dept;
+import com.fn.modules.system.service.DeptService;
+import com.fn.modules.system.service.dto.DeptDTO;
+import com.fn.modules.system.service.dto.DeptQueryCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
-* @author Zheng Jie
+* @author leo
 * @date 2019-03-25
 */
 @RestController

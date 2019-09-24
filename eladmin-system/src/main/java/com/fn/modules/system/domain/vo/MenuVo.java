@@ -1,4 +1,4 @@
-package me.zhengjie.modules.system.domain.vo;
+package com.fn.modules.system.domain.vo;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * 构建前端路由时用到
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-20
  */
 @Data

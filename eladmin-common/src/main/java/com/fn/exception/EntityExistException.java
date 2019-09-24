@@ -1,4 +1,4 @@
-package me.zhengjie.exception;
+package com.fn.exception;
 
 import org.springframework.util.StringUtils;
 
@@ -7,8 +7,8 @@ import java.util.Map;
 import java.util.stream.IntStream;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-23
+ * @author leo
+ * @date 2019-09-23
  */
 public class EntityExistException extends RuntimeException {
 

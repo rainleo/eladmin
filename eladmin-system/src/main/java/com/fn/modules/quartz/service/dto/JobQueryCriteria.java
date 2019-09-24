@@ -1,10 +1,10 @@
-package me.zhengjie.modules.quartz.service.dto;
+package com.fn.modules.quartz.service.dto;
 
 import lombok.Data;
-import me.zhengjie.annotation.Query;
+import com.fn.annotation.Query;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2019-6-4 10:33:02
  */
 @Data

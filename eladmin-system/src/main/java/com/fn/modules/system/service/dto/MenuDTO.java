@@ -1,4 +1,4 @@
-package me.zhengjie.modules.system.service.dto;
+package com.fn.modules.system.service.dto;
 
 import lombok.Data;
 
@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-17
  */
 @Data

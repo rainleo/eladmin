@@ -1,14 +1,16 @@
-package me.zhengjie.modules.system.service.impl;
+package com.fn.modules.system.service.impl;
 
-import me.zhengjie.exception.BadRequestException;
-import me.zhengjie.modules.system.domain.Dept;
-import me.zhengjie.modules.system.service.dto.DeptQueryCriteria;
-import me.zhengjie.utils.QueryHelp;
-import me.zhengjie.utils.ValidationUtil;
-import me.zhengjie.modules.system.repository.DeptRepository;
-import me.zhengjie.modules.system.service.DeptService;
-import me.zhengjie.modules.system.service.dto.DeptDTO;
-import me.zhengjie.modules.system.service.mapper.DeptMapper;
+import com.fn.modules.system.repository.DeptRepository;
+import com.fn.modules.system.service.mapper.DeptMapper;
+import com.fn.exception.BadRequestException;
+import com.fn.modules.system.domain.Dept;
+import com.fn.modules.system.service.dto.DeptQueryCriteria;
+import com.fn.utils.QueryHelp;
+import com.fn.utils.ValidationUtil;
+import com.fn.modules.system.repository.DeptRepository;
+import com.fn.modules.system.service.DeptService;
+import com.fn.modules.system.service.dto.DeptDTO;
+import com.fn.modules.system.service.mapper.DeptMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -18,7 +20,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
-* @author Zheng Jie
+* @author leo
 * @date 2019-03-25
 */
 @Service

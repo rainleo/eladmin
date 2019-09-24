@@ -1,4 +1,4 @@
-package me.zhengjie.modules.security.security;
+package com.fn.modules.security.security;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -6,7 +6,7 @@ import lombok.Setter;
 import javax.validation.constraints.NotBlank;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2018-11-30
  */
 @Getter

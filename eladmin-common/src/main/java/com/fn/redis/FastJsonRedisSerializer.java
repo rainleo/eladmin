@@ -1,4 +1,4 @@
-package me.zhengjie.redis;
+package com.fn.redis;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;

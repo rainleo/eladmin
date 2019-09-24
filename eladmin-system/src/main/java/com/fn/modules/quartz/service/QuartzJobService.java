@@ -1,15 +1,16 @@
-package me.zhengjie.modules.quartz.service;
+package com.fn.modules.quartz.service;
 
-import me.zhengjie.modules.quartz.domain.QuartzJob;
-import me.zhengjie.modules.quartz.domain.QuartzLog;
-import me.zhengjie.modules.quartz.service.dto.JobQueryCriteria;
+import com.fn.modules.quartz.service.dto.JobQueryCriteria;
+import com.fn.modules.quartz.domain.QuartzJob;
+import com.fn.modules.quartz.domain.QuartzLog;
+import com.fn.modules.quartz.service.dto.JobQueryCriteria;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Pageable;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2019-01-07
  */
 @CacheConfig(cacheNames = "quartzJob")

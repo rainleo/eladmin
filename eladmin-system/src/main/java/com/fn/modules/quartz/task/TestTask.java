@@ -1,11 +1,11 @@
-package me.zhengjie.modules.quartz.task;
+package com.fn.modules.quartz.task;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 /**
  * 测试用
- * @author Zheng Jie
+ * @author leo
  * @date 2019-01-08
  */
 @Slf4j

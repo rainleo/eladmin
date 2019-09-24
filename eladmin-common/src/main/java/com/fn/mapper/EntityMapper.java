@@ -1,10 +1,10 @@
-package me.zhengjie.mapper;
+package com.fn.mapper;
 
 import java.util.List;
 
 /**
- * @author Zheng Jie
- * @date 2018-11-23
+ * @author leo
+ * @date 2019-09-23
  */
 public interface EntityMapper<D, E> {
 

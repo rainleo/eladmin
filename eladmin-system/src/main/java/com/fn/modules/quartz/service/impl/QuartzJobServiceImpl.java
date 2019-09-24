@@ -1,15 +1,16 @@
-package me.zhengjie.modules.quartz.service.impl;
+package com.fn.modules.quartz.service.impl;
 
-import me.zhengjie.exception.BadRequestException;
-import me.zhengjie.modules.quartz.domain.QuartzJob;
-import me.zhengjie.modules.quartz.repository.QuartzJobRepository;
-import me.zhengjie.modules.quartz.repository.QuartzLogRepository;
-import me.zhengjie.modules.quartz.service.QuartzJobService;
-import me.zhengjie.modules.quartz.service.dto.JobQueryCriteria;
-import me.zhengjie.modules.quartz.utils.QuartzManage;
-import me.zhengjie.utils.PageUtil;
-import me.zhengjie.utils.QueryHelp;
-import me.zhengjie.utils.ValidationUtil;
+import com.fn.modules.quartz.repository.QuartzJobRepository;
+import com.fn.exception.BadRequestException;
+import com.fn.modules.quartz.domain.QuartzJob;
+import com.fn.modules.quartz.repository.QuartzJobRepository;
+import com.fn.modules.quartz.repository.QuartzLogRepository;
+import com.fn.modules.quartz.service.QuartzJobService;
+import com.fn.modules.quartz.service.dto.JobQueryCriteria;
+import com.fn.modules.quartz.utils.QuartzManage;
+import com.fn.utils.PageUtil;
+import com.fn.utils.QueryHelp;
+import com.fn.utils.ValidationUtil;
 import org.quartz.CronExpression;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -19,7 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2019-01-07
  */
 @Service(value = "quartzJobService")

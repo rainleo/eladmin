@@ -1,10 +1,12 @@
-package me.zhengjie.utils;
+package com.fn.utils;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.template.*;
+import com.fn.domain.GenConfig;
+import com.fn.domain.vo.ColumnInfo;
 import lombok.extern.slf4j.Slf4j;
-import me.zhengjie.domain.GenConfig;
-import me.zhengjie.domain.vo.ColumnInfo;
+import com.fn.domain.GenConfig;
+import com.fn.domain.vo.ColumnInfo;
 import org.springframework.util.ObjectUtils;
 import java.io.File;
 import java.io.FileWriter;
@@ -18,7 +20,7 @@ import java.util.Map;
 
 /**
  * 代码生成
- * @author Zheng Jie
+ * @author leo
  * @date 2019-01-02
  */
 @Slf4j

@@ -1,4 +1,4 @@
-package me.zhengjie.modules.system.domain;
+package com.fn.modules.system.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
@@ -14,8 +14,8 @@ import java.util.Set;
 
 /**
  * 角色
- * @author Zheng Jie
- * @date 2018-11-22
+ * @author leo
+ * @date 2019-09-22
  */
 @Entity
 @Table(name = "role")

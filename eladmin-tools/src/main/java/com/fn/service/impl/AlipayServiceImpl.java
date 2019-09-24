@@ -1,15 +1,17 @@
-package me.zhengjie.service.impl;
+package com.fn.service.impl;
 
 import com.alipay.api.AlipayClient;
 import com.alipay.api.DefaultAlipayClient;
 import com.alipay.api.request.AlipayTradePagePayRequest;
 import com.alipay.api.request.AlipayTradeWapPayRequest;
-import me.zhengjie.domain.AlipayConfig;
-import me.zhengjie.domain.vo.TradeVo;
-import me.zhengjie.exception.BadRequestException;
-import me.zhengjie.repository.AlipayRepository;
-import me.zhengjie.service.AlipayService;
-import me.zhengjie.utils.AlipayUtils;
+import com.fn.exception.BadRequestException;
+import com.fn.repository.AlipayRepository;
+import com.fn.domain.AlipayConfig;
+import com.fn.domain.vo.TradeVo;
+import com.fn.exception.BadRequestException;
+import com.fn.repository.AlipayRepository;
+import com.fn.service.AlipayService;
+import com.fn.utils.AlipayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -17,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 /**
- * @author Zheng Jie
+ * @author leo
  * @date 2018-12-31
  */
 @Service

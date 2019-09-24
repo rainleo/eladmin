@@ -1,14 +1,16 @@
-package me.zhengjie.modules.system.service.impl;
+package com.fn.modules.system.service.impl;
 
-import me.zhengjie.modules.system.domain.Dict;
-import me.zhengjie.modules.system.service.dto.DictQueryCriteria;
-import me.zhengjie.utils.PageUtil;
-import me.zhengjie.utils.QueryHelp;
-import me.zhengjie.utils.ValidationUtil;
-import me.zhengjie.modules.system.repository.DictRepository;
-import me.zhengjie.modules.system.service.DictService;
-import me.zhengjie.modules.system.service.dto.DictDTO;
-import me.zhengjie.modules.system.service.mapper.DictMapper;
+import com.fn.modules.system.repository.DictRepository;
+import com.fn.modules.system.service.mapper.DictMapper;
+import com.fn.modules.system.domain.Dict;
+import com.fn.modules.system.service.dto.DictQueryCriteria;
+import com.fn.utils.PageUtil;
+import com.fn.utils.QueryHelp;
+import com.fn.utils.ValidationUtil;
+import com.fn.modules.system.repository.DictRepository;
+import com.fn.modules.system.service.DictService;
+import com.fn.modules.system.service.dto.DictDTO;
+import com.fn.modules.system.service.mapper.DictMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,7 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 /**
-* @author Zheng Jie
+* @author leo
 * @date 2019-04-10
 */
 @Service
