@@ -120,7 +120,9 @@ public class UserServiceImpl implements UserService {
         User user = null;
         if(ValidationUtil.isEmail(userName)){
             user = userRepository.findByEmail(userName);
-        } else {
+        } else if(ValidationUtil.isPhone(userName)){
+            user = userRepository.findByPhone(userName);
+        }else{
             user = userRepository.findByUsername(userName);
         }
         if (user == null) {

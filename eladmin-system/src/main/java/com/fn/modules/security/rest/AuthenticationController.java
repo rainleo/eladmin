@@ -125,4 +125,27 @@ public class AuthenticationController {
             stream.close();
         }
     }
+
+    /**
+     * 登录授权
+     * @param authorizationUser
+     * @return
+     */
+    @Log("app用户登录")
+    @PostMapping(value = "applogin")
+    public ResponseEntity applogin(@Validated @RequestBody AuthorizationUser authorizationUser){
+        final JwtUser jwtUser = (JwtUser) userDetailsService.loadUserByUsername(authorizationUser.getUsername());
+        if(!jwtUser.getPassword().equals(EncryptUtils.encryptPassword(authorizationUser.getPassword()))){
+            throw new AccountExpiredException("密码错误");
+        }
+        if(!jwtUser.isEnabled()){
+            throw new AccountExpiredException("账号已停用，请联系管理员");
+        }
+        // 生成令牌
+        final String token = jwtTokenUtil.generateToken(jwtUser);
+
+        // 返回 token
+        return ResponseEntity.ok(new AuthenticationInfo(token,jwtUser));
+    }
+
 }

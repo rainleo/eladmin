@@ -36,4 +36,16 @@ public class ValidationUtil{
         String regEx1 = "^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";
         return string.matches(regEx1);
     }
+    /**
+     * 验证是否为手机
+     * @param string
+     * @return
+     */
+    public static boolean isPhone(String string) {
+        if (string == null){
+            return false;
+        }
+        String regEx1 = "^((13[0-9])|(14[5-9])|(15([0-3]|[5-9]))|(16([5,6])|(17[0-8])|(18[0-9]))|(19[1,8,9]))\\d{8}$";
+        return string.matches(regEx1);
+    }
 }
