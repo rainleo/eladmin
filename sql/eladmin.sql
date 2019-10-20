@@ -640,3 +640,70 @@ CREATE TABLE `visits` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_11aksgq87euk9bcyeesfs4vtp` (`date`)
 ) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
+
+
+-- ----------------------------
+-- 新增表2019-10-20
+-- ----------------------------
+
+DROP TABLE IF EXISTS `accounting_subjects`;
+CREATE TABLE `accounting_subjects` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '自增主键ID',
+  `subject_code` varchar(50) NOT NULL COMMENT '科目代码',
+  `subject_name` varchar(50) NOT NULL COMMENT '科目名称',
+  `auxiliary_account_type` varchar(50) DEFAULT '' COMMENT '辅助账类型',
+  `item_details` varchar(255) DEFAULT '' COMMENT '辅助核算项目明细',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updatetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  KEY `ix_subject_code` (`subject_code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='会计科目表';
+
+-- ----------------------------
+DROP TABLE IF EXISTS `application_documents`;
+CREATE TABLE `application_documents` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '自增主键ID',
+  `application_no` varchar(50) NOT NULL COMMENT '申请单据号',
+  `dept_id` bigint(20) DEFAULT NULL COMMENT '部门ID，来自dept.id',
+  `user_id` bigint(20) NOT NULL COMMENT '申请人，来自user.id',
+  `accounting_subjects_id` bigint(20) DEFAULT NULL COMMENT '事项，关联会计科目ID,来自accounting_subjects.id',
+  `application_description` varchar(255) DEFAULT '' COMMENT '申请事项描述',
+  `amount` decimal(20,0) DEFAULT '0' COMMENT '金额',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updatetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  KEY `ix_application_no` (`application_no`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='申请单据表';
+
+-- ----------------------------
+
+DROP TABLE IF EXISTS `reimbursement_documents`;
+CREATE TABLE `reimbursement_documents` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '自增主键ID',
+  `reimbursement_no` varchar(50) NOT NULL COMMENT '报销单据号',
+  `dept_id` bigint(20) DEFAULT NULL COMMENT '部门ID，来自dept.id',
+  `user_id` bigint(20) NOT NULL COMMENT '报销人，来自user.id',
+  `reimbursement_abstract` varchar(255) DEFAULT '' COMMENT '报销摘要',
+  `amount` decimal(20,0) DEFAULT '0' COMMENT '报销金额',
+  `attachment` varchar(255) DEFAULT '' COMMENT '附件',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updatetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  KEY `ix_reimbursement_no` (`reimbursement_no`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='报销单据表';
+
+-- ----------------------------
+
+DROP TABLE IF EXISTS `document_reviewer`;
+CREATE TABLE `document_reviewer` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '自增主键ID',
+  `document_id` bigint(20) DEFAULT NULL COMMENT '申请单据id,来自application_documents.id',
+  `user_id` bigint(20) DEFAULT NULL COMMENT '申请人，来自user.id',
+  `user_name` varchar(255) DEFAULT '' COMMENT '审核人，来自user.name',
+  `sort` tinyint(3) DEFAULT '1' COMMENT '审核级数，从1开始',
+  `source` tinyint(3) DEFAULT '0' COMMENT '来源（0:申请流程,1:报销流程）',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  KEY `ix_document_id` (`document_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='单据-审核人中间表';

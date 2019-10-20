@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fn.modules.documents.dao.IReimbursementDocumentsDao">
+	<!-- 基础映射关系 -->
+	<resultMap id="BaseResultMap" type="com.fn.modules.documents.entity.ReimbursementDocuments">
+			<id column="id" property="id"/>
+			<id column="reimbursement_no" property="reimbursementNo"/>
+			<id column="dept_id" property="deptId"/>
+			<id column="user_id" property="userId"/>
+			<id column="reimbursement_abstract" property="reimbursementAbstract"/>
+			<id column="amount" property="amount"/>
+			<id column="attachment" property="attachment"/>
+			<id column="create_time" property="createTime"/>
+			<id column="updatetime" property="updatetime"/>
+	</resultMap>
+	<!-- 基础sql -->
+	<sql id="Base_Column_List">
+		id, reimbursement_no, dept_id, user_id, reimbursement_abstract, amount, attachment, create_time, updatetime
+	</sql>
+
+</mapper>
+
+

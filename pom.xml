@@ -36,9 +36,14 @@
         <swagger.version>2.9.2</swagger.version>
         <fastjson.version>1.2.54</fastjson.version>
         <druid.version>1.1.10</druid.version>
-        <hutool.version>[4.1.12,)</hutool.version>
+        <hutool.version>5.0.1</hutool.version>
         <commons-pool2.version>2.5.0</commons-pool2.version>
         <mapstruct.version>1.2.0.Final</mapstruct.version>
+
+        <mybatis-plus.version>3.1.2</mybatis-plus.version>
+        <logback-classic.version>1.2.3</logback-classic.version>
+        <slf4j-api.version>1.7.25</slf4j-api.version>
+        <slf4j-log4j12.version>1.7.25</slf4j-log4j12.version>
     </properties>
 
     <dependencies>
@@ -178,6 +183,36 @@
             <groupId>javax.inject</groupId>
             <artifactId>javax.inject</artifactId>
             <version>1</version>
+        </dependency>
+
+        <!-- mybatisPlus 核心库 -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>${mybatis-plus.version}</version>
+        </dependency>
+        <!-- 代码自动生成库 -->
+        <dependency>
+            <groupId>com.github.flying-cattle</groupId>
+            <artifactId>mybatis-dsc-generator</artifactId>
+            <version>3.0.6.RELEASE</version>
+        </dependency>
+
+        <!-- 日志 -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback-classic.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j-log4j12.version}</version>
         </dependency>
     </dependencies>
 
