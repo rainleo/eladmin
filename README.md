@@ -1,12 +1,5 @@
 <h1 style="text-align: center">el-admin 后台管理系统</h1>
-<div style="text-align: center">
 
-[![AUR](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg)](https://github.com/elunez/eladmin/blob/master/LICENSE)
-[![star](https://gitee.com/elunez/eladmin/badge/star.svg?theme=white)](https://gitee.com/elunez/eladmin)
-[![GitHub stars](https://img.shields.io/github/stars/elunez/eladmin.svg?style=social&label=Stars)](https://github.com/elunez/eladmin)
-[![GitHub forks](https://img.shields.io/github/forks/elunez/eladmin.svg?style=social&label=Fork)](https://github.com/elunez/eladmin)
-
-</div>
 
 #### 项目简介
 eladmin基于 Spring Boot 2.1.0 、 Jpa、 Spring Security、redis、Vue的前后端分离的后台管理系统， 权限控制的方式为RBAC，项目支持数据字典与数据权限管理，支持一键生成前后端代码，支持前端菜单动态路由
@@ -21,8 +14,7 @@ eladmin基于 Spring Boot 2.1.0 、 Jpa、 Spring Security、redis、Vue的前�
 
 |     |   后端源码  |   前端源码  |
 |---  |--- | --- |
-|  github   |  https://github.com/elunez/eladmin   |  https://github.com/elunez/eladmin-qd   |
-|  码云   |  https://gitee.com/elunez/eladmin   |  https://gitee.com/elunez/eladmin-qt   |
+|  github   | https://github.com/rainleo/eladmin   |  https://github.com/rainleo/eladmin-qd   |
 
 ####  系统功能
 - 用户管理：提供用户的相关配置，新增用户后，默认密码为123456
@@ -58,26 +50,4 @@ eladmin基于 Spring Boot 2.1.0 、 Jpa、 Spring Security、redis、Vue的前�
 - eladmin-tools 系统第三方工具模块
 - eladmin-generator 系统代码生成模块
 
-#### 系统预览
-<table>
-    <tr>
-        <td><img src="https://i.loli.net/2019/05/18/5cdf77fa8144d68788.png"/></td>
-        <td><img src="https://i.loli.net/2019/05/18/5cdf7763993e361778.png"/></td>
-    </tr>
-    <tr>
-        <td><img src="https://i.loli.net/2019/05/18/5cdf7763971d453615.png"/></td>
-        <td><img src="https://i.loli.net/2019/05/18/5cdf77632e85a60423.png"/></td>
-    </tr>
-    <tr>
-        <td><img src="https://i.loli.net/2019/05/18/5cdf77632b4b090165.png"/></td>
-        <td><img src="https://i.loli.net/2019/05/18/5cdf77639929277783.png"/></td>
-    </tr>
-    <tr>   
- <td><img src="https://i.loli.net/2019/05/18/5cdf78969adc389599.png"/></td>
-    </tr>
-</table>
 
-#### 项目捐赠
-如果你用爽了，可以请作者喝杯咖啡表示支持 ☕️！ [Donate](https://docs.auauz.net/#/jz)
-#### 反馈交流
-- QQ交流群：891137268
