@@ -1,26 +1,93 @@
-/**
- * @filename:ApplicationDocumentsServiceImpl 2019-10-20 20:51:43
- * @project eladmin  V1.0
- * Copyright(c) 2018 smile Co. Ltd. 
- * All right reserved. 
- */
 package com.fn.modules.documents.service.impl;
 
-import com.fn.modules.documents.entity.ApplicationDocuments;
-
-import com.fn.modules.documents.dao.IApplicationDocumentsDao;
-import com.fn.modules.documents.service.IApplicationDocumentsService;
-
+import com.fn.modules.documents.domain.ApplicationDocuments;
+import com.fn.modules.documents.domain.DocumentReviewer;
+import com.fn.modules.documents.repository.DocumentReviewerRepository;
+import com.fn.utils.ValidationUtil;
+import com.fn.modules.documents.repository.ApplicationDocumentsRepository;
+import com.fn.modules.documents.service.ApplicationDocumentsService;
+import com.fn.modules.documents.service.dto.ApplicationDocumentsDTO;
+import com.fn.modules.documents.service.dto.ApplicationDocumentsQueryCriteria;
+import com.fn.modules.documents.service.mapper.ApplicationDocumentsMapper;
+import com.fn.utils.twitter.SnowflakeIdUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
-/**   
- *
- * <p>说明： 申请单据服务实现层</P>
- * @version: V1.0
- * @author: smile
- * 
+import java.util.Optional;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import com.fn.utils.PageUtil;
+import com.fn.utils.QueryHelp;
+
+/**
+ * @author jie
+ * @date 2019-11-04
  */
 @Service
-public class ApplicationDocumentsServiceImpl  extends ServiceImpl<IApplicationDocumentsDao, ApplicationDocuments> implements IApplicationDocumentsService  {
+@Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
+public class ApplicationDocumentsServiceImpl implements ApplicationDocumentsService {
+
+    @Autowired
+    private ApplicationDocumentsRepository applicationDocumentsRepository;
+
+    @Autowired
+    private ApplicationDocumentsMapper applicationDocumentsMapper;
+
+    @Autowired
+    private DocumentReviewerRepository documentReviewerRepository;
+
+    @Override
+    public Object queryAll(ApplicationDocumentsQueryCriteria criteria, Pageable pageable) {
+        Page<ApplicationDocuments> page = applicationDocumentsRepository.findAll((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root, criteria, criteriaBuilder), pageable);
+        return PageUtil.toPage(page.map(applicationDocumentsMapper::toDto));
+    }
+
+    @Override
+    public Object queryAll(ApplicationDocumentsQueryCriteria criteria) {
+        return applicationDocumentsMapper.toDto(applicationDocumentsRepository.findAll((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root, criteria, criteriaBuilder)));
+    }
+
+    @Override
+    public ApplicationDocumentsDTO findById(Long id) {
+        Optional<ApplicationDocuments> applicationDocuments = applicationDocumentsRepository.findById(id);
+        ValidationUtil.isNull(applicationDocuments, "ApplicationDocuments", "id", id);
+        return applicationDocumentsMapper.toDto(applicationDocuments.get());
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public ApplicationDocumentsDTO create(ApplicationDocuments resources) {
+        //生成单据号(雪花算法)
+        resources.setApplicationNo(SnowflakeIdUtils.nextId());
+        //入库申请单据表
+        ApplicationDocuments saveApplicationDocuments = applicationDocumentsRepository.save(resources);
+        //入库关联表document_reviewer
+        DocumentReviewer documentReviewer = new DocumentReviewer();
+        documentReviewer.setDocumentId(resources.getId());
+        documentReviewer.setUserId(resources.getUser().getId());
+        documentReviewer.setUserName(resources.getUser().getUsername());
+        documentReviewer.setSorted(1);//新建从1开始
+        documentReviewer.setSource(0);//申请单据
+        documentReviewerRepository.save(documentReviewer);
+        return applicationDocumentsMapper.toDto(saveApplicationDocuments);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void update(ApplicationDocuments resources) {
+        Optional<ApplicationDocuments> optionalApplicationDocuments = applicationDocumentsRepository.findById(resources.getId());
+        ValidationUtil.isNull(optionalApplicationDocuments, "ApplicationDocuments", "id", resources.getId());
+        ApplicationDocuments applicationDocuments = optionalApplicationDocuments.get();
+        applicationDocuments.copy(resources);
+        applicationDocumentsRepository.save(applicationDocuments);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void delete(Long id) {
+        applicationDocumentsRepository.deleteById(id);
+    }
 }
