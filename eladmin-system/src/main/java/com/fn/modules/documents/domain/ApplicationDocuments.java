@@ -6,13 +6,16 @@ import com.fn.modules.system.domain.User;
 import lombok.Data;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.*;
 
 import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.sql.Timestamp;
 import java.math.BigDecimal;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -75,7 +78,9 @@ public class ApplicationDocuments implements Serializable {
     //单据-审核人中间表
     @OneToMany(targetEntity = DocumentReviewer.class, cascade=CascadeType.ALL)
     @JoinColumn(name="document_id")
-    private List<DocumentReviewer> reviewerList;
+    @Where(clause = "source = 0")
+    private List<DocumentReviewer> reviewerList ;
+
 
 
     public void copy(ApplicationDocuments source) {

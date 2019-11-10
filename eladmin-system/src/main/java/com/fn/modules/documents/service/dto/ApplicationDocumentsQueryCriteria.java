@@ -3,6 +3,7 @@ package com.fn.modules.documents.service.dto;
 import com.fn.modules.system.domain.User;
 import com.fn.modules.system.service.dto.DeptQueryCriteria;
 import com.fn.modules.system.service.dto.UserQueryCriteria;
+import com.sun.deploy.security.ValidationState;
 import lombok.Data;
 import java.sql.Timestamp;
 import java.math.BigDecimal;
@@ -63,4 +64,9 @@ public class ApplicationDocumentsQueryCriteria{
 
     @Query
     private AccountingSubjectsQueryCriteria accountingSubjectsQueryCriteria;
+
+    @Query(propName = "source",type = Query.Type.EQUAL,joinName = "reviewerList",join = Query.Join.LEFT)
+    private  String source ;
+
+
 }
