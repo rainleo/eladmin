@@ -1,5 +1,7 @@
 package com.fn.modules.documents.domain;
 
+import com.fn.modules.system.domain.Job;
+import com.fn.modules.system.domain.User;
 import lombok.Data;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
@@ -22,13 +24,10 @@ public class AuditChain implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    // 岗位，来自job.id
-    @Column(name = "job_id")
-    private Long jobId;
-
-    // 岗位名称，来自job.name
-    @Column(name = "job_name")
-    private String jobName;
+    // 关联岗位
+    @ManyToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "job_id")
+    private Job job;
 
     // 审核顺序，从1开始
     @Column(name = "sorted")

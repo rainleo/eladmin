@@ -67,10 +67,10 @@ public class ApplicationDocumentsQueryCriteria {
     private Integer deleted;
 
     @Query(propName = "username", joinName = "user")
-    private String username;
+    private String userName;
 
     @Query(propName = "name", joinName = "dept")
-    private String name;
+    private String deptName;
 
     /**
      * 参数说明：propName是指AccountingSubjects对象中的“属性”名,

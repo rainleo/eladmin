@@ -1,14 +1,16 @@
 package com.fn.modules.documents.service.dto;
 
+import com.fn.modules.system.domain.User;
 import lombok.Data;
-import java.sql.Timestamp;
+
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 
 /**
-* @author jie
-* @date 2019-11-10
-*/
+ * @author jie
+ * @date 2019-11-10
+ */
 @Data
 public class TodoListDTO implements Serializable {
 
@@ -21,12 +23,6 @@ public class TodoListDTO implements Serializable {
     // 预期完成时间
     private Timestamp expectedCompletionTime;
 
-    // 抄送人，来自user.name
-    private Long copyPersonId;
-
-    // 协助人员
-    private Long assistantId;
-
     // 待办内容
     private String content;
 
@@ -38,4 +34,10 @@ public class TodoListDTO implements Serializable {
 
     // 删除位（0:未删除,1:已删除）
     private Integer deleted;
+
+    // 抄送人
+    private User copyPerson;
+
+    // 协助人员
+    private User assistantPerson;
 }

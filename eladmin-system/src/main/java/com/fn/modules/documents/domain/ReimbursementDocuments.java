@@ -8,6 +8,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -39,12 +40,12 @@ public class ReimbursementDocuments implements Serializable {
     private Integer status;
 
     // 关联部门
-    @ManyToOne()
+    @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "dept_id")
     private Dept dept;
 
     // 关联用户
-    @ManyToOne()
+    @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "user_id")
     private User user;
 
@@ -73,8 +74,9 @@ public class ReimbursementDocuments implements Serializable {
     private Integer deleted;
 
     //单据-审核人中间表
-    @OneToMany(targetEntity = DocumentReviewer.class, cascade=CascadeType.ALL)
-    @JoinColumn(name="document_id")
+    @OneToMany(targetEntity = DocumentReviewer.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "document_id")
+    @Where(clause = "source = 1")
     private List<DocumentReviewer> reviewerList;
 
     public void copy(ReimbursementDocuments source){

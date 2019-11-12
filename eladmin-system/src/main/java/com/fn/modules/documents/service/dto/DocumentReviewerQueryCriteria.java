@@ -25,7 +25,7 @@ public class DocumentReviewerQueryCriteria{
 
     // 精确
     @Query
-    private String userName;
+    private Integer auditStatus;
 
     // 精确
     @Query

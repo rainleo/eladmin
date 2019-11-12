@@ -2,6 +2,7 @@ package com.fn.modules.documents.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fn.modules.system.domain.Dict;
+import com.fn.modules.system.domain.User;
 import lombok.Data;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
@@ -31,13 +32,14 @@ public class DocumentReviewer implements Serializable {
     @Column(name = "document_id")
     private Long documentId;
 
-    // 申请人，来自user.id
-    @Column(name = "user_id")
-    private Long userId;
+    // 关联用户(@JoinColumn中user_id为数据库application_documents中对应字段)
+    @ManyToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    // 审核人，来自user.name
-    @Column(name = "user_name")
-    private String userName;
+    // 审核状态
+    @Column(name = "audit_status")
+    private Integer auditStatus;
 
     // 审核级数，从1开始
     @Column(name = "sorted")

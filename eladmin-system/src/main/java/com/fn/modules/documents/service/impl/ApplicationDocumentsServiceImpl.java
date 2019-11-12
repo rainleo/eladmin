@@ -67,8 +67,7 @@ public class ApplicationDocumentsServiceImpl implements ApplicationDocumentsServ
         //入库关联表document_reviewer
         DocumentReviewer documentReviewer = new DocumentReviewer();
         documentReviewer.setDocumentId(resources.getId());
-        documentReviewer.setUserId(resources.getUser().getId());
-        documentReviewer.setUserName(resources.getUser().getUsername());
+        documentReviewer.setUser(resources.getUser());
         documentReviewer.setSorted(1);//新建从1开始
         documentReviewer.setSource(0);//申请单据
         documentReviewerRepository.save(documentReviewer);

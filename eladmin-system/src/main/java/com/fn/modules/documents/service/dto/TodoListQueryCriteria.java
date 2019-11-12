@@ -1,15 +1,22 @@
 package com.fn.modules.documents.service.dto;
 
+import com.fn.modules.system.domain.User;
 import lombok.Data;
+
 import java.sql.Timestamp;
+
 import com.fn.annotation.Query;
 
+import javax.persistence.CascadeType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 /**
-* @author jie
-* @date 2019-11-10
-*/
+ * @author jie
+ * @date 2019-11-10
+ */
 @Data
-public class TodoListQueryCriteria{
+public class TodoListQueryCriteria {
 
     // 精确
     @Query
@@ -46,4 +53,10 @@ public class TodoListQueryCriteria{
     // 精确
     @Query
     private Integer deleted;
+
+    @Query(propName = "username", joinName = "copyPerson")
+    private String copyPersonName;
+
+    @Query(propName = "username", joinName = "assistantPerson")
+    private String assistantPersonName;
 }

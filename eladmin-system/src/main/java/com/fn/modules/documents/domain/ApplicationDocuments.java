@@ -41,7 +41,7 @@ public class ApplicationDocuments implements Serializable {
     @JoinColumn(name = "dept_id")
     private Dept dept;
 
-    // 关联用户
+    // 关联用户(@JoinColumn中user_id为数据库application_documents中对应字段)
     @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "user_id")
     private User user;

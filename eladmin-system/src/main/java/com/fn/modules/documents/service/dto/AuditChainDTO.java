@@ -1,5 +1,6 @@
 package com.fn.modules.documents.service.dto;
 
+import com.fn.modules.system.domain.Job;
 import lombok.Data;
 import java.sql.Timestamp;
 import java.io.Serializable;
@@ -16,10 +17,7 @@ public class AuditChainDTO implements Serializable {
     private Long id;
 
     // 岗位，来自job.id
-    private Long jobId;
-
-    // 岗位名称，来自job.name
-    private String jobName;
+    private Job job;
 
     // 审核顺序，从1开始
     private Integer sorted;
@@ -35,4 +33,5 @@ public class AuditChainDTO implements Serializable {
 
     // 删除位（0:未删除,1:已删除）
     private Integer deleted;
+
 }
