@@ -4,6 +4,8 @@ import com.fn.modules.documents.domain.DocumentReviewer;
 import com.fn.modules.system.domain.Dept;
 import com.fn.modules.system.domain.User;
 import lombok.Data;
+
+import javax.persistence.Column;
 import java.sql.Timestamp;
 import java.math.BigDecimal;
 import java.io.Serializable;
@@ -22,6 +24,9 @@ public class ReimbursementDocumentsDTO implements Serializable {
 
     // 报销单据号
     private String reimbursementNo;
+
+    // 审核状态
+    private Integer status;
 
     // 部门
     private Dept dept;

@@ -22,9 +22,6 @@ import java.util.List;
 @Entity
 @Data
 @Table(name="reimbursement_documents")
-@JsonIgnoreProperties(value={"hibernateLazyInitializer","handler","fieldHandler"})
-@DynamicInsert(true)
-@DynamicUpdate(true)
 public class ReimbursementDocuments implements Serializable {
 
     // 自增主键ID
@@ -36,6 +33,10 @@ public class ReimbursementDocuments implements Serializable {
     // 报销单据号
     @Column(name = "reimbursement_no",nullable = false)
     private String reimbursementNo;
+
+    // 审核状态
+    @Column(name = "status",nullable = false)
+    private Integer status;
 
     // 关联部门
     @ManyToOne()

@@ -1,25 +1,20 @@
 package com.fn.modules.documents.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fn.modules.system.domain.Dict;
 import lombok.Data;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
-
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.io.Serializable;
 
 /**
 * @author jie
-* @date 2019-11-04
+* @date 2019-11-11
 */
 @Entity
 @Data
-@Table(name="document_reviewer")
-public class DocumentReviewer implements Serializable {
+@Table(name="audit_chain")
+public class AuditChain implements Serializable {
 
     // 自增主键ID
     @Id
@@ -27,19 +22,15 @@ public class DocumentReviewer implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    // 申请单据id,来自application_documents.id
-    @Column(name = "document_id")
-    private Long documentId;
+    // 岗位，来自job.id
+    @Column(name = "job_id")
+    private Long jobId;
 
-    // 申请人，来自user.id
-    @Column(name = "user_id")
-    private Long userId;
+    // 岗位名称，来自job.name
+    @Column(name = "job_name")
+    private String jobName;
 
-    // 审核人，来自user.name
-    @Column(name = "user_name")
-    private String userName;
-
-    // 审核级数，从1开始
+    // 审核顺序，从1开始
     @Column(name = "sorted")
     private Integer sorted;
 
@@ -55,11 +46,11 @@ public class DocumentReviewer implements Serializable {
     @Column(name = "update_time",nullable = false)
     private Timestamp updateTime;
 
-    //删除位
-    @Column(name = "deleted")
+    // 删除位（0:未删除,1:已删除）
+    @Column(name = "deleted",nullable = false)
     private Integer deleted;
 
-    public void copy(DocumentReviewer source){
+    public void copy(AuditChain source){
         BeanUtil.copyProperties(source,this, CopyOptions.create().setIgnoreNullValue(true));
     }
 }

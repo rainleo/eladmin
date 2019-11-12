@@ -24,6 +24,9 @@ public class ApplicationDocumentsDTO implements Serializable {
     // 申请单据号
     private String applicationNo;
 
+    // 审核状态
+    private Integer status;
+
     // 部门
     private Dept dept;
 

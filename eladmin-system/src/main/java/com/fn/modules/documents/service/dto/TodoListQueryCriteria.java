@@ -2,47 +2,38 @@ package com.fn.modules.documents.service.dto;
 
 import lombok.Data;
 import java.sql.Timestamp;
-import java.math.BigDecimal;
 import com.fn.annotation.Query;
 
 /**
 * @author jie
-* @date 2019-11-04
+* @date 2019-11-10
 */
 @Data
-public class ReimbursementDocumentsQueryCriteria{
+public class TodoListQueryCriteria{
 
     // 精确
     @Query
     private Long id;
 
-    // 精确
-    @Query
-    private String reimbursementNo;
-
-    // 审核状态
-    @Query
-    private Integer status;
+    // 模糊
+    @Query(type = Query.Type.INNER_LIKE)
+    private String todoAbstract;
 
     // 精确
     @Query
-    private Long deptId;
+    private Timestamp expectedCompletionTime;
 
     // 精确
     @Query
-    private Long userId;
+    private Long copyPersonId;
+
+    // 精确
+    @Query
+    private Long assistantId;
 
     // 模糊
     @Query(type = Query.Type.INNER_LIKE)
-    private String reimbursementAbstract;
-
-    // 精确
-    @Query
-    private BigDecimal amount;
-
-    // 精确
-    @Query
-    private String attachment;
+    private String content;
 
     // 精确
     @Query
@@ -50,7 +41,7 @@ public class ReimbursementDocumentsQueryCriteria{
 
     // 精确
     @Query
-    private Timestamp updatetime;
+    private Timestamp updateTime;
 
     // 精确
     @Query

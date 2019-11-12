@@ -17,8 +17,6 @@ import java.io.Serializable;
 @Entity
 @Data
 @Table(name="accounting_subjects")
-@DynamicInsert(true)
-@DynamicUpdate(true)
 public class AccountingSubjects implements Serializable {
 
     // 自增主键ID
