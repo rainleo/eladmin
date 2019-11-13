@@ -6,7 +6,7 @@ import com.fn.annotation.Query;
 
 /**
 * @author jie
-* @date 2019-11-04
+* @date 2019-11-13
 */
 @Data
 public class DocumentReviewerQueryCriteria{
@@ -25,11 +25,11 @@ public class DocumentReviewerQueryCriteria{
 
     // 精确
     @Query
-    private Integer auditStatus;
+    private Integer sorted;
 
     // 精确
     @Query
-    private Integer sorted;
+    private Integer auditStatus;
 
     // 精确
     @Query
@@ -41,5 +41,12 @@ public class DocumentReviewerQueryCriteria{
 
     // 精确
     @Query
+    private Timestamp updateTime;
+
+    // 精确
+    @Query
     private Integer deleted;
+
+    @Query(propName = "username", joinName = "user")
+    private String userName;
 }

@@ -38,6 +38,7 @@ public class AuditChainController {
     @PostMapping(value = "/auditChain")
     @PreAuthorize("hasAnyRole('ADMIN','AUDITCHAIN_ALL','AUDITCHAIN_CREATE')")
     public ResponseEntity create(@Validated @RequestBody AuditChain resources){
+        resources.setDeleted(0);
         return new ResponseEntity(auditChainService.create(resources),HttpStatus.CREATED);
     }
 

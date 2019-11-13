@@ -82,6 +82,4 @@ public class ApplicationDocumentsQueryCriteria {
 
     @Query(propName = "source", type = Query.Type.EQUAL, joinName = "reviewerList", join = Query.Join.LEFT)
     private String source;
-
-
 }

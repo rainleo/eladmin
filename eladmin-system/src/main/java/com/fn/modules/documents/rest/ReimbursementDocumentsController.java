@@ -38,6 +38,7 @@ public class ReimbursementDocumentsController {
     @PostMapping(value = "/reimbursementDocuments")
     @PreAuthorize("hasAnyRole('ADMIN','REIMBURSEMENTDOCUMENTS_ALL','REIMBURSEMENTDOCUMENTS_CREATE')")
     public ResponseEntity create(@Validated @RequestBody ReimbursementDocuments resources){
+        resources.setDeleted(0);
         return new ResponseEntity(reimbursementDocumentsService.create(resources),HttpStatus.CREATED);
     }
 

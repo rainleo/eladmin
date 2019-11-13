@@ -33,22 +33,12 @@ public class ApplicationDocumentsController {
         return new ResponseEntity(applicationDocumentsService.queryAll(criteria,pageable),HttpStatus.OK);
     }
 
-
-    @Log("查询ApplicationDocuments(Post)")
-    @ApiOperation(value = "查询ApplicationDocuments(Post)")
-    @PostMapping(value = "/applicationDocumentsPost")
-    @PreAuthorize("hasAnyRole('ADMIN','APPLICATIONDOCUMENTS_ALL','APPLICATIONDOCUMENTS_SELECT')")
-    public ResponseEntity getApplicationDocumentssPost(@RequestBody ApplicationDocumentsQueryCriteria criteria, Pageable pageable){
-        return new ResponseEntity(applicationDocumentsService.queryAll(criteria,pageable),HttpStatus.OK);
-    }
-
-
-
     @Log("新增ApplicationDocuments")
     @ApiOperation(value = "新增ApplicationDocuments")
     @PostMapping(value = "/applicationDocuments")
     @PreAuthorize("hasAnyRole('ADMIN','APPLICATIONDOCUMENTS_ALL','APPLICATIONDOCUMENTS_CREATE')")
     public ResponseEntity create(@Validated @RequestBody ApplicationDocuments resources){
+        resources.setDeleted(0);
         return new ResponseEntity(applicationDocumentsService.create(resources),HttpStatus.CREATED);
     }
 

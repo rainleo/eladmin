@@ -15,7 +15,7 @@ import io.swagger.annotations.*;
 
 /**
 * @author jie
-* @date 2019-11-04
+* @date 2019-11-13
 */
 @Api(tags = "DocumentReviewer管理")
 @RestController
@@ -38,6 +38,7 @@ public class DocumentReviewerController {
     @PostMapping(value = "/documentReviewer")
     @PreAuthorize("hasAnyRole('ADMIN','DOCUMENTREVIEWER_ALL','DOCUMENTREVIEWER_CREATE')")
     public ResponseEntity create(@Validated @RequestBody DocumentReviewer resources){
+        resources.setDeleted(0);
         return new ResponseEntity(documentReviewerService.create(resources),HttpStatus.CREATED);
     }
 

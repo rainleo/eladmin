@@ -38,6 +38,7 @@ public class AccountingSubjectsController {
     @PostMapping(value = "/accountingSubjects")
     @PreAuthorize("hasAnyRole('ADMIN','ACCOUNTINGSUBJECTS_ALL','ACCOUNTINGSUBJECTS_CREATE')")
     public ResponseEntity create(@Validated @RequestBody AccountingSubjects resources){
+        resources.setDeleted(0);
         return new ResponseEntity(accountingSubjectsService.create(resources),HttpStatus.CREATED);
     }
 

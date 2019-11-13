@@ -77,7 +77,6 @@ public class ApplicationDocuments implements Serializable {
     @Where(clause = "source = 0")
     private List<DocumentReviewer> reviewerList;
 
-
     public void copy(ApplicationDocuments source) {
         BeanUtil.copyProperties(source, this, CopyOptions.create().setIgnoreNullValue(true));
     }

@@ -1,5 +1,6 @@
 package com.fn.modules.system.rest;
 
+import com.fn.modules.documents.service.dto.ApplicationDocumentsQueryCriteria;
 import com.fn.modules.system.domain.Dept;
 import com.fn.modules.system.service.DeptService;
 import com.fn.modules.system.service.dto.DeptDTO;
@@ -12,6 +13,7 @@ import com.fn.modules.system.service.DeptService;
 import com.fn.modules.system.service.dto.DeptDTO;
 import com.fn.modules.system.service.dto.DeptQueryCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -43,6 +45,15 @@ public class DeptController {
         criteria.setIds(dataScope.getDeptIds());
         List<DeptDTO> deptDTOS = deptService.queryAll(criteria);
         return new ResponseEntity(deptService.buildTree(deptDTOS),HttpStatus.OK);
+    }
+
+    @Log("查询部门（常规查询）")
+    @GetMapping(value = "/deptNormal")
+    @PreAuthorize("hasAnyRole('ADMIN','USER_ALL','USER_SELECT','DEPT_ALL','DEPT_SELECT')")
+    public ResponseEntity getDeptsNormal(DeptQueryCriteria criteria){
+        // 数据权限
+        criteria.setIds(dataScope.getDeptIds());
+        return new ResponseEntity(deptService.queryAll(criteria),HttpStatus.OK);
     }
 
     @Log("新增部门")

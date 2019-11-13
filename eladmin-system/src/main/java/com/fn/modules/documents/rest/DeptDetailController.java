@@ -38,6 +38,7 @@ public class DeptDetailController {
     @PostMapping(value = "/deptDetail")
     @PreAuthorize("hasAnyRole('ADMIN','DEPTDETAIL_ALL','DEPTDETAIL_CREATE')")
     public ResponseEntity create(@Validated @RequestBody DeptDetail resources){
+        resources.setDeleted(0);
         return new ResponseEntity(deptDetailService.create(resources),HttpStatus.CREATED);
     }
 

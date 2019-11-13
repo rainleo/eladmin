@@ -63,15 +63,7 @@ public class ApplicationDocumentsServiceImpl implements ApplicationDocumentsServ
         //生成单据号(雪花算法)
         resources.setApplicationNo(SnowflakeIdUtils.nextId());
         //入库申请单据表
-        ApplicationDocuments saveApplicationDocuments = applicationDocumentsRepository.save(resources);
-        //入库关联表document_reviewer
-        DocumentReviewer documentReviewer = new DocumentReviewer();
-        documentReviewer.setDocumentId(resources.getId());
-        documentReviewer.setUser(resources.getUser());
-        documentReviewer.setSorted(1);//新建从1开始
-        documentReviewer.setSource(0);//申请单据
-        documentReviewerRepository.save(documentReviewer);
-        return applicationDocumentsMapper.toDto(saveApplicationDocuments);
+        return applicationDocumentsMapper.toDto(applicationDocumentsRepository.save(resources));
     }
 
     @Override

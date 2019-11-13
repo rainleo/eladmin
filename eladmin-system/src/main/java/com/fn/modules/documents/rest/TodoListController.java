@@ -38,6 +38,7 @@ public class TodoListController {
     @PostMapping(value = "/todoList")
     @PreAuthorize("hasAnyRole('ADMIN','TODOLIST_ALL','TODOLIST_CREATE')")
     public ResponseEntity create(@Validated @RequestBody TodoList resources){
+        resources.setDeleted(0);
         return new ResponseEntity(todoListService.create(resources),HttpStatus.CREATED);
     }
 

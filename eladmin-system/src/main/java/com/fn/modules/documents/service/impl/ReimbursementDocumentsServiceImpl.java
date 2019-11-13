@@ -66,15 +66,7 @@ public class ReimbursementDocumentsServiceImpl implements ReimbursementDocuments
         //生成单据号(时间戳)
         resources.setReimbursementNo(NumGenerator.getNumber());
         //入库申请单据表
-        ReimbursementDocuments saveReimbursementDocuments = reimbursementDocumentsRepository.save(resources);
-        //入库关联表document_reviewer
-        DocumentReviewer documentReviewer = new DocumentReviewer();
-        documentReviewer.setDocumentId(resources.getId());
-        documentReviewer.setUser(resources.getUser());
-        documentReviewer.setSorted(1);//新建从1开始
-        documentReviewer.setSource(1);//申请单据
-        documentReviewerRepository.save(documentReviewer);
-        return reimbursementDocumentsMapper.toDto(saveReimbursementDocuments);
+        return reimbursementDocumentsMapper.toDto(reimbursementDocumentsRepository.save(resources));
     }
 
     @Override

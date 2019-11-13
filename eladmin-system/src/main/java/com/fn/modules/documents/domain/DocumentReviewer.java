@@ -1,25 +1,24 @@
 package com.fn.modules.documents.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fn.modules.system.domain.Dict;
+import com.fn.modules.system.domain.Dept;
 import com.fn.modules.system.domain.User;
 import lombok.Data;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.io.Serializable;
+import java.util.List;
 
 /**
-* @author jie
-* @date 2019-11-04
-*/
+ * @author jie
+ * @date 2019-11-13
+ */
 @Entity
 @Data
-@Table(name="document_reviewer")
+@Table(name = "document_reviewer")
 public class DocumentReviewer implements Serializable {
 
     // 自增主键ID
@@ -28,40 +27,40 @@ public class DocumentReviewer implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    // 申请单据id,来自application_documents.id
+    // 单据id,来自application_documents.id或reimbursement_documents.id
     @Column(name = "document_id")
     private Long documentId;
-
-    // 关联用户(@JoinColumn中user_id为数据库application_documents中对应字段)
-    @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "user_id")
-    private User user;
-
-    // 审核状态
-    @Column(name = "audit_status")
-    private Integer auditStatus;
 
     // 审核级数，从1开始
     @Column(name = "sorted")
     private Integer sorted;
+
+    // 审核状态(0:审核中,1:已审核)
+    @Column(name = "audit_status", nullable = false)
+    private Integer auditStatus;
 
     // 来源（0:申请流程,1:报销流程）
     @Column(name = "source")
     private Integer source;
 
     // 创建时间
-    @Column(name = "create_time",nullable = false)
+    @Column(name = "create_time", nullable = false)
     private Timestamp createTime;
 
     // 更新时间
-    @Column(name = "update_time",nullable = false)
+    @Column(name = "update_time", nullable = false)
     private Timestamp updateTime;
 
-    //删除位
-    @Column(name = "deleted")
+    // 删除位（0:未删除,1:已删除）
+    @Column(name = "deleted", nullable = false)
     private Integer deleted;
 
-    public void copy(DocumentReviewer source){
-        BeanUtil.copyProperties(source,this, CopyOptions.create().setIgnoreNullValue(true));
+    //单据-审核人中间表
+    @OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public void copy(DocumentReviewer source) {
+        BeanUtil.copyProperties(source, this, CopyOptions.create().setIgnoreNullValue(true));
     }
 }

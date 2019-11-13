@@ -8,7 +8,7 @@ import org.mapstruct.ReportingPolicy;
 
 /**
 * @author jie
-* @date 2019-11-04
+* @date 2019-11-13
 */
 @Mapper(componentModel = "spring",uses = {},unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface DocumentReviewerMapper extends EntityMapper<DocumentReviewerDTO, DocumentReviewer> {
