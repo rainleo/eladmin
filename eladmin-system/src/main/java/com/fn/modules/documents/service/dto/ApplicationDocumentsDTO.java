@@ -1,5 +1,7 @@
 package com.fn.modules.documents.service.dto;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import com.fn.modules.documents.domain.AccountingSubjects;
 import com.fn.modules.documents.domain.DocumentReviewer;
 import com.fn.modules.system.domain.Dept;
@@ -39,7 +41,8 @@ public class ApplicationDocumentsDTO implements Serializable {
     // 申请事项描述
     private String applicationDescription;
 
-    // 金额
+    // 金额（保留两位小数转换成字符串）
+    @JsonSerialize(using= ToStringSerializer.class)
     private BigDecimal amount;
 
     // 创建时间

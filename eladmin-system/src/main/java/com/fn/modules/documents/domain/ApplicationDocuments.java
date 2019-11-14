@@ -36,19 +36,31 @@ public class ApplicationDocuments implements Serializable {
     @Column(name = "status", nullable = false)
     private Integer status;
 
-    // 关联部门
-    @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "dept_id")
+    // 部门id
+    @Column(name = "dept_id")
+    private Long deptId;
+
+    // 申请人id
+    @Column(name = "user_id")
+    private Long userId;
+
+    // 会计科目id
+    @Column(name = "accounting_subjects_id")
+    private Long accountingSubjectsId;
+
+    // 关联部门(脱离级联操作)
+    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH})
+    @JoinColumn(name = "dept_id", insertable = false, updatable = false)
     private Dept dept;
 
     // 关联用户(@JoinColumn中user_id为数据库application_documents中对应字段)
-    @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "user_id")
+    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH})
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
     private User user;
 
     // 关联会计科目
-    @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "accounting_subjects_id")
+    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH})
+    @JoinColumn(name = "accounting_subjects_id", insertable = false, updatable = false)
     private AccountingSubjects accountingSubjects;
 
     // 申请事项描述
