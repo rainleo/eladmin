@@ -32,14 +32,22 @@ public class TodoList implements Serializable {
     @Column(name = "expected_completion_time", nullable = false)
     private Timestamp expectedCompletionTime;
 
+    // 抄送人id
+    @Column(name = "copy_person_id")
+    private Long copyPersonId;
+
     // 抄送人，关联用户
-    @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "copy_person_id")
+    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH})
+    @JoinColumn(name = "copy_person_id", insertable = false, updatable = false)
     private User copyPerson;
 
+    // 协助人员id
+    @Column(name = "assistant_id")
+    private Long assistantPersonId;
+
     // 协助人员
-    @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "assistant_id")
+    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH})
+    @JoinColumn(name = "assistant_id", insertable = false, updatable = false)
     private User assistantPerson;
 
     // 待办内容
