@@ -86,7 +86,7 @@ public class ApplicationDocuments implements Serializable {
     //单据-审核人中间表
     @OneToMany(targetEntity = DocumentReviewer.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "document_id")
-    @Where(clause = "source = 0")
+    @Where(clause = "source = 0 and deleted = 0")
     private List<DocumentReviewer> reviewerList;
 
     public void copy(ApplicationDocuments source) {
