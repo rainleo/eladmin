@@ -17,12 +17,12 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
-* @author jie
-* @date 2019-11-04
-*/
+ * @author jie
+ * @date 2019-11-04
+ */
 @Entity
 @Data
-@Table(name="reimbursement_documents")
+@Table(name = "reimbursement_documents")
 public class ReimbursementDocuments implements Serializable {
 
     // 自增主键ID
@@ -32,21 +32,29 @@ public class ReimbursementDocuments implements Serializable {
     private Long id;
 
     // 报销单据号
-    @Column(name = "reimbursement_no",nullable = false)
+    @Column(name = "reimbursement_no", nullable = false)
     private String reimbursementNo;
 
-    // 审核状态
-    @Column(name = "status",nullable = false)
+    // 审批状态
+    @Column(name = "status", nullable = false)
     private Integer status;
 
+    // 部门id
+    @Column(name = "dept_id")
+    private Long deptId;
+
     // 关联部门
-    @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "dept_id")
+    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH})
+    @JoinColumn(name = "dept_id", insertable = false, updatable = false)
     private Dept dept;
 
+    // 报销人id
+    @Column(name = "user_id")
+    private Long userId;
+
     // 关联用户
-    @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "user_id")
+    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH})
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
     private User user;
 
     // 报销摘要
@@ -62,11 +70,11 @@ public class ReimbursementDocuments implements Serializable {
     private String attachment;
 
     // 创建时间
-    @Column(name = "create_time",nullable = false)
+    @Column(name = "create_time", nullable = false)
     private Timestamp createTime;
 
     // 更新时间
-    @Column(name = "updatetime",nullable = false)
+    @Column(name = "updatetime", nullable = false)
     private Timestamp updatetime;
 
     //删除位
@@ -79,7 +87,7 @@ public class ReimbursementDocuments implements Serializable {
     @Where(clause = "source = 1 and deleted = 0")
     private List<DocumentReviewer> reviewerList;
 
-    public void copy(ReimbursementDocuments source){
-        BeanUtil.copyProperties(source,this, CopyOptions.create().setIgnoreNullValue(true));
+    public void copy(ReimbursementDocuments source) {
+        BeanUtil.copyProperties(source, this, CopyOptions.create().setIgnoreNullValue(true));
     }
 }

@@ -32,7 +32,7 @@ public class ApplicationDocuments implements Serializable {
     @Column(name = "application_no", nullable = false)
     private String applicationNo;
 
-    // 申请单据号
+    // 审批状态
     @Column(name = "status", nullable = false)
     private Integer status;
 

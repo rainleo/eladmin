@@ -56,7 +56,7 @@ public class DocumentReviewer implements Serializable {
     private Integer deleted;
 
     //单据-审核人中间表
-    @OneToOne(cascade = {CascadeType.ALL})
+    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH})
     @JoinColumn(name = "user_id")
     private User user;
 
