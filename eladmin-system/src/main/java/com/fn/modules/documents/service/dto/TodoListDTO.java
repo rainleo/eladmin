@@ -26,6 +26,9 @@ public class TodoListDTO implements Serializable {
     // 待办内容
     private String content;
 
+    // 状态
+    private Integer status;
+
     // 创建时间
     private Timestamp createTime;
 
