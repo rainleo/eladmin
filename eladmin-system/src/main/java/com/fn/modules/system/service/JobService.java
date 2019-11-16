@@ -1,7 +1,5 @@
 package com.fn.modules.system.service;
 
-import com.fn.modules.system.service.dto.JobDTO;
-import com.fn.modules.system.service.dto.JobQueryCriteria;
 import com.fn.modules.system.domain.Job;
 import com.fn.modules.system.service.dto.JobDTO;
 import com.fn.modules.system.service.dto.JobQueryCriteria;
@@ -10,15 +8,18 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 /**
-* @author leo
-* @date 2019-03-29
-*/
+ * @author leo
+ * @date 2019-03-29
+ */
 @CacheConfig(cacheNames = "job")
 public interface JobService {
 
     /**
      * findById
+     *
      * @param id
      * @return
      */
@@ -27,6 +28,7 @@ public interface JobService {
 
     /**
      * create
+     *
      * @param resources
      * @return
      */
@@ -35,6 +37,7 @@ public interface JobService {
 
     /**
      * update
+     *
      * @param resources
      */
     @CacheEvict(allEntries = true)
@@ -42,6 +45,7 @@ public interface JobService {
 
     /**
      * delete
+     *
      * @param id
      */
     @CacheEvict(allEntries = true)
@@ -49,9 +53,13 @@ public interface JobService {
 
     /**
      * queryAll
+     *
      * @param criteria
      * @param pageable
      * @return
      */
     Object queryAll(JobQueryCriteria criteria, Pageable pageable);
+
+    @Cacheable(keyGenerator = "keyGenerator")
+    List<JobDTO> queryAll(JobQueryCriteria criteria);
 }
