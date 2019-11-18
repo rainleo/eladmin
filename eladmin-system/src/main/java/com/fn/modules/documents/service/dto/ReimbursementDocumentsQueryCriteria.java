@@ -44,10 +44,6 @@ public class ReimbursementDocumentsQueryCriteria {
 
     // 精确
     @Query
-    private String attachment;
-
-    // 精确
-    @Query
     private Timestamp createTime;
 
     // 精确
@@ -66,4 +62,7 @@ public class ReimbursementDocumentsQueryCriteria {
 
     @Query(propName = "source", type = Query.Type.EQUAL, joinName = "reviewerList", join = Query.Join.LEFT)
     private String source;
+
+    @Query(propName = "attachment", type = Query.Type.EQUAL, joinName = "reimbursementDetailList", join = Query.Join.LEFT)
+    private String attachment;
 }

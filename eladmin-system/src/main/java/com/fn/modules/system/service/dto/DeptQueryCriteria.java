@@ -1,7 +1,8 @@
 package com.fn.modules.system.service.dto;
 
-import lombok.Data;
 import com.fn.annotation.Query;
+import lombok.Data;
+
 import java.util.Set;
 
 /**
@@ -22,4 +23,7 @@ public class DeptQueryCriteria{
 
     @Query
     private Long pid;
+
+    @Query(propName = "attachment", type = Query.Type.EQUAL, joinName = "deptDetailList", join = Query.Join.LEFT)
+    private String attachment;
 }

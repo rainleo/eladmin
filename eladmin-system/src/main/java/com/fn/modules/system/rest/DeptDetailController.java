@@ -1,9 +1,9 @@
-package com.fn.modules.documents.rest;
+package com.fn.modules.system.rest;
 
 import com.fn.aop.log.Log;
-import com.fn.modules.documents.domain.DeptDetail;
-import com.fn.modules.documents.service.DeptDetailService;
-import com.fn.modules.documents.service.dto.DeptDetailQueryCriteria;
+import com.fn.modules.system.domain.DeptDetail;
+import com.fn.modules.system.service.DeptDetailService;
+import com.fn.modules.system.service.dto.DeptDetailQueryCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -15,7 +15,7 @@ import io.swagger.annotations.*;
 
 /**
 * @author jie
-* @date 2019-11-11
+* @date 2019-11-18
 */
 @Api(tags = "DeptDetail管理")
 @RestController
@@ -38,7 +38,6 @@ public class DeptDetailController {
     @PostMapping(value = "/deptDetail")
     @PreAuthorize("hasAnyRole('ADMIN','DEPTDETAIL_ALL','DEPTDETAIL_CREATE')")
     public ResponseEntity create(@Validated @RequestBody DeptDetail resources){
-        resources.setDeleted(0);
         return new ResponseEntity(deptDetailService.create(resources),HttpStatus.CREATED);
     }
 

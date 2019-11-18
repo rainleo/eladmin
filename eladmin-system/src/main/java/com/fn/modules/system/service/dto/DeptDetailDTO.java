@@ -1,4 +1,4 @@
-package com.fn.modules.documents.service.dto;
+package com.fn.modules.system.service.dto;
 
 import lombok.Data;
 import java.sql.Timestamp;
@@ -7,11 +7,12 @@ import java.io.Serializable;
 
 /**
 * @author jie
-* @date 2019-11-11
+* @date 2019-11-18
 */
 @Data
 public class DeptDetailDTO implements Serializable {
 
+    // 自增主键ID
     private Long id;
 
     // 部门id

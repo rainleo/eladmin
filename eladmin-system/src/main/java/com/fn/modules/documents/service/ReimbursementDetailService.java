@@ -1,8 +1,8 @@
 package com.fn.modules.documents.service;
 
-import com.fn.modules.documents.domain.DeptDetail;
-import com.fn.modules.documents.service.dto.DeptDetailDTO;
-import com.fn.modules.documents.service.dto.DeptDetailQueryCriteria;
+import com.fn.modules.documents.domain.ReimbursementDetail;
+import com.fn.modules.documents.service.dto.ReimbursementDetailDTO;
+import com.fn.modules.documents.service.dto.ReimbursementDetailQueryCriteria;
 //import org.springframework.cache.annotation.CacheConfig;
 //import org.springframework.cache.annotation.CacheEvict;
 //import org.springframework.cache.annotation.Cacheable;
@@ -10,10 +10,10 @@ import org.springframework.data.domain.Pageable;
 
 /**
 * @author jie
-* @date 2019-11-11
+* @date 2019-11-18
 */
-//@CacheConfig(cacheNames = "deptDetail")
-public interface DeptDetailService {
+//@CacheConfig(cacheNames = "reimbursementDetail")
+public interface ReimbursementDetailService {
 
     /**
     * queryAll 分页
@@ -22,7 +22,7 @@ public interface DeptDetailService {
     * @return
     */
     //@Cacheable(keyGenerator = "keyGenerator")
-    Object queryAll(DeptDetailQueryCriteria criteria, Pageable pageable);
+    Object queryAll(ReimbursementDetailQueryCriteria criteria, Pageable pageable);
 
     /**
     * queryAll 不分页
@@ -30,7 +30,7 @@ public interface DeptDetailService {
     * @return
     */
     //@Cacheable(keyGenerator = "keyGenerator")
-    public Object queryAll(DeptDetailQueryCriteria criteria);
+    public Object queryAll(ReimbursementDetailQueryCriteria criteria);
 
     /**
      * findById
@@ -38,7 +38,7 @@ public interface DeptDetailService {
      * @return
      */
     //@Cacheable(key = "#p0")
-    DeptDetailDTO findById(Long id);
+    ReimbursementDetailDTO findById(Long id);
 
     /**
      * create
@@ -46,14 +46,14 @@ public interface DeptDetailService {
      * @return
      */
     //@CacheEvict(allEntries = true)
-    DeptDetailDTO create(DeptDetail resources);
+    ReimbursementDetailDTO create(ReimbursementDetail resources);
 
     /**
      * update
      * @param resources
      */
     //@CacheEvict(allEntries = true)
-    void update(DeptDetail resources);
+    void update(ReimbursementDetail resources);
 
     /**
      * delete

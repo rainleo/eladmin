@@ -3,6 +3,7 @@ package com.fn.modules.documents.service.dto;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import com.fn.modules.documents.domain.DocumentReviewer;
+import com.fn.modules.documents.domain.ReimbursementDetail;
 import com.fn.modules.system.domain.Dept;
 import com.fn.modules.system.domain.User;
 import lombok.Data;
@@ -43,9 +44,6 @@ public class ReimbursementDocumentsDTO implements Serializable {
     @JsonSerialize(using= ToStringSerializer.class)
     private BigDecimal amount;
 
-    // 附件
-    private String attachment;
-
     // 创建时间
     private Timestamp createTime;
 
@@ -57,4 +55,7 @@ public class ReimbursementDocumentsDTO implements Serializable {
 
     //单据-审核人中间表
     private List<DocumentReviewer> reviewerList;
+
+    // 附件表
+    private List<ReimbursementDetail> reimbursementDetailList;
 }

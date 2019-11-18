@@ -1,12 +1,12 @@
-package com.fn.modules.documents.service.impl;
+package com.fn.modules.system.service.impl;
 
-import com.fn.modules.documents.domain.DeptDetail;
+import com.fn.modules.system.domain.DeptDetail;
 import com.fn.utils.ValidationUtil;
-import com.fn.modules.documents.repository.DeptDetailRepository;
-import com.fn.modules.documents.service.DeptDetailService;
-import com.fn.modules.documents.service.dto.DeptDetailDTO;
-import com.fn.modules.documents.service.dto.DeptDetailQueryCriteria;
-import com.fn.modules.documents.service.mapper.DeptDetailMapper;
+import com.fn.modules.system.repository.DeptDetailRepository;
+import com.fn.modules.system.service.DeptDetailService;
+import com.fn.modules.system.service.dto.DeptDetailDTO;
+import com.fn.modules.system.service.dto.DeptDetailQueryCriteria;
+import com.fn.modules.system.service.mapper.DeptDetailMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -19,7 +19,7 @@ import com.fn.utils.QueryHelp;
 
 /**
 * @author jie
-* @date 2019-11-11
+* @date 2019-11-18
 */
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)

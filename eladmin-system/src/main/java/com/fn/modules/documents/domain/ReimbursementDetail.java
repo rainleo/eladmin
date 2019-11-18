@@ -9,21 +9,22 @@ import java.io.Serializable;
 
 /**
 * @author jie
-* @date 2019-11-11
+* @date 2019-11-18
 */
 @Entity
 @Data
-@Table(name="dept_detail")
-public class DeptDetail implements Serializable {
+@Table(name="reimbursement_detail")
+public class ReimbursementDetail implements Serializable {
 
+    // 自增主键ID
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    // 部门id
-    @Column(name = "dept_id")
-    private Long deptId;
+    // 报销单据id
+    @Column(name = "reimbursement_documents_id")
+    private Long reimbursementDocumentsId;
 
     // 图片等附件地址
     @Column(name = "attachment")
@@ -41,7 +42,7 @@ public class DeptDetail implements Serializable {
     @Column(name = "deleted",nullable = false)
     private Integer deleted;
 
-    public void copy(DeptDetail source){
+    public void copy(ReimbursementDetail source){
         BeanUtil.copyProperties(source,this, CopyOptions.create().setIgnoreNullValue(true));
     }
 }

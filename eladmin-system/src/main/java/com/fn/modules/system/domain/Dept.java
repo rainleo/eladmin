@@ -3,11 +3,14 @@ package com.fn.modules.system.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.Where;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.sql.Timestamp;
 import java.io.Serializable;
+import java.sql.Timestamp;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -52,6 +55,12 @@ public class Dept implements Serializable {
     @Column(name = "create_time")
     @CreationTimestamp
     private Timestamp createTime;
+
+    //附件表
+    @OneToMany(targetEntity = DeptDetail.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "dept_id")
+    @Where(clause = "deleted = 0")
+    private List<DeptDetail> deptDetailList;
 
     public @interface Update {}
 }

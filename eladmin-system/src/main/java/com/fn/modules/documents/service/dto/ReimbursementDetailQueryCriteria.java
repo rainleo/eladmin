@@ -6,10 +6,10 @@ import com.fn.annotation.Query;
 
 /**
 * @author jie
-* @date 2019-11-11
+* @date 2019-11-18
 */
 @Data
-public class DeptDetailQueryCriteria{
+public class ReimbursementDetailQueryCriteria{
 
     // 精确
     @Query
@@ -17,11 +17,11 @@ public class DeptDetailQueryCriteria{
 
     // 精确
     @Query
-    private Long deptId;
+    private Long reimbursementDocumentsId;
 
-    // 精确
-    @Query
-    private String attachment;
+//    // 精确
+//    @Query
+//    private String attachment;
 
     // 精确
     @Query

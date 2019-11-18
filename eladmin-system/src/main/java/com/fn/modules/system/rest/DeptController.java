@@ -47,15 +47,6 @@ public class DeptController {
         return new ResponseEntity(deptService.buildTree(deptDTOS),HttpStatus.OK);
     }
 
-    @Log("查询部门（常规查询）")
-    @GetMapping(value = "/deptNormal")
-    @PreAuthorize("hasAnyRole('ADMIN','USER_ALL','USER_SELECT','DEPT_ALL','DEPT_SELECT')")
-    public ResponseEntity getDeptsNormal(DeptQueryCriteria criteria){
-        // 数据权限
-        criteria.setIds(dataScope.getDeptIds());
-        return new ResponseEntity(deptService.queryAll(criteria),HttpStatus.OK);
-    }
-
     @Log("新增部门")
     @PostMapping(value = "/dept")
     @PreAuthorize("hasAnyRole('ADMIN','DEPT_ALL','DEPT_CREATE')")
