@@ -30,6 +30,30 @@ public class DeptDetail implements Serializable {
     @Column(name = "attachment")
     private String attachment;
 
+    /**
+     * 文件名，如qiniu.jpg
+     */
+    @Column(name = "name",unique = false)
+    private String name;
+
+    /**
+     * 空间名
+     */
+    @Column(name = "bucket")
+    private String bucket;
+
+    /**
+     * 大小
+     */
+    @Column(name = "size")
+    private String size;
+
+    /**
+     * 空间类型：公开/私有
+     */
+    @Column(name = "type")
+    private String type = "公开";
+
     // 创建时间
     @Column(name = "create_time",nullable = false)
     private Timestamp createTime;

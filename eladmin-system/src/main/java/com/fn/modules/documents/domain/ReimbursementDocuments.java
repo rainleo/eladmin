@@ -84,8 +84,8 @@ public class ReimbursementDocuments implements Serializable {
     private List<DocumentReviewer> reviewerList;
 
     //附件表
-    @OneToMany(targetEntity = ReimbursementDetail.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "reimbursement_documents_id")
+    @OneToMany(targetEntity = ReimbursementDetail.class, cascade = {CascadeType.REFRESH, CascadeType.DETACH}, fetch = FetchType.LAZY)
+    @JoinColumn(name = "reimbursement_documents_id", insertable = false, updatable = false)
     @Where(clause = "deleted = 0")
     private List<ReimbursementDetail> reimbursementDetailList;
 

@@ -64,6 +64,7 @@ public class QiniuController {
         map.put("id",qiniuContent.getId());
         map.put("errno",0);
         map.put("data",new String[]{qiniuContent.getUrl()});
+        map.put("qiniuContent",qiniuContent);
         return new ResponseEntity(map,HttpStatus.OK);
     }
 

@@ -23,6 +23,18 @@ public class DeptDetailQueryCriteria{
     @Query
     private String attachment;
 
+    @Query
+    private String name;
+
+    @Query
+    private String bucket;
+
+    @Query
+    private String size;
+
+    @Query
+    private String type;
+
     // 精确
     @Query
     private Timestamp createTime;

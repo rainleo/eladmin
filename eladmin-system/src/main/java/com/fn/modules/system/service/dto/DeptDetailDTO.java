@@ -21,6 +21,26 @@ public class DeptDetailDTO implements Serializable {
     // 图片等附件地址
     private String attachment;
 
+    /**
+     * 文件名，如qiniu.jpg
+     */
+    private String name;
+
+    /**
+     * 空间名
+     */
+    private String bucket;
+
+    /**
+     * 大小
+     */
+    private String size;
+
+    /**
+     * 空间类型：公开/私有
+     */
+    private String type;
+
     // 创建时间
     private Timestamp createTime;
 
