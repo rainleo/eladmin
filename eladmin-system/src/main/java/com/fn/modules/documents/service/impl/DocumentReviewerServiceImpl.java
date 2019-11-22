@@ -1,21 +1,26 @@
 package com.fn.modules.documents.service.impl;
 
+import com.fn.modules.documents.domain.ApplicationDocuments;
 import com.fn.modules.documents.domain.DocumentReviewer;
-import com.fn.utils.ValidationUtil;
+import com.fn.modules.documents.domain.ReimbursementDocuments;
+import com.fn.modules.documents.repository.ApplicationDocumentsRepository;
 import com.fn.modules.documents.repository.DocumentReviewerRepository;
+import com.fn.modules.documents.repository.ReimbursementDocumentsRepository;
 import com.fn.modules.documents.service.DocumentReviewerService;
 import com.fn.modules.documents.service.dto.DocumentReviewerDTO;
 import com.fn.modules.documents.service.dto.DocumentReviewerQueryCriteria;
 import com.fn.modules.documents.service.mapper.DocumentReviewerMapper;
+import com.fn.utils.PageUtil;
+import com.fn.utils.QueryHelp;
+import com.fn.utils.ValidationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import java.util.Optional;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import com.fn.utils.PageUtil;
-import com.fn.utils.QueryHelp;
+
+import java.util.*;
 
 /**
 * @author jie
@@ -30,6 +35,12 @@ public class DocumentReviewerServiceImpl implements DocumentReviewerService {
 
     @Autowired
     private DocumentReviewerMapper documentReviewerMapper;
+    
+    @Autowired
+    private ReimbursementDocumentsRepository reimbursementDocumentsRepository;
+
+    @Autowired
+    private ApplicationDocumentsRepository applicationDocumentsRepository;
 
     @Override
     public Object queryAll(DocumentReviewerQueryCriteria criteria, Pageable pageable){
@@ -69,5 +80,27 @@ public class DocumentReviewerServiceImpl implements DocumentReviewerService {
     @Transactional(rollbackFor = Exception.class)
     public void delete(Long id) {
         documentReviewerRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Map> queryAllDocuments() {
+        List<Map> list = new ArrayList<>();
+        List<ApplicationDocuments> allApplicationDocumentsList = applicationDocumentsRepository.findByDeleted(0);
+        for (ApplicationDocuments applicationDocuments : allApplicationDocumentsList) {
+            Map map = new HashMap();
+            map.put("id",applicationDocuments.getId());
+            map.put("source","申请流程");
+            map.put("applicationUser",applicationDocuments.getUser().getUsername());
+            list.add(map);
+        }
+        List<ReimbursementDocuments> allReimbursementDocumentsRepositoryList = reimbursementDocumentsRepository.findByDeleted(0);
+        for (ReimbursementDocuments reimbursementDocuments : allReimbursementDocumentsRepositoryList) {
+            Map map = new HashMap();
+            map.put("id",reimbursementDocuments.getId());
+            map.put("source","报销流程");
+            map.put("applicationUser",reimbursementDocuments.getUser().getUsername());
+            list.add(map);
+        }
+        return list;
     }
 }

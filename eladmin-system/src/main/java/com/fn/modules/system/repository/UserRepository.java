@@ -1,6 +1,7 @@
 package com.fn.modules.system.repository;
 
 import com.fn.modules.system.domain.User;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
@@ -64,4 +65,11 @@ public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificat
      * @return
      */
     User findByPhone(String phone);
+
+    /**
+     * findByJobIdIn
+     * @param jobId
+     * @return
+     */
+    List<User> findByJobIdIn(List<Long> jobId);
 }

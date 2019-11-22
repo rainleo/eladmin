@@ -59,4 +59,12 @@ public class DocumentReviewerController {
         documentReviewerService.delete(id);
         return new ResponseEntity(HttpStatus.OK);
     }
+
+    @Log("查询所有单据Documents")
+    @ApiOperation(value = "查询所有单据Documents")
+    @GetMapping(value = "/documentReviewer/allDocuments")
+    @PreAuthorize("hasAnyRole('ADMIN','DOCUMENTREVIEWER_ALL','DOCUMENTREVIEWER_SELECT')")
+    public ResponseEntity getAllDocuments(DocumentReviewerQueryCriteria criteria){
+        return new ResponseEntity(documentReviewerService.queryAllDocuments(),HttpStatus.OK);
+    }
 }

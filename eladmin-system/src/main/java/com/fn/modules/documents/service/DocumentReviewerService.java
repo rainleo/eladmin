@@ -8,6 +8,9 @@ import com.fn.modules.documents.service.dto.DocumentReviewerQueryCriteria;
 //import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+import java.util.Map;
+
 /**
 * @author jie
 * @date 2019-11-13
@@ -61,4 +64,10 @@ public interface DocumentReviewerService {
      */
     //@CacheEvict(allEntries = true)
     void delete(Long id);
+
+    /**
+     * 查询所有单据
+     * @return
+     */
+    List<Map> queryAllDocuments();
 }

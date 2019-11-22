@@ -59,4 +59,12 @@ public class AuditChainController {
         auditChainService.delete(id);
         return new ResponseEntity(HttpStatus.OK);
     }
+
+    @Log("根据sorted和source查询AuditUsers")
+    @ApiOperation(value = "根据sorted和source查询AuditUsers")
+    @GetMapping(value = "/auditChain/auditUserBySortedSource")
+    @PreAuthorize("hasAnyRole('ADMIN','AUDITCHAIN_ALL','AUDITCHAIN_SELECT')")
+    public ResponseEntity getAuditUserBySortedSource(AuditChainQueryCriteria criteria){
+        return new ResponseEntity(auditChainService.queryAuditUserBySortedSource(criteria),HttpStatus.OK);
+    }
 }
