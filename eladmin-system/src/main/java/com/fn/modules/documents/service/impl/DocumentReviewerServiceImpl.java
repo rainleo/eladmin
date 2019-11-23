@@ -13,7 +13,6 @@ import com.fn.modules.documents.service.mapper.DocumentReviewerMapper;
 import com.fn.utils.PageUtil;
 import com.fn.utils.QueryHelp;
 import com.fn.utils.ValidationUtil;
-import com.fn.utils.twitter.SnowflakeIdUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -22,6 +21,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author jie
@@ -103,5 +103,13 @@ public class DocumentReviewerServiceImpl implements DocumentReviewerService {
             list.add(map);
         }
         return list;
+    }
+
+    @Override
+    public List<Integer> getDisableSorted(DocumentReviewerQueryCriteria criteria) {
+        criteria.setDeleted(0);
+        List<DocumentReviewerDTO> list = (List<DocumentReviewerDTO>) queryAll(criteria);
+        // 将已存在的审批等级过滤掉，避免重复审批
+        return list.stream().map(DocumentReviewerDTO -> DocumentReviewerDTO.getSorted()).collect(Collectors.toList());
     }
 }

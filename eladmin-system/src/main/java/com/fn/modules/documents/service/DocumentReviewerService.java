@@ -70,4 +70,11 @@ public interface DocumentReviewerService {
      * @return
      */
     List<Map> queryAllDocuments();
+
+    /**
+     * 查询所有禁用审批等级
+     * @return
+     * @param criteria
+     */
+    List<Integer> getDisableSorted(DocumentReviewerQueryCriteria criteria);
 }

@@ -67,4 +67,13 @@ public class DocumentReviewerController {
     public ResponseEntity getAllDocuments(DocumentReviewerQueryCriteria criteria){
         return new ResponseEntity(documentReviewerService.queryAllDocuments(),HttpStatus.OK);
     }
+
+    @Log("查询所有禁用Sorted")
+    @ApiOperation(value = "查询所有禁用Sorted")
+    @GetMapping(value = "/documentReviewer/allDisableSorted")
+    @PreAuthorize("hasAnyRole('ADMIN','DOCUMENTREVIEWER_ALL','DOCUMENTREVIEWER_SELECT')")
+    public ResponseEntity getDisableSorted(DocumentReviewerQueryCriteria criteria){
+        return new ResponseEntity(documentReviewerService.getDisableSorted(criteria),HttpStatus.OK);
+    }
+
 }
