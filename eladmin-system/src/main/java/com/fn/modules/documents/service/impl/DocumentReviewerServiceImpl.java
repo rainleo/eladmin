@@ -13,6 +13,7 @@ import com.fn.modules.documents.service.mapper.DocumentReviewerMapper;
 import com.fn.utils.PageUtil;
 import com.fn.utils.QueryHelp;
 import com.fn.utils.ValidationUtil;
+import com.fn.utils.twitter.SnowflakeIdUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -23,9 +24,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.*;
 
 /**
-* @author jie
-* @date 2019-11-13
-*/
+ * @author jie
+ * @date 2019-11-13
+ */
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class DocumentReviewerServiceImpl implements DocumentReviewerService {
@@ -35,7 +36,7 @@ public class DocumentReviewerServiceImpl implements DocumentReviewerService {
 
     @Autowired
     private DocumentReviewerMapper documentReviewerMapper;
-    
+
     @Autowired
     private ReimbursementDocumentsRepository reimbursementDocumentsRepository;
 
@@ -43,20 +44,20 @@ public class DocumentReviewerServiceImpl implements DocumentReviewerService {
     private ApplicationDocumentsRepository applicationDocumentsRepository;
 
     @Override
-    public Object queryAll(DocumentReviewerQueryCriteria criteria, Pageable pageable){
-        Page<DocumentReviewer> page = documentReviewerRepository.findAll((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root,criteria,criteriaBuilder),pageable);
+    public Object queryAll(DocumentReviewerQueryCriteria criteria, Pageable pageable) {
+        Page<DocumentReviewer> page = documentReviewerRepository.findAll((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root, criteria, criteriaBuilder), pageable);
         return PageUtil.toPage(page.map(documentReviewerMapper::toDto));
     }
 
     @Override
-    public Object queryAll(DocumentReviewerQueryCriteria criteria){
-        return documentReviewerMapper.toDto(documentReviewerRepository.findAll((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root,criteria,criteriaBuilder)));
+    public Object queryAll(DocumentReviewerQueryCriteria criteria) {
+        return documentReviewerMapper.toDto(documentReviewerRepository.findAll((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root, criteria, criteriaBuilder)));
     }
 
     @Override
     public DocumentReviewerDTO findById(Long id) {
         Optional<DocumentReviewer> documentReviewer = documentReviewerRepository.findById(id);
-        ValidationUtil.isNull(documentReviewer,"DocumentReviewer","id",id);
+        ValidationUtil.isNull(documentReviewer, "DocumentReviewer", "id", id);
         return documentReviewerMapper.toDto(documentReviewer.get());
     }
 
@@ -70,7 +71,7 @@ public class DocumentReviewerServiceImpl implements DocumentReviewerService {
     @Transactional(rollbackFor = Exception.class)
     public void update(DocumentReviewer resources) {
         Optional<DocumentReviewer> optionalDocumentReviewer = documentReviewerRepository.findById(resources.getId());
-        ValidationUtil.isNull( optionalDocumentReviewer,"DocumentReviewer","id",resources.getId());
+        ValidationUtil.isNull(optionalDocumentReviewer, "DocumentReviewer", "id", resources.getId());
         DocumentReviewer documentReviewer = optionalDocumentReviewer.get();
         documentReviewer.copy(resources);
         documentReviewerRepository.save(documentReviewer);
@@ -88,17 +89,17 @@ public class DocumentReviewerServiceImpl implements DocumentReviewerService {
         List<ApplicationDocuments> allApplicationDocumentsList = applicationDocumentsRepository.findByDeleted(0);
         for (ApplicationDocuments applicationDocuments : allApplicationDocumentsList) {
             Map map = new HashMap();
-            map.put("id",applicationDocuments.getId());
-            map.put("source","申请流程");
-            map.put("applicationUser",applicationDocuments.getUser().getUsername());
+            map.put("id", applicationDocuments.getId());
+            map.put("source", "申请流程");
+            map.put("applicationUser", applicationDocuments.getUser().getUsername());
             list.add(map);
         }
         List<ReimbursementDocuments> allReimbursementDocumentsRepositoryList = reimbursementDocumentsRepository.findByDeleted(0);
         for (ReimbursementDocuments reimbursementDocuments : allReimbursementDocumentsRepositoryList) {
             Map map = new HashMap();
-            map.put("id",reimbursementDocuments.getId());
-            map.put("source","报销流程");
-            map.put("applicationUser",reimbursementDocuments.getUser().getUsername());
+            map.put("id", reimbursementDocuments.getId());
+            map.put("source", "报销流程");
+            map.put("applicationUser", reimbursementDocuments.getUser().getUsername());
             list.add(map);
         }
         return list;

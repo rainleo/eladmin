@@ -87,7 +87,7 @@ public class AuditChainServiceImpl implements AuditChainService {
         List<AuditChainDTO> auditChainDTOList = (List<AuditChainDTO>) queryAll(criteria);
         if (auditChainDTOList == null || auditChainDTOList.isEmpty()) return null;
         // 根据jobId查询对应审批人员
-        List<User> userList = userRepository.findByJobIdIn(auditChainDTOList.stream().map(AuditChainDTO::getJobId).collect(Collectors.toList()));
+        List<User> userList = userRepository.findByJobIdIn(auditChainDTOList.stream().map(auditChainDTO -> auditChainDTO.getJobId()).collect(Collectors.toList()));
         if (userList == null || userList.isEmpty()) return null;
         // 过滤掉禁用的
         return userList.stream().filter(User -> (User.getEnabled())).collect(Collectors.toList());
