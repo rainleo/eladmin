@@ -6,13 +6,13 @@ import lombok.Data;
 import java.util.Set;
 
 /**
-* @author leo
-* @date 2019-03-25
-*/
+ * @author leo
+ * @date 2019-03-25
+ */
 @Data
-public class DeptQueryCriteria{
+public class DeptQueryCriteria {
 
-    @Query(type = Query.Type.IN, propName="id")
+    @Query(type = Query.Type.IN, propName = "id")
     private Set<Long> ids;
 
     @Query(type = Query.Type.INNER_LIKE)
@@ -23,6 +23,12 @@ public class DeptQueryCriteria{
 
     @Query
     private Long pid;
+
+    @Query
+    private Long createdBy;
+
+    @Query(propName = "username", joinName = "createdByUser")
+    private String userName;
 
     @Query(propName = "attachment", type = Query.Type.EQUAL, joinName = "deptDetailList", join = Query.Join.LEFT)
     private String attachment;

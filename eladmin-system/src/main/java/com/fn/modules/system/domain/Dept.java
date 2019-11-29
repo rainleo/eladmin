@@ -14,12 +14,12 @@ import java.util.List;
 import java.util.Set;
 
 /**
-* @author leo
-* @date 2019-03-25
-*/
+ * @author leo
+ * @date 2019-03-25
+ */
 @Entity
 @Data
-@Table(name="dept")
+@Table(name = "dept")
 public class Dept implements Serializable {
 
     /**
@@ -34,7 +34,7 @@ public class Dept implements Serializable {
     /**
      * 名称
      */
-    @Column(name = "name",nullable = false)
+    @Column(name = "name", nullable = false)
     @NotBlank
     private String name;
 
@@ -44,13 +44,27 @@ public class Dept implements Serializable {
     /**
      * 上级部门
      */
-    @Column(name = "pid",nullable = false)
+    @Column(name = "pid", nullable = false)
     @NotNull
     private Long pid;
 
     @JsonIgnore
     @ManyToMany(mappedBy = "depts")
     private Set<Role> roles;
+
+
+    /**
+     * 创建人
+     */
+    @Column(name = "createdBy", nullable = false)
+    @NotNull
+    private Long createdBy;
+
+    // 关联用户
+    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH})
+    @JoinColumn(name = "createdBy", insertable = false, updatable = false)
+    @JsonIgnore
+    private User createdByUser;
 
     @Column(name = "create_time")
     @CreationTimestamp
@@ -62,5 +76,6 @@ public class Dept implements Serializable {
     @Where(clause = "deleted = 0")
     private List<DeptDetail> deptDetailList;
 
-    public @interface Update {}
+    public @interface Update {
+    }
 }
