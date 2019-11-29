@@ -6,7 +6,10 @@ import com.fn.modules.documents.service.dto.AuditChainQueryCriteria;
 //import org.springframework.cache.annotation.CacheConfig;
 //import org.springframework.cache.annotation.CacheEvict;
 //import org.springframework.cache.annotation.Cacheable;
+import com.fn.modules.system.domain.User;
 import org.springframework.data.domain.Pageable;
+
+import java.util.List;
 
 /**
 * @author jie
@@ -61,4 +64,11 @@ public interface AuditChainService {
      */
     //@CacheEvict(allEntries = true)
     void delete(Long id);
+
+    /**
+     * 根据sorted和source查询审批人
+     * @param criteria
+     * @return
+     */
+    List<User> queryAuditUserBySortedSource(AuditChainQueryCriteria criteria);
 }

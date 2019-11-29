@@ -1,6 +1,7 @@
 package com.fn.modules.system.service.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fn.modules.system.domain.DeptDetail;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
@@ -37,6 +38,8 @@ public class DeptDTO implements Serializable {
     private List<DeptDTO> children;
 
     private Timestamp createTime;
+
+    private List<DeptDetail> deptDetailList;
 
     public String getLabel() {
         return name;

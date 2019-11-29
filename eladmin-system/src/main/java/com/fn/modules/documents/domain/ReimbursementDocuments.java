@@ -65,10 +65,6 @@ public class ReimbursementDocuments implements Serializable {
     @Column(name = "amount")
     private BigDecimal amount;
 
-    // 附件
-    @Column(name = "attachment")
-    private String attachment;
-
     // 创建时间
     @Column(name = "create_time", nullable = false)
     private Timestamp createTime;
@@ -86,6 +82,12 @@ public class ReimbursementDocuments implements Serializable {
     @JoinColumn(name = "document_id")
     @Where(clause = "source = 1 and deleted = 0")
     private List<DocumentReviewer> reviewerList;
+
+    //附件表
+    @OneToMany(targetEntity = ReimbursementDetail.class, cascade = {CascadeType.REFRESH, CascadeType.DETACH}, fetch = FetchType.LAZY)
+    @JoinColumn(name = "reimbursement_documents_id", insertable = false, updatable = false)
+    @Where(clause = "deleted = 0")
+    private List<ReimbursementDetail> reimbursementDetailList;
 
     public void copy(ReimbursementDocuments source) {
         BeanUtil.copyProperties(source, this, CopyOptions.create().setIgnoreNullValue(true));

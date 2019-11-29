@@ -1,7 +1,12 @@
 package com.fn.modules.system.service.impl;
 
 import com.fn.modules.monitor.service.RedisService;
+import com.fn.modules.system.domain.Dept;
+import com.fn.modules.system.domain.Job;
+import com.fn.modules.system.repository.DeptRepository;
+import com.fn.modules.system.repository.JobRepository;
 import com.fn.modules.system.repository.UserRepository;
+import com.fn.modules.system.service.dto.*;
 import com.fn.modules.system.service.mapper.UserMapper;
 import com.fn.modules.monitor.service.RedisService;
 import com.fn.modules.system.domain.User;
@@ -9,25 +14,31 @@ import com.fn.exception.EntityExistException;
 import com.fn.exception.EntityNotFoundException;
 import com.fn.modules.system.repository.UserRepository;
 import com.fn.modules.system.service.UserService;
-import com.fn.modules.system.service.dto.UserDTO;
-import com.fn.modules.system.service.dto.UserQueryCriteria;
 import com.fn.modules.system.service.mapper.UserMapper;
 import com.fn.utils.PageUtil;
 import com.fn.utils.QueryHelp;
+import com.fn.utils.ValidateUtils;
 import com.fn.utils.ValidationUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 /**
  * @author leo
  * @date 2019-09-23
  */
+@Slf4j
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class UserServiceImpl implements UserService {
@@ -39,18 +50,24 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Autowired
+    private DeptRepository deptRepository;
+
+    @Autowired
+    private JobRepository jobRepository;
+
+    @Autowired
     private RedisService redisService;
 
     @Override
     public Object queryAll(UserQueryCriteria criteria, Pageable pageable) {
-        Page<User> page = userRepository.findAll((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root,criteria,criteriaBuilder),pageable);
+        Page<User> page = userRepository.findAll((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root, criteria, criteriaBuilder), pageable);
         return PageUtil.toPage(page.map(userMapper::toDto));
     }
 
     @Override
     public UserDTO findById(long id) {
         Optional<User> user = userRepository.findById(id);
-        ValidationUtil.isNull(user,"User","id",id);
+        ValidationUtil.isNull(user, "User", "id", id);
         return userMapper.toDto(user.get());
     }
 
@@ -58,12 +75,12 @@ public class UserServiceImpl implements UserService {
     @Transactional(rollbackFor = Exception.class)
     public UserDTO create(User resources) {
 
-        if(userRepository.findByUsername(resources.getUsername())!=null){
-            throw new EntityExistException(User.class,"username",resources.getUsername());
+        if (userRepository.findByUsername(resources.getUsername()) != null) {
+            throw new EntityExistException(User.class, "username", resources.getUsername());
         }
 
-        if(userRepository.findByEmail(resources.getEmail())!=null){
-            throw new EntityExistException(User.class,"email",resources.getEmail());
+        if (userRepository.findByEmail(resources.getEmail()) != null) {
+            throw new EntityExistException(User.class, "email", resources.getEmail());
         }
 
         if(userRepository.findByPhone(resources.getPhone())!=null){
@@ -80,19 +97,19 @@ public class UserServiceImpl implements UserService {
     @Transactional(rollbackFor = Exception.class)
     public void update(User resources) {
         Optional<User> userOptional = userRepository.findById(resources.getId());
-        ValidationUtil.isNull(userOptional,"User","id",resources.getId());
+        ValidationUtil.isNull(userOptional, "User", "id", resources.getId());
 
         User user = userOptional.get();
 
         User user1 = userRepository.findByUsername(user.getUsername());
         User user2 = userRepository.findByEmail(user.getEmail());
 
-        if(user1 !=null&&!user.getId().equals(user1.getId())){
-            throw new EntityExistException(User.class,"username",resources.getUsername());
+        if (user1 != null && !user.getId().equals(user1.getId())) {
+            throw new EntityExistException(User.class, "username", resources.getUsername());
         }
 
-        if(user2!=null&&!user.getId().equals(user2.getId())){
-            throw new EntityExistException(User.class,"email",resources.getEmail());
+        if (user2 != null && !user.getId().equals(user2.getId())) {
+            throw new EntityExistException(User.class, "email", resources.getEmail());
         }
 
         // 如果用户的角色改变了，需要手动清理下缓存
@@ -122,11 +139,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDTO findByName(String userName) {
         User user = null;
-        if(ValidationUtil.isEmail(userName)){
+        if (ValidationUtil.isEmail(userName)) {
             user = userRepository.findByEmail(userName);
-        } else if(ValidationUtil.isPhone(userName)){
+        } else if (ValidationUtil.isPhone(userName)) {
             user = userRepository.findByPhone(userName);
-        }else{
+        } else {
             user = userRepository.findByUsername(userName);
         }
         if (user == null) {
@@ -139,7 +156,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void updatePass(String username, String pass) {
-        userRepository.updatePass(username,pass,new Date());
+        userRepository.updatePass(username, pass, new Date());
     }
 
 
@@ -147,13 +164,101 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void updateAvatar(String username, String url) {
-        userRepository.updateAvatar(username,url);
+        userRepository.updateAvatar(username, url);
     }
 
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void updateEmail(String username, String email) {
-        userRepository.updateEmail(username,email);
+        userRepository.updateEmail(username, email);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public ResponseEntity saveImportUser(List<String[]> usersList) {
+        List<String> userNameList = new ArrayList<>();//保存返回未成功用户名
+        String username;
+        String phone;
+        String email;
+        String deptName;
+        String jobName;
+        for (int i = 0; i < usersList.size(); i++) {
+            User user = new User();
+            // 用户名
+            username = usersList.get(i)[0];
+            log.info("解析用户名username[{}]:[{}]", i, username);
+            if (usersList.get(i).length != 5 || username == null) {
+                userNameList.add(username + ":不合法！");
+                continue;
+            }
+            user.setUsername(username);
+            // 手机号
+            phone = usersList.get(i)[1];
+            if (phone.isEmpty() || !ValidateUtils.validateMobileNumber(phone)) {
+                userNameList.add(username + ":格式错误!");
+                continue;
+            }
+            user.setPhone(phone);
+            // email
+            email = usersList.get(i)[2];
+            if (email.isEmpty() || !ValidateUtils.validateEmail(email)) {
+                userNameList.add(username + ":格式错误!");
+                continue;
+            }
+            user.setEmail(email);
+            // 部门
+            deptName = usersList.get(i)[3];
+            if (deptName.isEmpty()) {
+                userNameList.add(username + ":格式错误!");
+                continue;
+            }
+            List<Dept> depts = deptRepository.findAll();
+            if (depts == null || depts.isEmpty()) {
+                log.error("没有可用部门,请先设置部门！");
+                return new ResponseEntity(HttpStatus.BAD_REQUEST);
+            }
+            boolean flag = false;
+            for (Dept dept : depts) {
+                if (deptName.equals(dept.getName())) {
+                    user.setDeptId(dept.getId());
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag) {
+                userNameList.add(username + ":没有找到对应部门,请先设置部门！");
+                continue;
+            }
+            // 职位
+            jobName = usersList.get(i)[4];
+            if (jobName.isEmpty()) {
+                userNameList.add(username + ":格式错误!");
+                continue;
+            }
+            List<Job> jobs = jobRepository.findAll();
+            if (jobs == null || jobs.isEmpty()) {
+                log.error("没有可用岗位,请先设置岗位！");
+                return new ResponseEntity(HttpStatus.BAD_REQUEST);
+            }
+            flag = false;
+            for (Job job : jobs) {
+                if (jobName.equals(job.getName())) {
+                    user.setJobId(job.getId());
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag) {
+                userNameList.add(username + ":没有找到对应岗位,请先设置岗位！");
+                continue;
+            }
+            if (!userNameList.isEmpty()) {
+                log.error("导入失败列表userNameList:{}" + userNameList);
+            }
+            user.setEnabled(false);
+            userRepository.save(user);
+        }
+        return new ResponseEntity(HttpStatus.OK);
     }
 
     @Override

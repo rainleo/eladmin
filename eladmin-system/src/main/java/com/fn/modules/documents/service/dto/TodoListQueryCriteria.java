@@ -42,6 +42,10 @@ public class TodoListQueryCriteria {
     @Query(type = Query.Type.INNER_LIKE)
     private String content;
 
+    // 状态
+    @Query
+    private Integer status;
+
     // 精确
     @Query
     private Timestamp createTime;

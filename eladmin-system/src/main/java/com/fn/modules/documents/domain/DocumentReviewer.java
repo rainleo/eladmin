@@ -31,6 +31,9 @@ public class DocumentReviewer implements Serializable {
     @Column(name = "document_id")
     private Long documentId;
 
+    @Column(name = "user_id")
+    private Long userId;
+
     // 审核级数，从1开始
     @Column(name = "sorted")
     private Integer sorted;
@@ -57,7 +60,7 @@ public class DocumentReviewer implements Serializable {
 
     //单据-审核人中间表
     @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH})
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
     private User user;
 
     public void copy(DocumentReviewer source) {

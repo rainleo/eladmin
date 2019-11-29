@@ -59,4 +59,21 @@ public class DocumentReviewerController {
         documentReviewerService.delete(id);
         return new ResponseEntity(HttpStatus.OK);
     }
+
+    @Log("查询所有单据Documents")
+    @ApiOperation(value = "查询所有单据Documents")
+    @GetMapping(value = "/documentReviewer/allDocuments")
+    @PreAuthorize("hasAnyRole('ADMIN','DOCUMENTREVIEWER_ALL','DOCUMENTREVIEWER_SELECT')")
+    public ResponseEntity getAllDocuments(DocumentReviewerQueryCriteria criteria){
+        return new ResponseEntity(documentReviewerService.queryAllDocuments(),HttpStatus.OK);
+    }
+
+    @Log("查询所有禁用Sorted")
+    @ApiOperation(value = "查询所有禁用Sorted")
+    @GetMapping(value = "/documentReviewer/allDisableSorted")
+    @PreAuthorize("hasAnyRole('ADMIN','DOCUMENTREVIEWER_ALL','DOCUMENTREVIEWER_SELECT')")
+    public ResponseEntity getDisableSorted(DocumentReviewerQueryCriteria criteria){
+        return new ResponseEntity(documentReviewerService.getDisableSorted(criteria),HttpStatus.OK);
+    }
+
 }

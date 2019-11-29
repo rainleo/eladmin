@@ -10,6 +10,9 @@ import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
+
+import java.util.List;
 
 /**
  * @author leo
@@ -20,6 +23,7 @@ public interface UserService {
 
     /**
      * get
+     *
      * @param id
      * @return
      */
@@ -28,6 +32,7 @@ public interface UserService {
 
     /**
      * create
+     *
      * @param resources
      * @return
      */
@@ -36,6 +41,7 @@ public interface UserService {
 
     /**
      * update
+     *
      * @param resources
      */
     @CacheEvict(allEntries = true)
@@ -43,6 +49,7 @@ public interface UserService {
 
     /**
      * delete
+     *
      * @param id
      */
     @CacheEvict(allEntries = true)
@@ -50,6 +57,7 @@ public interface UserService {
 
     /**
      * findByName
+     *
      * @param userName
      * @return
      */
@@ -58,6 +66,7 @@ public interface UserService {
 
     /**
      * 修改密码
+     *
      * @param username
      * @param encryptPassword
      */
@@ -66,6 +75,7 @@ public interface UserService {
 
     /**
      * 修改头像
+     *
      * @param username
      * @param url
      */
@@ -74,6 +84,7 @@ public interface UserService {
 
     /**
      * 修改邮箱
+     *
      * @param username
      * @param email
      */
@@ -82,6 +93,13 @@ public interface UserService {
 
     @Cacheable(keyGenerator = "keyGenerator")
     Object queryAll(UserQueryCriteria criteria, Pageable pageable);
+
+    /**
+     * 导入用户入库
+     * @param usersList
+     * @return
+     */
+    ResponseEntity saveImportUser(List<String[]> usersList);
 
     /**
      * 修改密码

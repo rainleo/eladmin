@@ -19,6 +19,8 @@ public class AuditChainDTO implements Serializable {
     // 岗位，来自job.id
     private Job job;
 
+    private Long jobId;
+
     // 审核顺序，从1开始
     private Integer sorted;
 

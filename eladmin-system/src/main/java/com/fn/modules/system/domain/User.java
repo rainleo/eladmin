@@ -57,12 +57,20 @@ public class User implements Serializable {
     private Set<Role> roles;
 
     @OneToOne
-    @JoinColumn(name = "job_id")
+    @JoinColumn(name = "job_id", insertable = false, updatable = false)
     private Job job;
 
     @OneToOne
-    @JoinColumn(name = "dept_id")
+    @JoinColumn(name = "dept_id", insertable = false, updatable = false)
     private Dept dept;
+
+    // 部门id
+    @Column(name = "dept_id")
+    private Long deptId;
+
+    // 岗位id
+    @Column(name = "job_id")
+    private Long jobId;
 
     @Override
     public String toString() {

@@ -54,6 +54,10 @@ public class TodoList implements Serializable {
     @Column(name = "content")
     private String content;
 
+    // 状态
+    @Column(name = "status", nullable = false)
+    private Integer status;
+
     // 创建时间
     @Column(name = "create_time", nullable = false)
     private Timestamp createTime;
