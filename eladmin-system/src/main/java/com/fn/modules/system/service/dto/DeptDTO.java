@@ -2,6 +2,7 @@ package com.fn.modules.system.service.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fn.modules.system.domain.DeptDetail;
+import com.fn.modules.system.domain.User;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
@@ -33,6 +34,11 @@ public class DeptDTO implements Serializable {
      * 上级部门
      */
     private Long pid;
+
+    /**
+     * 创建人
+     */
+    private User createdByUser;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private List<DeptDTO> children;
