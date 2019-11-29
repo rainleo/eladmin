@@ -96,6 +96,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .antMatchers( HttpMethod.POST,"/auth/"+loginPath).anonymous()
                 .antMatchers( HttpMethod.POST,"/auth/"+"applogin").anonymous()
+                .antMatchers( HttpMethod.POST,"users/create").anonymous()
+                .antMatchers( HttpMethod.POST,"users/update").anonymous()
                 .antMatchers("/auth/vCode").anonymous()
                 // 支付宝回调
                 .antMatchers("/api/aliPay/return").anonymous()
