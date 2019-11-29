@@ -12,6 +12,7 @@ import com.fn.modules.system.domain.Dept;
 import com.fn.modules.system.service.DeptService;
 import com.fn.modules.system.service.dto.DeptDTO;
 import com.fn.modules.system.service.dto.DeptQueryCriteria;
+import com.fn.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -71,5 +72,24 @@ public class DeptController {
     public ResponseEntity delete(@PathVariable Long id){
         deptService.delete(id);
         return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @Log("查询用户组织所有部门")
+    @GetMapping(value = "/appdept")
+    public ResponseEntity getAppDept(DeptQueryCriteria criteria){
+        // 数据权限
+        SecurityUtils.getUserId();
+        criteria.setIds(dataScope.getDeptIds());
+
+        List<DeptDTO> deptDTOS = deptService.queryAll(criteria);
+        return new ResponseEntity(deptService.buildTree(deptDTOS),HttpStatus.OK);
+    }
+    @Log("新增部门")
+    @PostMapping(value = "/adddept")
+    public ResponseEntity adddept(@Validated @RequestBody Dept resources){
+        if (resources.getId() != null) {
+            throw new BadRequestException("A new "+ ENTITY_NAME +" cannot already have an ID");
+        }
+        return new ResponseEntity(deptService.create(resources),HttpStatus.CREATED);
     }
 }

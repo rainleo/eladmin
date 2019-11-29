@@ -65,7 +65,15 @@ public class TodoListController {
     @GetMapping(value = "/appTodoList")
     public ResponseEntity appTodoList( TodoListQueryCriteria criteria,  Pageable pageable){
         criteria.setAssistantId(SecurityUtils.getUserId());
+
         return new ResponseEntity(todoListService.queryAll(criteria,pageable),HttpStatus.OK);
     }
+    @GetMapping(value = "/appMyTodoList")
+    public ResponseEntity appMyTodoList( TodoListQueryCriteria criteria,  Pageable pageable){
+        criteria.setUser_id(SecurityUtils.getUserId());
+
+        return new ResponseEntity(todoListService.queryAll(criteria,pageable),HttpStatus.OK);
+    }
+
 
 }
