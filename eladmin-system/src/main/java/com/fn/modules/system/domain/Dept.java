@@ -57,7 +57,7 @@ public class Dept implements Serializable {
      * 创建人
      */
     @Column(name = "createdBy", nullable = false)
-    @NotNull
+   // @NotNull
     private Long createdBy;
 
     // 关联用户

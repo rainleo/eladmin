@@ -20,6 +20,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -90,6 +92,8 @@ public class DeptController {
         if (resources.getId() != null) {
             throw new BadRequestException("A new "+ ENTITY_NAME +" cannot already have an ID");
         }
+        resources.setCreatedBy( SecurityUtils.getUserId());
+        resources.setCreateTime(new Timestamp(System.currentTimeMillis()));
         return new ResponseEntity(deptService.create(resources),HttpStatus.CREATED);
     }
 }
