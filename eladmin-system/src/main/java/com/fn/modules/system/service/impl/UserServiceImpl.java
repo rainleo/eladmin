@@ -1,24 +1,19 @@
 package com.fn.modules.system.service.impl;
 
+import com.fn.exception.EntityExistException;
+import com.fn.exception.EntityNotFoundException;
 import com.fn.modules.monitor.service.RedisService;
 import com.fn.modules.system.domain.Dept;
 import com.fn.modules.system.domain.Job;
+import com.fn.modules.system.domain.User;
 import com.fn.modules.system.repository.DeptRepository;
 import com.fn.modules.system.repository.JobRepository;
 import com.fn.modules.system.repository.UserRepository;
-import com.fn.modules.system.service.dto.*;
-import com.fn.modules.system.service.mapper.UserMapper;
-import com.fn.modules.monitor.service.RedisService;
-import com.fn.modules.system.domain.User;
-import com.fn.exception.EntityExistException;
-import com.fn.exception.EntityNotFoundException;
-import com.fn.modules.system.repository.UserRepository;
 import com.fn.modules.system.service.UserService;
+import com.fn.modules.system.service.dto.UserDTO;
+import com.fn.modules.system.service.dto.UserQueryCriteria;
 import com.fn.modules.system.service.mapper.UserMapper;
-import com.fn.utils.PageUtil;
-import com.fn.utils.QueryHelp;
-import com.fn.utils.ValidateUtils;
-import com.fn.utils.ValidationUtil;
+import com.fn.utils.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -171,6 +166,7 @@ public class UserServiceImpl implements UserService {
     @Transactional(rollbackFor = Exception.class)
     public ResponseEntity saveImportUser(List<String[]> usersList) {
         List<String> userNameList = new ArrayList<>();//保存返回未成功用户名
+        String company;
         String username;
         String phone;
         String email;
@@ -178,31 +174,59 @@ public class UserServiceImpl implements UserService {
         String jobName;
         for (int i = 0; i < usersList.size(); i++) {
             User user = new User();
+            // 公司
+            company = usersList.get(i)[0];
+            log.info("解析公司company[{}]:[{}]", i, company);
+            if (usersList.get(i).length != 6) {
+                userNameList.add("参数不合法！");
+                continue;
+            }
+            if (StringUtils.isBlank(company)) {
+                userNameList.add(company + ":格式错误!");
+                continue;
+            }
+            List<Dept> companies = deptRepository.findAll();
+            if (companies == null || companies.isEmpty()) {
+                log.error("没有可用公司部门,请先设置公司部门！");
+                return new ResponseEntity(HttpStatus.BAD_REQUEST);
+            }
+            boolean flag = false;
+            for (Dept dept : companies) {
+                if (company.equals(dept.getName()) && dept.getPid() == 1) {
+                    user.setCompanyId(dept.getId());
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag) {
+                userNameList.add(company + ":没有找到对应公司,请先设置公司！");
+                continue;
+            }
             // 用户名
-            username = usersList.get(i)[0];
+            username = usersList.get(i)[1];
             log.info("解析用户名username[{}]:[{}]", i, username);
-            if (usersList.get(i).length != 5 || username == null) {
+            if (StringUtils.isBlank(username)) {
                 userNameList.add(username + ":不合法！");
                 continue;
             }
             user.setUsername(username);
             // 手机号
-            phone = usersList.get(i)[1];
-            if (phone.isEmpty() || !ValidateUtils.validateMobileNumber(phone)) {
+            phone = usersList.get(i)[2];
+            if (StringUtils.isBlank(phone) || !ValidateUtils.validateMobileNumber(phone)) {
                 userNameList.add(username + ":格式错误!");
                 continue;
             }
             user.setPhone(phone);
             // email
-            email = usersList.get(i)[2];
-            if (email.isEmpty() || !ValidateUtils.validateEmail(email)) {
+            email = usersList.get(i)[3];
+            if (StringUtils.isBlank(email) || !ValidateUtils.validateEmail(email)) {
                 userNameList.add(username + ":格式错误!");
                 continue;
             }
             user.setEmail(email);
             // 部门
-            deptName = usersList.get(i)[3];
-            if (deptName.isEmpty()) {
+            deptName = usersList.get(i)[4];
+            if (StringUtils.isBlank(deptName)) {
                 userNameList.add(username + ":格式错误!");
                 continue;
             }
@@ -211,9 +235,9 @@ public class UserServiceImpl implements UserService {
                 log.error("没有可用部门,请先设置部门！");
                 return new ResponseEntity(HttpStatus.BAD_REQUEST);
             }
-            boolean flag = false;
+            flag = false;
             for (Dept dept : depts) {
-                if (deptName.equals(dept.getName())) {
+                if (deptName.equals(dept.getName()) && user.getCompanyId() == dept.getPid()) {
                     user.setDeptId(dept.getId());
                     flag = true;
                     break;
@@ -224,8 +248,8 @@ public class UserServiceImpl implements UserService {
                 continue;
             }
             // 职位
-            jobName = usersList.get(i)[4];
-            if (jobName.isEmpty()) {
+            jobName = usersList.get(i)[5];
+            if (StringUtils.isBlank(jobName)) {
                 userNameList.add(username + ":格式错误!");
                 continue;
             }

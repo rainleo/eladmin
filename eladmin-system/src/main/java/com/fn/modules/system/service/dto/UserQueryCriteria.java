@@ -26,4 +26,7 @@ public class UserQueryCriteria implements Serializable {
     private Boolean enabled;
 
     private Long deptId;
+
+    @Query
+    private Long companyId;
 }

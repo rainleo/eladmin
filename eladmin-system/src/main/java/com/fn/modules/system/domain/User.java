@@ -72,6 +72,15 @@ public class User implements Serializable {
     @Column(name = "job_id")
     private Long jobId;
 
+    // 公司id
+    @Column(name = "company_id")
+    private Long companyId;
+
+    // 公司
+    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH})
+    @JoinColumn(name = "company_id", insertable = false, updatable = false)
+    private Dept company;
+
     @Override
     public String toString() {
         return "User{" +

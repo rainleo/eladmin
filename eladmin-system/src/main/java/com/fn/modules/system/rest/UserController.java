@@ -70,7 +70,14 @@ public class UserController {
     public ResponseEntity getUsers(UserQueryCriteria criteria, Pageable pageable) {
         Set<Long> deptSet = new HashSet<>();
         Set<Long> result = new HashSet<>();
-
+        if (criteria != null) {
+            if (criteria.getCompanyId() == 0) {
+                criteria.setCompanyId(null);// 查全部
+            } else if (criteria.getCompanyId() == 1) {
+                criteria.setCompanyId(criteria.getDeptId());// 查公司下用户
+                criteria.setDeptId(null);
+            }
+        }
         if (!ObjectUtils.isEmpty(criteria.getDeptId())) {
             deptSet.add(criteria.getDeptId());
             deptSet.addAll(dataScope.getDeptChildren(deptService.findByPid(criteria.getDeptId())));
@@ -96,6 +103,7 @@ public class UserController {
             result.addAll(deptSet);
             result.addAll(deptIds);
             criteria.setDeptIds(result);
+            //TODO 查询结果不对
             return new ResponseEntity(userService.queryAll(criteria, pageable), HttpStatus.OK);
         }
     }

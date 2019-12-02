@@ -91,7 +91,7 @@ public interface UserService {
     @CacheEvict(allEntries = true)
     void updateEmail(String username, String email);
 
-    @Cacheable(keyGenerator = "keyGenerator")
+//    @Cacheable(keyGenerator = "keyGenerator")
     Object queryAll(UserQueryCriteria criteria, Pageable pageable);
 
     /**

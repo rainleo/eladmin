@@ -1,6 +1,7 @@
 package com.fn.modules.system.service.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fn.modules.system.domain.Dept;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import java.io.Serializable;
@@ -44,4 +45,8 @@ public class UserDTO implements Serializable {
     private DeptSmallDTO dept;
 
     private Long deptId;
+
+    private Long companyId;
+
+    private Dept company;
 }
