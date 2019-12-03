@@ -75,4 +75,11 @@ public class ApplicationDocumentsQueryCriteria {
 
     @Query(propName = "source", type = Query.Type.EQUAL, joinName = "reviewerList", join = Query.Join.LEFT)
     private String source;
+
+    // 精确
+    @Query
+    private Long companyId;
+
+    @Query(propName = "name", joinName = "dept")
+    private String companyName;
 }

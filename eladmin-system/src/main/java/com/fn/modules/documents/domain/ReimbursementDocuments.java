@@ -48,6 +48,15 @@ public class ReimbursementDocuments implements Serializable {
     @JoinColumn(name = "dept_id", insertable = false, updatable = false)
     private Dept dept;
 
+    // 公司id
+    @Column(name = "company_id")
+    private Long companyId;
+
+    // 公司
+    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH})
+    @JoinColumn(name = "company_id", insertable = false, updatable = false)
+    private Dept company;
+    
     // 报销人id
     @Column(name = "user_id")
     private Long userId;

@@ -37,6 +37,9 @@ public class ReimbursementDocumentsDTO implements Serializable {
     // 申请人
     private User user;
 
+    // 公司
+    private Dept company;
+
     // 报销摘要
     private String reimbursementAbstract;
 

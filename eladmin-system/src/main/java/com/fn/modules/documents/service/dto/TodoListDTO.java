@@ -1,5 +1,6 @@
 package com.fn.modules.documents.service.dto;
 
+import com.fn.modules.system.domain.Dept;
 import com.fn.modules.system.domain.User;
 import lombok.Data;
 
@@ -28,6 +29,9 @@ public class TodoListDTO implements Serializable {
 
     // 状态
     private Integer status;
+
+    // 公司
+    private Dept company;
 
     // 创建时间
     private Timestamp createTime;

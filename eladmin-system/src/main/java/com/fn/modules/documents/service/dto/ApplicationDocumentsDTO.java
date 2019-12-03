@@ -32,6 +32,9 @@ public class ApplicationDocumentsDTO implements Serializable {
     // 部门
     private Dept dept;
 
+    // 公司
+    private Dept company;
+
     // 申请人
     private User user;
 

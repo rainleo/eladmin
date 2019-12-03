@@ -1,5 +1,7 @@
 package com.fn.modules.documents.service.dto;
 
+import com.fn.annotation.Query;
+import com.fn.modules.system.domain.Dept;
 import com.fn.modules.system.domain.Job;
 import lombok.Data;
 import java.sql.Timestamp;
@@ -18,6 +20,12 @@ public class AuditChainDTO implements Serializable {
 
     // 岗位，来自job.id
     private Job job;
+
+    // 部门
+    private Dept dept;
+
+    // 公司
+    private Dept company;
 
     private Long jobId;
 

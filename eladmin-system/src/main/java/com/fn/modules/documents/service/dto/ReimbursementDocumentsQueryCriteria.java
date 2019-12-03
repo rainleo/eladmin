@@ -65,4 +65,11 @@ public class ReimbursementDocumentsQueryCriteria {
 
     @Query(propName = "attachment", type = Query.Type.EQUAL, joinName = "reimbursementDetailList", join = Query.Join.LEFT)
     private String attachment;
+
+    // 精确
+    @Query
+    private Long companyId;
+
+    @Query(propName = "name", joinName = "dept")
+    private String companyName;
 }

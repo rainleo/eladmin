@@ -1,5 +1,6 @@
 package com.fn.modules.documents.domain;
 
+import com.fn.modules.system.domain.Dept;
 import lombok.Data;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
@@ -40,6 +41,15 @@ public class AccountingSubjects implements Serializable {
     // 辅助核算项目明细
     @Column(name = "item_details")
     private String itemDetails;
+
+    // 公司id
+    @Column(name = "company_id")
+    private Long companyId;
+
+    // 公司
+    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH})
+    @JoinColumn(name = "company_id", insertable = false, updatable = false)
+    private Dept company;
 
     // 创建时间
     @Column(name = "create_time",nullable = false)

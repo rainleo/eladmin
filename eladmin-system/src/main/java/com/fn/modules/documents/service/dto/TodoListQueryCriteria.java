@@ -67,4 +67,11 @@ public class TodoListQueryCriteria {
 
     @Query(propName = "username", joinName = "assistantPerson")
     private String assistantPersonName;
+
+    // 精确
+    @Query
+    private Long companyId;
+
+    @Query(propName = "name", joinName = "dept")
+    private String companyName;
 }

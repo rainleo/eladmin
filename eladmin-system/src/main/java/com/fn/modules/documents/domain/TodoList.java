@@ -2,6 +2,7 @@ package com.fn.modules.documents.domain;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
+import com.fn.modules.system.domain.Dept;
 import com.fn.modules.system.domain.User;
 import lombok.Data;
 
@@ -57,6 +58,15 @@ public class TodoList implements Serializable {
     // 状态
     @Column(name = "status", nullable = false)
     private Integer status;
+
+    // 公司id
+    @Column(name = "company_id")
+    private Long companyId;
+
+    // 公司
+    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH})
+    @JoinColumn(name = "company_id", insertable = false, updatable = false)
+    private Dept company;
 
     // 创建时间
     @Column(name = "create_time", nullable = false)

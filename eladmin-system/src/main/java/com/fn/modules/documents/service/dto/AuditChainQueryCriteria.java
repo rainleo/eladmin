@@ -43,4 +43,19 @@ public class AuditChainQueryCriteria {
 
     @Query(propName = "name", joinName = "job", type = Query.Type.INNER_LIKE)
     private String jobName;
+
+    // 精确
+    @Query
+    private Long deptId;
+
+    @Query(propName = "name", joinName = "dept")
+    private String deptName;
+
+    // 精确
+    @Query
+    private Long companyId;
+
+    @Query(propName = "name", joinName = "dept")
+    private String companyName;
+
 }

@@ -1,5 +1,6 @@
 package com.fn.modules.documents.domain;
 
+import com.fn.modules.system.domain.Dept;
 import com.fn.modules.system.domain.Job;
 import com.fn.modules.system.domain.User;
 import lombok.Data;
@@ -32,6 +33,25 @@ public class AuditChain implements Serializable {
     @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH})
     @JoinColumn(name = "job_id", insertable = false, updatable = false)
     private Job job;
+
+
+    // 部门id
+    @Column(name = "dept_id")
+    private Long deptId;
+
+    // 关联部门(脱离级联操作)
+    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH})
+    @JoinColumn(name = "dept_id", insertable = false, updatable = false)
+    private Dept dept;
+
+    // 公司id
+    @Column(name = "company_id")
+    private Long companyId;
+
+    // 公司
+    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH})
+    @JoinColumn(name = "company_id", insertable = false, updatable = false)
+    private Dept company;
 
     // 审核顺序，从1开始
     @Column(name = "sorted")

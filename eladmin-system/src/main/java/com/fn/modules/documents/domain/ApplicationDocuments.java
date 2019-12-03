@@ -53,6 +53,15 @@ public class ApplicationDocuments implements Serializable {
     @JoinColumn(name = "dept_id", insertable = false, updatable = false)
     private Dept dept;
 
+    // 公司id
+    @Column(name = "company_id")
+    private Long companyId;
+
+    // 公司
+    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH})
+    @JoinColumn(name = "company_id", insertable = false, updatable = false)
+    private Dept company;
+
     // 关联用户(@JoinColumn中user_id为数据库application_documents中对应字段)
     @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH})
     @JoinColumn(name = "user_id", insertable = false, updatable = false)

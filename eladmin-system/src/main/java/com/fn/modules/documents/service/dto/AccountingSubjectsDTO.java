@@ -1,5 +1,6 @@
 package com.fn.modules.documents.service.dto;
 
+import com.fn.modules.system.domain.Dept;
 import lombok.Data;
 
 import javax.persistence.Column;
@@ -37,4 +38,7 @@ public class AccountingSubjectsDTO implements Serializable {
 
     //删除位
     private Integer deleted;
+
+    // 公司
+    private Dept company;
 }
