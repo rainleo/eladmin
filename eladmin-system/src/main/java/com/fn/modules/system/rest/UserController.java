@@ -70,7 +70,7 @@ public class UserController {
     public ResponseEntity getUsers(UserQueryCriteria criteria, Pageable pageable) {
         Set<Long> deptSet = new HashSet<>();
         Set<Long> result = new HashSet<>();
-        if (criteria != null) {
+        if (!ObjectUtils.isEmpty(criteria) && !ObjectUtils.isEmpty(criteria.getCompanyId())) {
             if (criteria.getCompanyId() == 0) {
                 criteria.setCompanyId(null);// 查全部
             } else if (criteria.getCompanyId() == 1) {

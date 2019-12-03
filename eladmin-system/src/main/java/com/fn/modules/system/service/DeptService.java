@@ -24,7 +24,7 @@ public interface DeptService {
      * @param criteria
      * @return
      */
-    @Cacheable(keyGenerator = "keyGenerator")
+//    @Cacheable(keyGenerator = "keyGenerator")
     List<DeptDTO> queryAll(DeptQueryCriteria criteria);
 
     /**

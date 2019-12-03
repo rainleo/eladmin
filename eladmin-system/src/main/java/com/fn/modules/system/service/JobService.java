@@ -60,6 +60,6 @@ public interface JobService {
      */
     Object queryAll(JobQueryCriteria criteria, Pageable pageable);
 
-    @Cacheable(keyGenerator = "keyGenerator")
+//    @Cacheable(keyGenerator = "keyGenerator")
     List<JobDTO> queryAll(JobQueryCriteria criteria);
 }

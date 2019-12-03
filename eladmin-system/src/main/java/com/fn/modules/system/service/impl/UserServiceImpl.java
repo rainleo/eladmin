@@ -1,10 +1,12 @@
 package com.fn.modules.system.service.impl;
 
+import cn.hutool.core.collection.CollectionUtil;
 import com.fn.exception.EntityExistException;
 import com.fn.exception.EntityNotFoundException;
 import com.fn.modules.monitor.service.RedisService;
 import com.fn.modules.system.domain.Dept;
 import com.fn.modules.system.domain.Job;
+import com.fn.modules.system.domain.Role;
 import com.fn.modules.system.domain.User;
 import com.fn.modules.system.repository.DeptRepository;
 import com.fn.modules.system.repository.JobRepository;
@@ -14,6 +16,7 @@ import com.fn.modules.system.service.dto.UserDTO;
 import com.fn.modules.system.service.dto.UserQueryCriteria;
 import com.fn.modules.system.service.mapper.UserMapper;
 import com.fn.utils.*;
+import com.mchange.v1.util.CollectionUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -24,10 +27,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * @author leo
@@ -115,9 +115,11 @@ public class UserServiceImpl implements UserService {
         user.setEmail(resources.getEmail());
         user.setEnabled(resources.getEnabled());
         user.setRoles(resources.getRoles());
-        user.setDept(resources.getDept());
-        user.setJob(resources.getJob());
+//        user.setDept(resources.getDept());
+//        user.setJob(resources.getJob());
         user.setPhone(resources.getPhone());
+        user.setDeptId(resources.getDeptId());
+        user.setJobId(resources.getJobId());
         userRepository.save(user);
     }
 
@@ -192,7 +194,7 @@ public class UserServiceImpl implements UserService {
             }
             boolean flag = false;
             for (Dept dept : companies) {
-                if (company.equals(dept.getName()) && dept.getPid() == 1) {
+                if (company.equals(dept.getName()) && dept.getPid() == 1 && dept.getEnabled()) {
                     user.setCompanyId(dept.getId());
                     flag = true;
                     break;
@@ -237,7 +239,7 @@ public class UserServiceImpl implements UserService {
             }
             flag = false;
             for (Dept dept : depts) {
-                if (deptName.equals(dept.getName()) && user.getCompanyId() == dept.getPid()) {
+                if (deptName.equals(dept.getName()) && user.getCompanyId() == dept.getPid() && dept.getEnabled()) {
                     user.setDeptId(dept.getId());
                     flag = true;
                     break;
@@ -274,7 +276,16 @@ public class UserServiceImpl implements UserService {
                 log.error("导入失败列表userNameList:{}" + userNameList);
             }
             user.setEnabled(false);
+            // 设置默认角色——普通用户
+            Role role = new Role();
+            role.setId(2L);
+            Set<Role> roles = new HashSet<>();
+            roles.add(role);
+            user.setRoles(roles);
             userRepository.save(user);
+        }
+        if (CollectionUtil.isEmpty(userNameList)) {
+            return new ResponseEntity(userNameList, HttpStatus.CHECKPOINT);
         }
         return new ResponseEntity(HttpStatus.OK);
     }

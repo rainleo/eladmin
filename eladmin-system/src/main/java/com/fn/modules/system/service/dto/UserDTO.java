@@ -49,4 +49,23 @@ public class UserDTO implements Serializable {
     private Long companyId;
 
     private Dept company;
+
+    private String deptName;
+
+    private String companyName;
+
+    private String jobName;
+
+    // 用户导出
+    public String getDeptName() {
+        return dept.getName();
+    }
+
+    public String getCompanyName() {
+        return company.getName();
+    }
+
+    public String getJobName() {
+        return job.getName();
+    }
 }
