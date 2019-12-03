@@ -1,10 +1,5 @@
 package com.fn.modules.system.rest;
 
-import com.fn.modules.documents.service.dto.ApplicationDocumentsQueryCriteria;
-import com.fn.modules.system.domain.Dept;
-import com.fn.modules.system.service.DeptService;
-import com.fn.modules.system.service.dto.DeptDTO;
-import com.fn.modules.system.service.dto.DeptQueryCriteria;
 import com.fn.aop.log.Log;
 import com.fn.config.DataScope;
 import com.fn.exception.BadRequestException;
@@ -14,7 +9,6 @@ import com.fn.modules.system.service.dto.DeptDTO;
 import com.fn.modules.system.service.dto.DeptQueryCriteria;
 import com.fn.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
