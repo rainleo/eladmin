@@ -17,7 +17,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -117,5 +120,32 @@ public class QiniuController {
     public ResponseEntity deleteAll(@RequestBody Long[] ids) {
         qiNiuService.deleteAll(ids, qiNiuService.find());
         return new ResponseEntity(HttpStatus.OK);
+    }
+
+    /**
+     * 上传文件到七牛云
+     * @param file
+     * @return
+     */
+    @Log("上传文件")
+    @PostMapping(value = "/qiNiuContentall")
+    public ResponseEntity uploadall(@RequestParam MultipartFile[] file){
+        List contetList = new ArrayList();
+
+        for(MultipartFile file1: file){
+            QiniuContent qiniuContent = qiNiuService.upload(file1,qiNiuService.find());
+            Map context = new HashMap();
+            context.put("attachment",qiniuContent.getUrl());
+            context.put("name",qiniuContent.getKey());
+            context.put("bucket",qiniuContent.getBucket());
+            context.put("size",qiniuContent.getSize());
+            context.put("type",qiniuContent.getType());
+
+            contetList.add(context);
+
+        }
+
+
+        return new ResponseEntity(contetList,HttpStatus.OK);
     }
 }

@@ -13,4 +13,7 @@ public class UserPassVo {
     private String oldPass;
 
     private String newPass;
+
+    private String  phone;
+
 }

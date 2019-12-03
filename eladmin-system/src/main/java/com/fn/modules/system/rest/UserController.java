@@ -3,6 +3,10 @@ package com.fn.modules.system.rest;
 import com.fn.domain.QiniuContent;
 import com.fn.modules.system.domain.User;
 import com.fn.modules.system.domain.vo.UserPassVo;
+import com.fn.modules.system.service.DeptService;
+import com.fn.modules.system.service.RoleService;
+import com.fn.modules.system.service.UserService;
+import com.fn.modules.system.service.dto.*;
 import com.fn.modules.system.service.*;
 import com.fn.modules.system.service.dto.*;
 import com.fn.aop.log.Log;
@@ -230,4 +234,23 @@ public class UserController {
     }
 
 
+
+    @PostMapping(value = "/users/create")
+    public ResponseEntity createUser(@Validated @RequestBody User resources){
+        return new ResponseEntity(userService.create(resources),HttpStatus.OK);
+    }
+
+
+    @PostMapping(value = "/users/update")
+    public ResponseEntity createUser( @RequestBody UserPassVo user){
+        UserDTO userDetails = userService.findByName(user.getPhone());
+//        if(!userDetails.getPassword().equals(EncryptUtils.encryptPassword(user.getOldPass()))){
+//            throw new BadRequestException("修改失败，旧密码错误");
+//        }
+        if(userDetails.getPassword().equals(EncryptUtils.encryptPassword(user.getNewPass()))){
+            throw new BadRequestException("新密码不能与旧密码相同");
+        }
+        userService.updatePassByPhone(userDetails.getPhone(),EncryptUtils.encryptPassword(user.getNewPass()));
+        return new ResponseEntity(HttpStatus.OK);
+    }
 }

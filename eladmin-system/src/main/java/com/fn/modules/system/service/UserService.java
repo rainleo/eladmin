@@ -100,4 +100,13 @@ public interface UserService {
      * @return
      */
     ResponseEntity saveImportUser(List<String[]> usersList);
+
+    /**
+     * 修改密码
+     * @param username
+     * @param encryptPassword
+     */
+    @CacheEvict(allEntries = true)
+    void updatePassByPhone(String username, String encryptPassword);
+
 }

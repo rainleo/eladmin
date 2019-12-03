@@ -78,6 +78,10 @@ public class UserServiceImpl implements UserService {
             throw new EntityExistException(User.class, "email", resources.getEmail());
         }
 
+        if(userRepository.findByPhone(resources.getPhone())!=null){
+            throw new EntityExistException(User.class,"phone",resources.getPhone());
+        }
+
         // 默认密码 123456，此密码是加密后的字符
         resources.setPassword("e10adc3949ba59abbe56e057f20f883e");
         resources.setAvatar("https://i.loli.net/2019/04/04/5ca5b971e1548.jpeg");
@@ -151,6 +155,8 @@ public class UserServiceImpl implements UserService {
     public void updatePass(String username, String pass) {
         userRepository.updatePass(username, pass, new Date());
     }
+
+
 
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -288,5 +294,11 @@ public class UserServiceImpl implements UserService {
             return new ResponseEntity(userNameList, HttpStatus.CHECKPOINT);
         }
         return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void updatePassByPhone(String username, String pass) {
+        userRepository.updatePassbyPhone(username,pass,new Date());
     }
 }

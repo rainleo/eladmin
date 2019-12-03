@@ -4,11 +4,13 @@ import com.fn.aop.log.Log;
 import com.fn.modules.documents.domain.TodoList;
 import com.fn.modules.documents.service.TodoListService;
 import com.fn.modules.documents.service.dto.TodoListQueryCriteria;
+import com.fn.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.annotations.*;
@@ -59,4 +61,19 @@ public class TodoListController {
         todoListService.delete(id);
         return new ResponseEntity(HttpStatus.OK);
     }
+
+    @GetMapping(value = "/appTodoList")
+    public ResponseEntity appTodoList( TodoListQueryCriteria criteria,  Pageable pageable){
+        criteria.setAssistantId(SecurityUtils.getUserId());
+
+        return new ResponseEntity(todoListService.queryAll(criteria,pageable),HttpStatus.OK);
+    }
+    @GetMapping(value = "/appMyTodoList")
+    public ResponseEntity appMyTodoList( TodoListQueryCriteria criteria,  Pageable pageable){
+        criteria.setUser_id(SecurityUtils.getUserId());
+
+        return new ResponseEntity(todoListService.queryAll(criteria,pageable),HttpStatus.OK);
+    }
+
+
 }

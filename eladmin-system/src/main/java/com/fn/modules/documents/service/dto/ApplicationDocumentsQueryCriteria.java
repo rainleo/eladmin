@@ -1,11 +1,5 @@
 package com.fn.modules.documents.service.dto;
 
-import com.fn.modules.documents.domain.AccountingSubjects;
-import com.fn.modules.system.domain.Dept;
-import com.fn.modules.system.domain.User;
-import com.fn.modules.system.service.dto.DeptQueryCriteria;
-import com.fn.modules.system.service.dto.UserQueryCriteria;
-import com.sun.deploy.security.ValidationState;
 import lombok.Data;
 
 import java.sql.Timestamp;
@@ -13,7 +7,6 @@ import java.math.BigDecimal;
 
 import com.fn.annotation.Query;
 
-import javax.persistence.*;
 
 /**
  * @author jie

@@ -22,6 +22,10 @@ public class TodoListQueryCriteria {
     @Query
     private Long id;
 
+    // 精确
+    @Query
+    private Long user_id;
+
     // 模糊
     @Query(type = Query.Type.INNER_LIKE)
     private String todoAbstract;
