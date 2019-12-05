@@ -85,8 +85,8 @@ public class ApplicationDocuments implements Serializable {
     private Timestamp createTime;
 
     // 更新时间
-    @Column(name = "updatetime", nullable = false)
-    private Timestamp updatetime;
+    @Column(name = "update_time", nullable = false)
+    private Timestamp updateTime;
 
     //删除位
     @Column(name = "deleted")

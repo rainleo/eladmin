@@ -34,7 +34,7 @@ public class AccountingSubjectsDTO implements Serializable {
     private Timestamp createTime;
 
     // 更新时间
-    private Timestamp updatetime;
+    private Timestamp updateTime;
 
     //删除位
     private Integer deleted;

@@ -53,7 +53,7 @@ public class ApplicationDocumentsQueryCriteria {
 
     // 精确
     @Query
-    private Timestamp updatetime;
+    private Timestamp updateTime;
 
     // 精确
     @Query

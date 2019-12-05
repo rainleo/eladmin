@@ -1,15 +1,17 @@
 package com.fn.modules.documents.service.dto;
 
 import lombok.Data;
+
 import java.sql.Timestamp;
+
 import com.fn.annotation.Query;
 
 /**
-* @author jie
-* @date 2019-11-04
-*/
+ * @author jie
+ * @date 2019-11-04
+ */
 @Data
-public class AccountingSubjectsQueryCriteria{
+public class AccountingSubjectsQueryCriteria {
 
     // 精确
     @Query
@@ -37,7 +39,7 @@ public class AccountingSubjectsQueryCriteria{
 
     // 精确
     @Query
-    private Timestamp updatetime;
+    private Timestamp updateTime;
 
     // 精确
     @Query
@@ -47,6 +49,6 @@ public class AccountingSubjectsQueryCriteria{
     @Query
     private Long companyId;
 
-    @Query(propName = "name", joinName = "dept")
+    @Query(propName = "name", joinName = "company", type = Query.Type.INNER_LIKE)
     private String companyName;
 }
