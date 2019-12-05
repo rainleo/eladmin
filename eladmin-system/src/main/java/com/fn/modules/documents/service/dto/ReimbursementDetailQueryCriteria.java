@@ -52,7 +52,4 @@ public class ReimbursementDetailQueryCriteria {
     // 精确
     @Query
     private Long companyId;
-
-    @Query(propName = "name", joinName = "dept")
-    private String companyName;
 }

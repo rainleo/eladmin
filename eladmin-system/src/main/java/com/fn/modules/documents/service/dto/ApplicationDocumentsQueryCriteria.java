@@ -67,8 +67,8 @@ public class ApplicationDocumentsQueryCriteria {
 
     /**
      * 参数说明：propName是指AccountingSubjects对象中的“属性”名,
-     *          joinName指的是主对象ApplicationDocuments中对应的“属性"名;
-     *          参数String subjectName只需与前端保持一致，用于接收参数
+     * joinName指的是主对象ApplicationDocuments中对应的“属性"名;
+     * 参数String subjectName只需与前端保持一致，用于接收参数
      */
     @Query(propName = "subjectName", joinName = "accountingSubjects", type = Query.Type.INNER_LIKE)
     private String subjectName;
@@ -80,6 +80,6 @@ public class ApplicationDocumentsQueryCriteria {
     @Query
     private Long companyId;
 
-    @Query(propName = "name", joinName = "dept")
+    @Query(propName = "name", joinName = "company", type = Query.Type.INNER_LIKE)
     private String companyName;
 }

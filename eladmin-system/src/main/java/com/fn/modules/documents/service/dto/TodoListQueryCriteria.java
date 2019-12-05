@@ -62,16 +62,16 @@ public class TodoListQueryCriteria {
     @Query
     private Integer deleted;
 
-    @Query(propName = "username", joinName = "copyPerson")
+    @Query(propName = "username", joinName = "copyPerson", type = Query.Type.INNER_LIKE)
     private String copyPersonName;
 
-    @Query(propName = "username", joinName = "assistantPerson")
+    @Query(propName = "username", joinName = "assistantPerson", type = Query.Type.INNER_LIKE)
     private String assistantPersonName;
 
     // 精确
     @Query
     private Long companyId;
 
-    @Query(propName = "name", joinName = "dept")
+    @Query(propName = "name", joinName = "company", type = Query.Type.INNER_LIKE)
     private String companyName;
 }

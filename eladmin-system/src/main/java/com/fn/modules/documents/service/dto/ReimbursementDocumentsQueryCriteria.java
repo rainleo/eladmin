@@ -70,6 +70,6 @@ public class ReimbursementDocumentsQueryCriteria {
     @Query
     private Long companyId;
 
-    @Query(propName = "name", joinName = "dept")
+    @Query(propName = "name", joinName = "company", type = Query.Type.INNER_LIKE)
     private String companyName;
 }

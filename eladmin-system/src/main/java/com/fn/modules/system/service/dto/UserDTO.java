@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fn.modules.system.domain.Dept;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Date;
@@ -58,14 +59,14 @@ public class UserDTO implements Serializable {
 
     // 用户导出
     public String getDeptName() {
-        return dept.getName();
+        return dept == null ? null : dept.getName();
     }
 
     public String getCompanyName() {
-        return company.getName();
+        return company == null ? null : company.getName();
     }
 
     public String getJobName() {
-        return job.getName();
+        return job == null ? null : job.getName();
     }
 }
