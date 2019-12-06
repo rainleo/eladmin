@@ -11,5 +11,4 @@ import java.util.List;
 * @date 2019-11-04
 */
 public interface ApplicationDocumentsRepository extends JpaRepository<ApplicationDocuments, Long>, JpaSpecificationExecutor {
-    List<ApplicationDocuments> findByDeleted(Integer delete);
 }

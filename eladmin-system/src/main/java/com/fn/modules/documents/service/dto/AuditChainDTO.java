@@ -21,8 +21,12 @@ public class AuditChainDTO implements Serializable {
     // 岗位，来自job.id
     private Job job;
 
+    private Long deptId;
+
     // 部门
     private Dept dept;
+
+    private Long companyId;
 
     // 公司
     private Dept company;

@@ -49,4 +49,11 @@ public class DocumentReviewerQueryCriteria{
 
     @Query(propName = "username", joinName = "user")
     private String userName;
+
+    // 精确
+    @Query
+    private Long companyId;
+
+    @Query(propName = "name", joinName = "company", type = Query.Type.INNER_LIKE)
+    private String companyName;
 }

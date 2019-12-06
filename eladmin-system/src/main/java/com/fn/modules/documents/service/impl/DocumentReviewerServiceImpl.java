@@ -1,18 +1,19 @@
 package com.fn.modules.documents.service.impl;
 
+import cn.hutool.core.util.ObjectUtil;
 import com.fn.modules.documents.domain.ApplicationDocuments;
 import com.fn.modules.documents.domain.DocumentReviewer;
 import com.fn.modules.documents.domain.ReimbursementDocuments;
-import com.fn.modules.documents.repository.ApplicationDocumentsRepository;
 import com.fn.modules.documents.repository.DocumentReviewerRepository;
-import com.fn.modules.documents.repository.ReimbursementDocumentsRepository;
+import com.fn.modules.documents.service.ApplicationDocumentsService;
 import com.fn.modules.documents.service.DocumentReviewerService;
-import com.fn.modules.documents.service.dto.DocumentReviewerDTO;
-import com.fn.modules.documents.service.dto.DocumentReviewerQueryCriteria;
+import com.fn.modules.documents.service.ReimbursementDocumentsService;
+import com.fn.modules.documents.service.dto.*;
 import com.fn.modules.documents.service.mapper.DocumentReviewerMapper;
 import com.fn.utils.PageUtil;
 import com.fn.utils.QueryHelp;
 import com.fn.utils.ValidationUtil;
+import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -38,10 +39,10 @@ public class DocumentReviewerServiceImpl implements DocumentReviewerService {
     private DocumentReviewerMapper documentReviewerMapper;
 
     @Autowired
-    private ReimbursementDocumentsRepository reimbursementDocumentsRepository;
+    private ReimbursementDocumentsService reimbursementDocumentsService;
 
     @Autowired
-    private ApplicationDocumentsRepository applicationDocumentsRepository;
+    private ApplicationDocumentsService applicationDocumentsService;
 
     @Override
     public Object queryAll(DocumentReviewerQueryCriteria criteria, Pageable pageable) {
@@ -84,18 +85,27 @@ public class DocumentReviewerServiceImpl implements DocumentReviewerService {
     }
 
     @Override
-    public List<Map> queryAllDocuments() {
+    public List<Map> queryAllDocuments(DocumentReviewerQueryCriteria criteria) {
         List<Map> list = new ArrayList<>();
-        List<ApplicationDocuments> allApplicationDocumentsList = applicationDocumentsRepository.findByDeleted(0);
-        for (ApplicationDocuments applicationDocuments : allApplicationDocumentsList) {
+        ApplicationDocumentsQueryCriteria applicationDocumentsQueryCriteria = new ApplicationDocumentsQueryCriteria();
+        ReimbursementDocumentsQueryCriteria reimbursementDocumentsQueryCriteria = new ReimbursementDocumentsQueryCriteria();
+        if (ObjectUtil.isNotNull(criteria) && ObjectUtil.isNotNull(criteria.getCompanyId())) {
+            // 根据公司查询
+            applicationDocumentsQueryCriteria.setCompanyId(criteria.getCompanyId());
+            reimbursementDocumentsQueryCriteria.setCompanyId(criteria.getCompanyId());
+        }
+        applicationDocumentsQueryCriteria.setDeleted(0);
+        List<ApplicationDocumentsDTO> allApplicationDocumentsList = (List<ApplicationDocumentsDTO>) applicationDocumentsService.queryAll(applicationDocumentsQueryCriteria);
+        for (ApplicationDocumentsDTO applicationDocuments : allApplicationDocumentsList) {
             Map map = new HashMap();
             map.put("id", applicationDocuments.getId());
             map.put("source", "申请流程");
             map.put("applicationUser", applicationDocuments.getUser().getUsername());
             list.add(map);
         }
-        List<ReimbursementDocuments> allReimbursementDocumentsRepositoryList = reimbursementDocumentsRepository.findByDeleted(0);
-        for (ReimbursementDocuments reimbursementDocuments : allReimbursementDocumentsRepositoryList) {
+
+        List<ReimbursementDocumentsDTO> allReimbursementDocumentsRepositoryList = (List<ReimbursementDocumentsDTO>) reimbursementDocumentsService.queryAll(reimbursementDocumentsQueryCriteria);
+        for (ReimbursementDocumentsDTO reimbursementDocuments : allReimbursementDocumentsRepositoryList) {
             Map map = new HashMap();
             map.put("id", reimbursementDocuments.getId());
             map.put("source", "报销流程");

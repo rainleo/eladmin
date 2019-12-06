@@ -34,6 +34,15 @@ public class DocumentReviewer implements Serializable {
     @Column(name = "user_id")
     private Long userId;
 
+    // 公司id
+    @Column(name = "company_id")
+    private Long companyId;
+
+    // 公司
+    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH})
+    @JoinColumn(name = "company_id", insertable = false, updatable = false)
+    private Dept company;
+
     // 审核级数，从1开始
     @Column(name = "sorted")
     private Integer sorted;

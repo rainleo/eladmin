@@ -68,8 +68,9 @@ public interface DocumentReviewerService {
     /**
      * 查询所有单据
      * @return
+     * @param criteria
      */
-    List<Map> queryAllDocuments();
+    List<Map> queryAllDocuments(DocumentReviewerQueryCriteria criteria);
 
     /**
      * 查询所有禁用审批等级

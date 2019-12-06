@@ -65,7 +65,7 @@ public class DocumentReviewerController {
     @GetMapping(value = "/documentReviewer/allDocuments")
     @PreAuthorize("hasAnyRole('ADMIN','DOCUMENTREVIEWER_ALL','DOCUMENTREVIEWER_SELECT')")
     public ResponseEntity getAllDocuments(DocumentReviewerQueryCriteria criteria){
-        return new ResponseEntity(documentReviewerService.queryAllDocuments(),HttpStatus.OK);
+        return new ResponseEntity(documentReviewerService.queryAllDocuments(criteria),HttpStatus.OK);
     }
 
     @Log("查询所有禁用Sorted")

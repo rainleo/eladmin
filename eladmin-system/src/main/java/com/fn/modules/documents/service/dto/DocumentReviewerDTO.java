@@ -1,5 +1,6 @@
 package com.fn.modules.documents.service.dto;
 
+import com.fn.modules.system.domain.Dept;
 import com.fn.modules.system.domain.User;
 import lombok.Data;
 import java.sql.Timestamp;
@@ -42,4 +43,9 @@ public class DocumentReviewerDTO implements Serializable {
 
     // 审批人
     private User user;
+
+    private Long companyId;
+
+    // 公司
+    private Dept company;
 }
