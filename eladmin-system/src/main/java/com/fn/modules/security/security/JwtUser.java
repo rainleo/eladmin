@@ -36,6 +36,7 @@ public class JwtUser implements UserDetails {
 
     private final String job;
 
+
     @JsonIgnore
     private final Collection<GrantedAuthority> authorities;
 
@@ -45,6 +46,9 @@ public class JwtUser implements UserDetails {
 
     @JsonIgnore
     private final Date lastPasswordResetDate;
+
+    private final  Long companyId;
+
 
     @JsonIgnore
     @Override

@@ -78,4 +78,12 @@ public class DeptController {
         deptService.delete(id);
         return new ResponseEntity(HttpStatus.OK);
     }
+
+
+
+
+    @GetMapping(value = "/appDeptQuery")
+    public ResponseEntity appDeptQuery(DeptQueryCriteria criteria) {
+      return    getDepts(criteria);
+    }
 }

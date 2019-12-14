@@ -25,6 +25,9 @@ public class DeptQueryCriteria {
     private Long pid;
 
     @Query
+    private Long id;
+
+    @Query
     private Long createdBy;
 
     @Query(propName = "username", joinName = "createdByUser")

@@ -70,4 +70,10 @@ public class JobController {
         jobService.delete(id);
         return new ResponseEntity(HttpStatus.OK);
     }
+
+    @GetMapping(value = "/appJobQuery")
+    public ResponseEntity appJobQuery(JobQueryCriteria criteria,
+                                  Pageable pageable){
+        return getJobs(criteria,pageable);
+    }
 }

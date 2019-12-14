@@ -29,4 +29,8 @@ public class UserQueryCriteria implements Serializable {
 
     @Query
     private Long companyId;
+
+
+    @Query
+    private Long jobId;
 }

@@ -253,4 +253,11 @@ public class UserController {
         userService.updatePassByPhone(userDetails.getPhone(),EncryptUtils.encryptPassword(user.getNewPass()));
         return new ResponseEntity(HttpStatus.OK);
     }
+
+
+    @Log("查询用户")
+    @GetMapping(value = "/appUsersQuery")
+    public ResponseEntity appUsersQuery(UserQueryCriteria criteria, Pageable pageable) {
+        return getUsers(criteria,pageable);
+    }
 }
