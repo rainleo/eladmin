@@ -52,7 +52,8 @@ public class JwtUserDetailsService implements UserDetailsService {
                 user.getEnabled(),
                 user.getCreateTime(),
                 user.getLastPasswordResetTime(),
-                user.getCompanyId()
+                user.getCompanyId(),
+                user.getDeptId()
         );
     }
 }

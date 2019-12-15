@@ -49,6 +49,8 @@ public class JwtUser implements UserDetails {
 
     private final  Long companyId;
 
+    private final  Long deptId;
+
 
     @JsonIgnore
     @Override

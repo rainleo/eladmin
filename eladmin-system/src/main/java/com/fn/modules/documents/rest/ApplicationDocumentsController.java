@@ -84,6 +84,7 @@ public class ApplicationDocumentsController {
         resources.setCreateTime(new Timestamp(System.currentTimeMillis()));
         resources.setUpdateTime(new Timestamp(System.currentTimeMillis()));
         resources.setUserId(SecurityUtils.getUserId());
+        resources.setStatus(0);
         List<DocumentReviewer> reviewerList =resources.getReviewerList().stream().map(e->{
             DocumentReviewer documentReviewer = new DocumentReviewer();
             documentReviewer.setUserId(e.getUserId());

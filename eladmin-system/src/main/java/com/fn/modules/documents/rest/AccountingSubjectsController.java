@@ -59,4 +59,10 @@ public class AccountingSubjectsController {
         accountingSubjectsService.delete(id);
         return new ResponseEntity(HttpStatus.OK);
     }
+
+
+    @GetMapping(value = "/appAccountingSubjectsQuery")
+    public ResponseEntity appAccountingSubjectsQuery(AccountingSubjectsQueryCriteria criteria, Pageable pageable){
+        return new ResponseEntity(accountingSubjectsService.queryAll(criteria,pageable),HttpStatus.OK);
+    }
 }

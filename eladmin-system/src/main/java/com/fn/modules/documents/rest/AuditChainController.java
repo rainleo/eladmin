@@ -67,4 +67,11 @@ public class AuditChainController {
     public ResponseEntity getAuditUserBySortedSource(AuditChainQueryCriteria criteria){
         return new ResponseEntity(auditChainService.queryAuditUserBySortedSource(criteria),HttpStatus.OK);
     }
+
+
+    @GetMapping(value = "/appAuditChainQuery")
+    public ResponseEntity appAuditChainQuery(AuditChainQueryCriteria criteria, Pageable pageable){
+        return new ResponseEntity(auditChainService.queryAll(criteria,pageable),HttpStatus.OK);
+    }
+
 }
