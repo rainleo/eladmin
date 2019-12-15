@@ -60,8 +60,7 @@ public class ApplicationDocumentsServiceImpl implements ApplicationDocumentsServ
     @Override
     @Transactional(rollbackFor = Exception.class)
     public ApplicationDocumentsDTO create(ApplicationDocuments resources) {
-        //生成单据号(雪花算法)
-        resources.setApplicationNo(SnowflakeIdUtils.nextId());
+
         //入库申请单据表
         return applicationDocumentsMapper.toDto(applicationDocumentsRepository.save(resources));
     }
