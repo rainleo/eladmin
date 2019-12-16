@@ -101,4 +101,10 @@ public class ApplicationDocumentsController {
         return new ResponseEntity(applicationDocumentsService.create(resources),HttpStatus.CREATED);
     }
 
+
+    @GetMapping(value = "/appApplicationDocumentsQuery")
+    public ResponseEntity appApplicationDocumentsQuery(ApplicationDocumentsQueryCriteria criteria, Pageable pageable){
+        return new ResponseEntity(applicationDocumentsService.queryAll(criteria,pageable),HttpStatus.OK);
+    }
+
 }

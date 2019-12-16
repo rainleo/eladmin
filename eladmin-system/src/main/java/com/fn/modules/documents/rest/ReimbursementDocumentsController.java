@@ -1,9 +1,11 @@
 package com.fn.modules.documents.rest;
 
 import com.fn.aop.log.Log;
+import com.fn.modules.documents.domain.DocumentReviewer;
 import com.fn.modules.documents.domain.ReimbursementDocuments;
 import com.fn.modules.documents.service.ReimbursementDocumentsService;
 import com.fn.modules.documents.service.dto.ReimbursementDocumentsQueryCriteria;
+import com.fn.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -12,6 +14,10 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.annotations.*;
+
+import java.sql.Timestamp;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
 * @author jie
@@ -58,5 +64,32 @@ public class ReimbursementDocumentsController {
     public ResponseEntity delete(@PathVariable Long id){
         reimbursementDocumentsService.delete(id);
         return new ResponseEntity(HttpStatus.OK);
+    }
+
+
+    @PostMapping(value = "/appReimbursementDocuments")
+    public ResponseEntity appReimbursementDocuments(@Validated @RequestBody ReimbursementDocuments resources){
+        resources.setDeleted(0);
+        resources.setCreateTime(new Timestamp(new java.util.Date().getTime()));
+        resources.setUpdateTime(new Timestamp(new java.util.Date().getTime()));
+        resources.setUserId(SecurityUtils.getUserId());
+        List<DocumentReviewer> reviewerList =resources.getReviewerList().stream().map(e->{
+            DocumentReviewer documentReviewer = new DocumentReviewer();
+            documentReviewer.setUserId(e.getUserId());
+            documentReviewer.setCompanyId(resources.getCompanyId());
+            documentReviewer.setAuditStatus(0);
+            documentReviewer.setSource(0);
+            documentReviewer.setCreateTime(new Timestamp(new java.util.Date().getTime()));
+            documentReviewer.setUpdateTime(new Timestamp(new java.util.Date().getTime()));
+            documentReviewer.setDeleted(0);
+            return documentReviewer;
+        }).collect(Collectors.toList());
+        resources.setReviewerList(reviewerList);
+
+        return new ResponseEntity(reimbursementDocumentsService.create(resources),HttpStatus.CREATED);
+    }
+    @GetMapping(value = "/appReimbursementDocumentsQuery")
+    public ResponseEntity appReimbursementDocumentsQuery(ReimbursementDocumentsQueryCriteria criteria, Pageable pageable){
+        return new ResponseEntity(reimbursementDocumentsService.queryAll(criteria,pageable),HttpStatus.OK);
     }
 }
