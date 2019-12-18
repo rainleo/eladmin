@@ -1,18 +1,17 @@
 package com.fn.modules.documents.service.dto;
 
+import com.fn.annotation.Query;
 import lombok.Data;
 
-import java.sql.Timestamp;
 import java.math.BigDecimal;
-
-import com.fn.annotation.Query;
+import java.sql.Timestamp;
 
 /**
  * @author jie
  * @date 2019-11-04
  */
 @Data
-public class ReimbursementDocumentsQueryCriteria {
+public class ReimbursementDocumentsQueryCriteriaApprove  extends  ReimbursementDocumentsQueryCriteria{
 
     // 精确
     @Query
@@ -31,7 +30,7 @@ public class ReimbursementDocumentsQueryCriteria {
     private Long deptId;
 
     // 精确
-    @Query
+    @Query(propName = "userId", type = Query.Type.EQUAL, joinName = "reviewerList", join = Query.Join.LEFT)
     private Long userId;
 
     // 模糊

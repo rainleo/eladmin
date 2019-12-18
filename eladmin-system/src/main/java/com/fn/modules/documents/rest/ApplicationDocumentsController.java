@@ -1,5 +1,6 @@
 package com.fn.modules.documents.rest;
 import com.alibaba.fastjson.JSON;
+import com.fn.modules.documents.service.dto.ApplicationDocumentsQueryCriteriaApprove;
 import com.fn.modules.system.domain.Dept;
 import java.sql.Timestamp;
 import com.fn.modules.system.domain.User;
@@ -103,7 +104,8 @@ public class ApplicationDocumentsController {
 
 
     @GetMapping(value = "/appApplicationDocumentsQuery")
-    public ResponseEntity appApplicationDocumentsQuery(ApplicationDocumentsQueryCriteria criteria, Pageable pageable){
+    public ResponseEntity appApplicationDocumentsQuery(ApplicationDocumentsQueryCriteriaApprove criteria, Pageable pageable){
+        criteria.setUserId(SecurityUtils.getUserId());
         return new ResponseEntity(applicationDocumentsService.queryAll(criteria,pageable),HttpStatus.OK);
     }
 

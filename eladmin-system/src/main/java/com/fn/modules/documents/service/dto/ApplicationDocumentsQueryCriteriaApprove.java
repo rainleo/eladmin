@@ -1,18 +1,18 @@
 package com.fn.modules.documents.service.dto;
 
+import com.fn.annotation.Query;
 import lombok.Data;
 
-import java.sql.Timestamp;
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 
-import com.fn.annotation.Query;
 
 /**
  * @author jie
  * @date 2019-11-04
  */
 @Data
-public class ReimbursementDocumentsQueryCriteria {
+public class ApplicationDocumentsQueryCriteriaApprove extends ApplicationDocumentsQueryCriteria {
 
     // 精确
     @Query
@@ -20,7 +20,7 @@ public class ReimbursementDocumentsQueryCriteria {
 
     // 精确
     @Query
-    private String reimbursementNo;
+    private String applicationNo;
 
     // 审核状态
     @Query
@@ -31,12 +31,16 @@ public class ReimbursementDocumentsQueryCriteria {
     private Long deptId;
 
     // 精确
-    @Query
+    @Query(propName = "userId", type = Query.Type.EQUAL, joinName = "reviewerList", join = Query.Join.LEFT)
     private Long userId;
+
+    // 精确
+    @Query
+    private Long accountingSubjectsId;
 
     // 模糊
     @Query(type = Query.Type.INNER_LIKE)
-    private String reimbursementAbstract;
+    private String applicationDescription;
 
     // 精确
     @Query
@@ -54,18 +58,22 @@ public class ReimbursementDocumentsQueryCriteria {
     @Query
     private Integer deleted;
 
-    @Query(propName = "name", joinName = "dept")
-    private String deptName;
-
     @Query(propName = "username", joinName = "user")
     private String userName;
 
+    @Query(propName = "name", joinName = "dept")
+    private String deptName;
+
+    /**
+     * 参数说明：propName是指AccountingSubjects对象中的“属性”名,
+     * joinName指的是主对象ApplicationDocuments中对应的“属性"名;
+     * 参数String subjectName只需与前端保持一致，用于接收参数
+     */
+    @Query(propName = "subjectName", joinName = "accountingSubjects", type = Query.Type.INNER_LIKE)
+    private String subjectName;
+
     @Query(propName = "source", type = Query.Type.EQUAL, joinName = "reviewerList", join = Query.Join.LEFT)
     private String source;
-
-
-    @Query(propName = "attachment", type = Query.Type.EQUAL, joinName = "reimbursementDetailList", join = Query.Join.LEFT)
-    private String attachment;
 
     // 精确
     @Query
@@ -73,6 +81,4 @@ public class ReimbursementDocumentsQueryCriteria {
 
     @Query(propName = "name", joinName = "company", type = Query.Type.INNER_LIKE)
     private String companyName;
-
-
 }

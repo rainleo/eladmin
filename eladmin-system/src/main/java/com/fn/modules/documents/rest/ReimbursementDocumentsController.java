@@ -5,6 +5,7 @@ import com.fn.modules.documents.domain.DocumentReviewer;
 import com.fn.modules.documents.domain.ReimbursementDocuments;
 import com.fn.modules.documents.service.ReimbursementDocumentsService;
 import com.fn.modules.documents.service.dto.ReimbursementDocumentsQueryCriteria;
+import com.fn.modules.documents.service.dto.ReimbursementDocumentsQueryCriteriaApprove;
 import com.fn.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -89,7 +90,8 @@ public class ReimbursementDocumentsController {
         return new ResponseEntity(reimbursementDocumentsService.create(resources),HttpStatus.CREATED);
     }
     @GetMapping(value = "/appReimbursementDocumentsQuery")
-    public ResponseEntity appReimbursementDocumentsQuery(ReimbursementDocumentsQueryCriteria criteria, Pageable pageable){
+    public ResponseEntity appReimbursementDocumentsQuery(ReimbursementDocumentsQueryCriteriaApprove criteria, Pageable pageable){
+        criteria.setUserId(SecurityUtils.getUserId());
         return new ResponseEntity(reimbursementDocumentsService.queryAll(criteria,pageable),HttpStatus.OK);
     }
 }
